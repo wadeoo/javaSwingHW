@@ -1,5 +1,10 @@
 package cn.edu.fzu.sm.wuweida.frame;
 
+import cn.edu.fzu.sm.wuweida.bean.CustomerUser;
+import cn.edu.fzu.sm.wuweida.dao.JdbcConfig;
+import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
+import jdk.nashorn.internal.scripts.JO;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
@@ -7,6 +12,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class CustomerLoginFrame extends JFrame {
+    JdbcImpl jdbcImpl=new JdbcImpl();
 
     public CustomerLoginFrame() throws HeadlessException {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -93,7 +99,7 @@ public class CustomerLoginFrame extends JFrame {
         this.add(passwordLabel);
 
 
-        JTextField passwordText=new JTextField();
+        JPasswordField passwordText=new JPasswordField();
         passwordText.setBounds(175,150,200,25);
         passwordText.setOpaque(false);
         passwordText.setForeground(Color.WHITE);
@@ -201,6 +207,28 @@ public class CustomerLoginFrame extends JFrame {
                 okBtn.setForeground(Color.LIGHT_GRAY);
                 okBtn.setBackground(new Color(0, 106, 110));
                 okBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
+            }
+        });
+        okBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String text1=usernameText.getText();
+                String text2=passwordText.getText();
+                if(text1.equals(null)||text2.equals("")){
+                    JOptionPane.showMessageDialog(CustomerLoginFrame.this,"请输入用户名",null,JOptionPane.WARNING_MESSAGE);
+                }else if(text2.equals(null)||text2.equals("")){
+                    JOptionPane.showMessageDialog(CustomerLoginFrame.this,"请输入用户名",null,JOptionPane.WARNING_MESSAGE);
+                }else{
+                    CustomerUser enteredUser=new CustomerUser();
+                    enteredUser.setUsername(text1);
+                    enteredUser.setPassword(text2);
+                    if(!jdbcImpl.doUserExist(enteredUser)){
+                        JOptionPane.showMessageDialog(CustomerLoginFrame.this,"用户名不存在",null,JOptionPane.WARNING_MESSAGE);
+                    }else if (jdbcImpl.doUserExist(enteredUser)){
+                        JOptionPane.showMessageDialog(CustomerLoginFrame.this,"密码错误",null,JOptionPane.WARNING_MESSAGE);
+                    }
+                }
+
             }
         });
         this.add(okBtn);
