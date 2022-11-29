@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class CustomerMainFrame extends JFrame {
     public CustomerMainFrame() throws HeadlessException {
         this.setUndecorated(true);
-        this.setSize(700, 800);
+        this.setSize(699, 800);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
         this.setIconImage(new ImageIcon("image/logo.png").getImage());
@@ -252,7 +252,7 @@ public class CustomerMainFrame extends JFrame {
 
         JPanel northPanel=new JPanel();
         northPanel.setLayout(null);
-        northPanel.setBounds(200,0,500,100);
+        northPanel.setBounds(200,0,500,105);
         northPanel.setBackground(new Color(20, 28, 34));
         contentPanel.add(northPanel);
 
@@ -319,13 +319,16 @@ public class CustomerMainFrame extends JFrame {
             }
         };
         test.setPreferredSize(new Dimension(100,1000));
+        test.setBounds(20,20,100,1000);
         test.setBackground(Color.BLACK);
 
         JScrollPane jScrollPane=new JScrollPane(test);
         forScroll.add(jScrollPane);
         jScrollPane.setPreferredSize(new Dimension(500,700));
         jScrollPane.setBounds(200,100,500,700);
-        jScrollPane.setBorder(null);
+        jScrollPane.setBackground(new Color(26, 36, 43));
+        jScrollPane.getHorizontalScrollBar().setOpaque(false);
+        jScrollPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         jScrollPane.remove(jScrollPane.getVerticalScrollBar());
         jScrollPane.remove(jScrollPane.getHorizontalScrollBar());
 
