@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb15ed9a-6819-4ca4-9db4-7082fbf67ddf" name="默认" comment="">
-      <change beforePath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/CustomerUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,27 +29,30 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="5" />
+          <entry key="java" value="7" />
           <entry key="jpg" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="1" />
-          <entry key="JAVA" value="5" />
+          <entry key="JAVA" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4925" />
+          <entry key="java" value="5126" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4925" />
+          <entry key="JAVA" value="5126" />
         </counts>
       </usages-collector>
     </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="restaurant" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -63,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="347">
@@ -77,6 +82,33 @@
                 <element signature="e#9672#9673#0" expanded="true" />
                 <element signature="e#9721#9722#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/CustomerUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+              <folding>
+                <element signature="e#167#168#0" expanded="true" />
+                <element signature="e#215#216#0" expanded="true" />
+                <element signature="e#255#256#0" expanded="true" />
+                <element signature="e#290#291#0" expanded="true" />
+                <element signature="e#321#322#0" expanded="true" />
+                <element signature="e#369#370#0" expanded="true" />
+                <element signature="e#409#410#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/food.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -111,6 +143,8 @@
         <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/run/Main.java" />
         <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/ImagePanel.java" />
         <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java" />
+        <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/CustomerUser.java" />
+        <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/food.java" />
       </list>
     </option>
   </component>
@@ -120,7 +154,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -163,6 +197,13 @@
               <item name="restaurant" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="wuweida" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="wuweida" type="462c0819:PsiDirectoryNode" />
               <item name="frame" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -181,7 +222,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1669726810101" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1669728575318" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -230,12 +271,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669688349609</updated>
-      <workItem from="1669688352846" duration="14516000" />
+      <workItem from="1669688352846" duration="16223000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14516000" />
+    <option name="totallyTimeSpent" value="16223000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -243,11 +284,11 @@
     <layout>
       <window_info id="Image Layers" />
       <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Favorites" sideWeight="0.500821" side_tool="true" weight="0.20678337" />
       <window_info id="Capture Tool" />
       <window_info id="设计器" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20678337" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.20678337" />
+      <window_info id="Structure" order="1" sideWeight="0.500821" side_tool="true" weight="0.20678337" />
       <window_info anchor="bottom" id="Messages" weight="0.32894737" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
@@ -256,7 +297,7 @@
       <window_info anchor="bottom" id="调试" weight="0.32894737" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33223686" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33223686" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -337,6 +378,29 @@
             <element signature="e#9672#9673#0" expanded="true" />
             <element signature="e#9721#9722#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/CustomerUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding>
+            <element signature="e#167#168#0" expanded="true" />
+            <element signature="e#215#216#0" expanded="true" />
+            <element signature="e#255#256#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#321#322#0" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+            <element signature="e#409#410#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/food.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
         </state>
       </provider>
     </entry>
