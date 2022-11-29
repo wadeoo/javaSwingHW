@@ -17,7 +17,7 @@ public class CustomerLoginFrame extends JFrame {
         JLabel loginLabel=new JLabel("登录");
         loginLabel.setBounds(50,25,100,50);
         loginLabel.setForeground(new Color(200,200,200));
-        loginLabel.setFont(new Font("微软雅黑",Font.ITALIC,30));
+        loginLabel.setFont(new Font("草书",Font.ITALIC,30));
         this.add(loginLabel);
 
 
@@ -178,11 +178,12 @@ public class CustomerLoginFrame extends JFrame {
 
         //确定按钮
         JButton okBtn=new JButton("登录");
-        okBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
+        okBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
         okBtn.setBounds(0,250,225,50);
         okBtn.setBackground(new Color(0, 106, 110));
         okBtn.setBorder(null);
         okBtn.setFocusPainted(false);
+        okBtn.setForeground(Color.LIGHT_GRAY);
         okBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -190,6 +191,7 @@ public class CustomerLoginFrame extends JFrame {
                 CustomerLoginFrame.this.setCursor(Cursor.HAND_CURSOR);
                 okBtn.setForeground(Color.WHITE);
                 okBtn.setBackground(new Color(0, 66, 70));
+                okBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
             }
 
             @Override
@@ -198,17 +200,19 @@ public class CustomerLoginFrame extends JFrame {
                 CustomerLoginFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 okBtn.setForeground(Color.LIGHT_GRAY);
                 okBtn.setBackground(new Color(0, 106, 110));
+                okBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
             }
         });
         this.add(okBtn);
 
         //取消按钮
         JButton cancelBtn=new JButton("取消");
-        cancelBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
+        cancelBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
         cancelBtn.setBounds(225,250,225,50);
         cancelBtn.setBackground(new Color(0, 54, 103));
         cancelBtn.setBorder(null);
         cancelBtn.setFocusPainted(false);
+        cancelBtn.setForeground(Color.LIGHT_GRAY);
         cancelBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -216,6 +220,7 @@ public class CustomerLoginFrame extends JFrame {
                 CustomerLoginFrame.this.setCursor(Cursor.HAND_CURSOR);
                 cancelBtn.setForeground(Color.WHITE);
                 cancelBtn.setBackground(new Color(0, 35, 78));
+                cancelBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
             }
 
             @Override
@@ -224,6 +229,7 @@ public class CustomerLoginFrame extends JFrame {
                 CustomerLoginFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 cancelBtn.setForeground(Color.LIGHT_GRAY);
                 cancelBtn.setBackground(new Color(0, 54, 103));
+                cancelBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
             }
         });
         cancelBtn.addActionListener(new ActionListener() {
@@ -289,7 +295,6 @@ public class CustomerLoginFrame extends JFrame {
         imagePanel.addMouseListener(listener);
         imagePanel.addMouseMotionListener(listener);
         this.add(imagePanel);
-//        this.add(new ImagePanel("image/loginBG.jpg"));
 
 
 
