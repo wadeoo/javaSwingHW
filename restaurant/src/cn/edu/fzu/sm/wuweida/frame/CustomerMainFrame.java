@@ -12,6 +12,7 @@ public class CustomerMainFrame extends JFrame {
         this.setSize(700, 800);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
+        this.setIconImage(new ImageIcon("image/logo.png").getImage());
 
         JPanel contentPanel = (JPanel) this.getContentPane();
         contentPanel.setBackground(new Color(26, 36, 43));

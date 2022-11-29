@@ -18,6 +18,7 @@ public class CustomerLoginFrame extends JFrame {
         this.setUndecorated(true);
         this.setSize(450,300);
         this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon("image/logo.png").getImage());
 
         JLabel loginLabel=new JLabel("登录");
         loginLabel.setBounds(50,25,100,50);
