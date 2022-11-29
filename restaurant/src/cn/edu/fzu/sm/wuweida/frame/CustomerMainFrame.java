@@ -13,9 +13,11 @@ public class CustomerMainFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(null);
         this.setIconImage(new ImageIcon("image/logo.png").getImage());
+        this.setBackground(new Color(26, 36, 43));
 
-        JPanel contentPanel = (JPanel) this.getContentPane();
-        contentPanel.setBackground(new Color(26, 36, 43));
+
+        JPanel contentPanel=(JPanel) this.getContentPane();
+
         MoveListener moveListener = new MoveListener();
         contentPanel.addMouseListener(moveListener);
         contentPanel.addMouseMotionListener(moveListener);
@@ -24,7 +26,7 @@ public class CustomerMainFrame extends JFrame {
         westPanel.setLayout(null);
         westPanel.setBounds(0, 0, 200, 800);
         westPanel.setBackground(new Color(36, 52, 72));
-        contentPanel.add(westPanel, BorderLayout.WEST);
+        contentPanel.add(westPanel);
 
         JButton popFoodBtn=new JButton("热销品");
         popFoodBtn.setBounds(0,200,200,100);
@@ -252,10 +254,10 @@ public class CustomerMainFrame extends JFrame {
         northPanel.setLayout(null);
         northPanel.setBounds(200,0,500,100);
         northPanel.setBackground(new Color(20, 28, 34));
-        contentPanel.add(northPanel,BorderLayout.NORTH);
+        contentPanel.add(northPanel);
 
         JTextField searchText = new JTextField();
-        searchText.setBounds(100, 30, 300, 40);
+        searchText.setBounds(50, 30, 350, 40);
         searchText.setBorder(null);
         searchText.setBackground(new Color(42, 57, 65));
         searchText.setForeground(Color.LIGHT_GRAY);
@@ -293,6 +295,43 @@ public class CustomerMainFrame extends JFrame {
             }
         });
         northPanel.add(searchLogoLabel);
+
+
+
+
+        JPanel forScroll=new JPanel();
+        forScroll.setBounds(200,100,500,700);
+        JPanel test=new JPanel(){
+            public void paintComponent(Graphics g)
+            {
+                Graphics2D g2d=(Graphics2D)g;
+                int red=(int)(Math.random()*255);
+                int blue=(int)(Math.random()*255);
+                int green=(int)(Math.random()*255);
+                Color startColor=new Color(red,green,blue);
+                red=(int)(Math.random()*255);
+                blue=(int)(Math.random()*255);
+                green=(int)(Math.random()*255);
+                Color endColor=new Color(red,green,blue);
+                GradientPaint gradient=new GradientPaint(70,70,startColor,100,100,endColor);
+                g2d.setPaint(gradient);
+                g2d.drawRect(0,0,100,1000);
+            }
+        };
+        test.setPreferredSize(new Dimension(100,1000));
+        test.setBackground(Color.BLACK);
+
+        JScrollPane jScrollPane=new JScrollPane(test);
+        forScroll.add(jScrollPane);
+        jScrollPane.setPreferredSize(new Dimension(500,700));
+        jScrollPane.setBounds(200,100,500,700);
+        jScrollPane.setBorder(null);
+        jScrollPane.remove(jScrollPane.getVerticalScrollBar());
+        jScrollPane.remove(jScrollPane.getHorizontalScrollBar());
+
+        contentPanel.add(forScroll);
+
+
 
 
         this.setVisible(true);
@@ -347,4 +386,10 @@ public class CustomerMainFrame extends JFrame {
 
     }
 
+    private class MouseWheelListenerPanLeft implements MouseWheelListener {
+        @Override
+        public void mouseWheelMoved(MouseWheelEvent e) {
+
+        }
+    }
 }
