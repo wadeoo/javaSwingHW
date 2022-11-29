@@ -13,7 +13,6 @@ public class CustomerLoginFrame extends JFrame {
         this.setUndecorated(true);
         this.setSize(450,300);
         this.setLocationRelativeTo(null);
-//        this.setLayout(null);
 
         JLabel loginLabel=new JLabel("登录");
         loginLabel.setBounds(50,25,100,50);
@@ -227,11 +226,70 @@ public class CustomerLoginFrame extends JFrame {
                 cancelBtn.setBackground(new Color(0, 54, 103));
             }
         });
+        cancelBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CustomerLoginFrame.this.dispose();
+            }
+        });
         this.add(cancelBtn);
 
 
 
-        this.add(new ImagePanel("image/loginBG.jpg"));
+        class MoveListener implements MouseListener, MouseMotionListener {
+
+            private Point pressedPoint;
+            private Rectangle frameBounds;
+
+            @Override
+            public void mouseClicked(MouseEvent event) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent event) {
+                this.frameBounds = CustomerLoginFrame.this.getBounds();
+                this.pressedPoint = event.getPoint();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent event) {
+                moveJFrame(event);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent event) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent event) {
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent event) {
+                moveJFrame(event);
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent event) {
+            }
+
+            private void moveJFrame(MouseEvent event) {
+                Point endPoint = event.getPoint();
+
+                int xDiff = endPoint.x - pressedPoint.x;
+                int yDiff = endPoint.y - pressedPoint.y;
+                frameBounds.x += xDiff;
+                frameBounds.y += yDiff;
+                CustomerLoginFrame.this.setBounds(frameBounds);
+            }
+
+        }
+        ImagePanel imagePanel=new ImagePanel("image/loginBG.jpg");
+        MoveListener listener=new MoveListener();
+        imagePanel.addMouseListener(listener);
+        imagePanel.addMouseMotionListener(listener);
+        this.add(imagePanel);
+//        this.add(new ImagePanel("image/loginBG.jpg"));
 
 
 
