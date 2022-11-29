@@ -6,7 +6,7 @@ enum foodType_enum{
     粤菜,
     湘菜,
     甜品,
-    火爆
+    热销
 
 }
 public class food {
