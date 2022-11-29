@@ -240,13 +240,22 @@ public class CustomerMainFrame extends JFrame {
         });
         westPanel.add(confirmBtn);
 
+
+
+
         JLabel logoLabel = new JLabel(new ImageIcon("image/logo.png"));
         logoLabel.grabFocus();
         logoLabel.setBounds(20, 20, 160, 160);
         westPanel.add(logoLabel);
 
+        JPanel northPanel=new JPanel();
+        northPanel.setLayout(null);
+        northPanel.setBounds(200,0,500,100);
+        northPanel.setBackground(new Color(20, 28, 34));
+        contentPanel.add(northPanel,BorderLayout.NORTH);
+
         JTextField searchText = new JTextField();
-        searchText.setBounds(300, 30, 300, 40);
+        searchText.setBounds(100, 30, 300, 40);
         searchText.setBorder(null);
         searchText.setBackground(new Color(42, 57, 65));
         searchText.setForeground(Color.LIGHT_GRAY);
@@ -266,10 +275,10 @@ public class CustomerMainFrame extends JFrame {
                 searchText.setBorder(null);
             }
         });
-        contentPanel.add(searchText);
+        northPanel.add(searchText);
 
         JLabel searchLogoLabel = new JLabel(new ImageIcon("image/search.png"));
-        searchLogoLabel.setBounds(620, 30, 40, 40);
+        searchLogoLabel.setBounds(420, 30, 40, 40);
         searchLogoLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -283,7 +292,7 @@ public class CustomerMainFrame extends JFrame {
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
             }
         });
-        contentPanel.add(searchLogoLabel);
+        northPanel.add(searchLogoLabel);
 
 
         this.setVisible(true);
