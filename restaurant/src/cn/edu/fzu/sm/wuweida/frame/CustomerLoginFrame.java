@@ -15,7 +15,6 @@ public class CustomerLoginFrame extends JFrame {
     JdbcImpl jdbcImpl=new JdbcImpl();
 
     public CustomerLoginFrame() throws HeadlessException {
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setUndecorated(true);
         this.setSize(450,300);
         this.setLocationRelativeTo(null);
@@ -228,6 +227,7 @@ public class CustomerLoginFrame extends JFrame {
                         JOptionPane.showMessageDialog(CustomerLoginFrame.this,"密码错误",null,JOptionPane.WARNING_MESSAGE);
                     }else{
                         CustomerLoginFrame.this.dispose();
+                        CustomerMainFrame customerMainFrame=new CustomerMainFrame();
                     }
                 }
 
