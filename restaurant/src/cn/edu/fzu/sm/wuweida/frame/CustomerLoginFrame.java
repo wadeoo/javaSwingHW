@@ -18,7 +18,7 @@ public class CustomerLoginFrame extends JFrame {
         JLabel loginLabel=new JLabel("登录");
         loginLabel.setBounds(50,25,100,50);
         loginLabel.setForeground(new Color(200,200,200));
-        loginLabel.setFont(new Font("微软雅黑",Font.PLAIN,30));
+        loginLabel.setFont(new Font("微软雅黑",Font.ITALIC,30));
         this.add(loginLabel);
 
 
@@ -63,8 +63,27 @@ public class CustomerLoginFrame extends JFrame {
                 usernameText.setBorder(new MatteBorder(0,0,1,0,Color.LIGHT_GRAY));
             }
         });
+        usernameLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                usernameText.grabFocus();
+            }
 
+            @Override
+            public void mouseEntered(MouseEvent e){
+                super.mouseEntered(e);
+                usernameLabel.setForeground(Color.WHITE);
+                CustomerLoginFrame.this.setCursor(Cursor.HAND_CURSOR);
+            }
 
+            @Override
+            public void mouseExited(MouseEvent e){
+                super.mouseExited(e);
+                usernameLabel.setForeground(Color.LIGHT_GRAY);
+                CustomerLoginFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
+            }
+        });
         this.add(usernameText);
 
 
@@ -107,6 +126,27 @@ public class CustomerLoginFrame extends JFrame {
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
                 passwordText.setBorder(new MatteBorder(0,0,1,0,Color.LIGHT_GRAY));
+            }
+        });
+        passwordLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                passwordText.grabFocus();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e){
+                super.mouseEntered(e);
+                passwordLabel.setForeground(Color.WHITE);
+                CustomerLoginFrame.this.setCursor(Cursor.HAND_CURSOR);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e){
+                super.mouseExited(e);
+                passwordLabel.setForeground(Color.LIGHT_GRAY);
+                CustomerLoginFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
             }
         });
         this.add(passwordText);
