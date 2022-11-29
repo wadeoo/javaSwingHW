@@ -13,7 +13,7 @@ public class JdbcImpl implements JdbcConfig {
     public JdbcImpl() {
         try {
             Class.forName(DRIVER);
-            connection= DriverManager.getConnection(URL);
+            connection= DriverManager.getConnection(URL,USERNAME,PASSWORD);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {

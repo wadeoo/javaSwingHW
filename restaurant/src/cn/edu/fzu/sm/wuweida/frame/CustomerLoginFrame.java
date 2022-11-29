@@ -214,18 +214,20 @@ public class CustomerLoginFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String text1=usernameText.getText();
                 String text2=passwordText.getText();
-                if(text1.equals(null)||text2.equals("")){
+                if(text1.equals(null)||text1.equals("")){
                     JOptionPane.showMessageDialog(CustomerLoginFrame.this,"请输入用户名",null,JOptionPane.WARNING_MESSAGE);
                 }else if(text2.equals(null)||text2.equals("")){
-                    JOptionPane.showMessageDialog(CustomerLoginFrame.this,"请输入用户名",null,JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(CustomerLoginFrame.this,"请输入密码",null,JOptionPane.WARNING_MESSAGE);
                 }else{
                     CustomerUser enteredUser=new CustomerUser();
                     enteredUser.setUsername(text1);
                     enteredUser.setPassword(text2);
-                    if(!jdbcImpl.doUserExist(enteredUser)){
+                    if(!jdbcImpl.doUsernameExist(enteredUser)){
                         JOptionPane.showMessageDialog(CustomerLoginFrame.this,"用户名不存在",null,JOptionPane.WARNING_MESSAGE);
-                    }else if (jdbcImpl.doUserExist(enteredUser)){
+                    }else if (!jdbcImpl.doUserExist(enteredUser)){
                         JOptionPane.showMessageDialog(CustomerLoginFrame.this,"密码错误",null,JOptionPane.WARNING_MESSAGE);
+                    }else{
+                        CustomerLoginFrame.this.dispose();
                     }
                 }
 
