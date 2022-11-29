@@ -207,6 +207,8 @@ public class CustomerLoginFrame extends JFrame {
                 okBtn.setBackground(new Color(0, 106, 110));
                 okBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
             }
+
+
         });
         okBtn.addActionListener(new ActionListener() {
             @Override
