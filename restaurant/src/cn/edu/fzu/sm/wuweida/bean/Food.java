@@ -2,15 +2,11 @@ package cn.edu.fzu.sm.wuweida.bean;
 
 import java.sql.Blob;
 
-enum foodType_enum{
-    粤菜,
-    湘菜,
-    甜品,
-}
-public class food {
+
+public class Food {
     private String foodName;
     private double foodPrice;
-    private foodType_enum foodType;
+    private String foodType;// 粤菜,湘菜,甜品
     private Blob foodImg;
 
     public int getIsPop() {
@@ -39,11 +35,11 @@ public class food {
         this.foodPrice = foodPrice;
     }
 
-    public foodType_enum getFoodType() {
+    public String getFoodType() {
         return foodType;
     }
 
-    public void setFoodType(foodType_enum foodType) {
+    public void setFoodType(String foodType) {
         this.foodType = foodType;
     }
 
@@ -56,3 +52,4 @@ public class food {
     }
 
 }
+

@@ -1,12 +1,18 @@
 package cn.edu.fzu.sm.wuweida.frame;
 
+import cn.edu.fzu.sm.wuweida.bean.Food;
+import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerMainFrame extends JFrame {
+    private JdbcImpl jdbcImpl=new JdbcImpl();
+    private List<Food> allFoodList=new ArrayList<>();
     public CustomerMainFrame() throws HeadlessException {
         this.setUndecorated(true);
         this.setSize(699, 800);
@@ -337,8 +343,11 @@ public class CustomerMainFrame extends JFrame {
         jScrollPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         jScrollPane.remove(jScrollPane.getVerticalScrollBar());
         jScrollPane.remove(jScrollPane.getHorizontalScrollBar());
-
         contentPanel.add(forScroll);
+
+        allFoodList=jdbcImpl.getAllFood();
+
+
 
 
 

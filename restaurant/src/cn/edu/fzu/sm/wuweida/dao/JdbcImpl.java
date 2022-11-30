@@ -1,8 +1,12 @@
 package cn.edu.fzu.sm.wuweida.dao;
 
 import cn.edu.fzu.sm.wuweida.bean.CustomerUser;
+import cn.edu.fzu.sm.wuweida.bean.Food;
 
+import java.io.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JdbcImpl implements JdbcConfig {
 
@@ -49,6 +53,41 @@ public class JdbcImpl implements JdbcConfig {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public List<Food> getAllFood(){
+        try{
+            preparedStatement=connection.prepareStatement("SELECT * FROM food");
+            resultSet=preparedStatement.executeQuery();
+            List<Food> allFoodList=new ArrayList<>();
+            while(resultSet.next()){
+                Food food=new Food();
+                food.setFoodName(resultSet.getString(2));
+                food.setFoodPrice(resultSet.getDouble(3));
+                food.setFoodType(resultSet.getString(4));
+                Blob imgBlob=resultSet.getBlob(5);
+                InputStream inputStream=imgBlob.getBinaryStream();
+                try {
+                    OutputStream outputStream=new FileOutputStream("dishImg/"+resultSet.getString(2)+".jpg");
+                    byte[] buffer=new byte[1024];
+                    int len=0;
+                    while ((len=inputStream.read(buffer))!=-1){
+                        outputStream.write(buffer,0,len);
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                food.setIsPop(resultSet.getInt(6));
+                allFoodList.add(food);
+            }
+
+            return allFoodList;
+        }catch (SQLException e ){
+            e.printStackTrace();
+            return null;
         }
     }
 

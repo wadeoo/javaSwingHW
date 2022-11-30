@@ -70,7 +70,7 @@ public class CustomerLoginFrame extends JFrame {
         });
         usernameLabel.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
                 super.mouseClicked(e);
                 usernameText.grabFocus();
             }
@@ -135,7 +135,7 @@ public class CustomerLoginFrame extends JFrame {
         });
         passwordLabel.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
                 super.mouseClicked(e);
                 passwordText.grabFocus();
             }
@@ -183,37 +183,36 @@ public class CustomerLoginFrame extends JFrame {
         this.add(registerBtn);
 
         //确定按钮
-        JButton okBtn=new JButton("登录");
-        okBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
-        okBtn.setBounds(0,250,225,50);
-        okBtn.setBackground(new Color(0, 106, 110));
-        okBtn.setBorder(null);
-        okBtn.setFocusPainted(false);
-        okBtn.setForeground(Color.LIGHT_GRAY);
-        okBtn.addMouseListener(new MouseAdapter() {
+        JLabel okLabel=new JLabel("登录");
+        okLabel.setFont(new Font("微软雅黑",Font.PLAIN,20));
+        okLabel.setBounds(0,250,225,50);
+        okLabel.setBackground(new Color(0, 106, 110));
+        okLabel.setBorder(null);
+        okLabel.setOpaque(true);
+        okLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        okLabel.setForeground(Color.LIGHT_GRAY);
+        okLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerLoginFrame.this.setCursor(Cursor.HAND_CURSOR);
-                okBtn.setForeground(Color.WHITE);
-                okBtn.setBackground(new Color(0, 66, 70));
-                okBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
+                okLabel.setForeground(Color.WHITE);
+                okLabel.setBackground(new Color(0, 66, 70));
+                okLabel.setFont(new Font("微软雅黑",Font.BOLD,20));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerLoginFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                okBtn.setForeground(Color.LIGHT_GRAY);
-                okBtn.setBackground(new Color(0, 106, 110));
-                okBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
+                okLabel.setForeground(Color.LIGHT_GRAY);
+                okLabel.setBackground(new Color(0, 106, 110));
+                okLabel.setFont(new Font("微软雅黑",Font.PLAIN,20));
             }
 
-
-        });
-        okBtn.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
                 String text1=usernameText.getText();
                 String text2=passwordText.getText();
                 if(text1.equals(null)||text1.equals("")){
@@ -233,45 +232,45 @@ public class CustomerLoginFrame extends JFrame {
                         CustomerMainFrame customerMainFrame=new CustomerMainFrame();
                     }
                 }
-
             }
         });
-        this.add(okBtn);
+        this.add(okLabel);
 
         //取消按钮
-        JButton cancelBtn=new JButton("取消");
-        cancelBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
-        cancelBtn.setBounds(225,250,225,50);
-        cancelBtn.setBackground(new Color(0, 54, 103));
-        cancelBtn.setBorder(null);
-        cancelBtn.setFocusPainted(false);
-        cancelBtn.setForeground(Color.LIGHT_GRAY);
-        cancelBtn.addMouseListener(new MouseAdapter() {
+        JLabel cancelLabel=new JLabel("取消");
+        cancelLabel.setFont(new Font("微软雅黑",Font.PLAIN,20));
+        cancelLabel.setBounds(225,250,225,50);
+        cancelLabel.setBackground(new Color(0, 54, 103));
+        cancelLabel.setBorder(null);
+        cancelLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        cancelLabel.setOpaque(true);
+        cancelLabel.setForeground(Color.LIGHT_GRAY);
+        cancelLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerLoginFrame.this.setCursor(Cursor.HAND_CURSOR);
-                cancelBtn.setForeground(Color.WHITE);
-                cancelBtn.setBackground(new Color(0, 35, 78));
-                cancelBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
+                cancelLabel.setForeground(Color.WHITE);
+                cancelLabel.setBackground(new Color(0, 35, 78));
+                cancelLabel.setFont(new Font("微软雅黑",Font.BOLD,20));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerLoginFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                cancelBtn.setForeground(Color.LIGHT_GRAY);
-                cancelBtn.setBackground(new Color(0, 54, 103));
-                cancelBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
+                cancelLabel.setForeground(Color.LIGHT_GRAY);
+                cancelLabel.setBackground(new Color(0, 54, 103));
+                cancelLabel.setFont(new Font("微软雅黑",Font.PLAIN,20));
             }
-        });
-        cancelBtn.addActionListener(new ActionListener() {
+
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
                 CustomerLoginFrame.this.dispose();
             }
         });
-        this.add(cancelBtn);
+        this.add(cancelLabel);
 
 
 
