@@ -17,7 +17,7 @@ public class CustomerMainFrame extends JFrame {
 
     public CustomerMainFrame() throws HeadlessException {
         this.setUndecorated(true);
-        this.setSize(699, 800);
+        this.setSize(699, 799);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
         this.setIconImage(new ImageIcon("image/logo.png").getImage());
@@ -356,7 +356,7 @@ public class CustomerMainFrame extends JFrame {
         int foodCount=allFoodList.size();
         for(int i=0;i<8;i++){
             JPanel foodPanel=new JPanel();
-            foodPanel.setPreferredSize(new Dimension(500,100));
+            foodPanel.setPreferredSize(new Dimension(479,100));
             foodPanel.setBackground((i%2==0)? new Color(38, 48, 56):new Color(30,42,43));
             foodPanel.setLayout(null);
 
@@ -373,8 +373,6 @@ public class CustomerMainFrame extends JFrame {
             nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
             nameLabel.setFont(new Font("楷体",Font.PLAIN,20));
             nameLabel.setForeground(Color.LIGHT_GRAY);
-            nameLabel.setOpaque(true);
-            nameLabel.setBackground(new Color(47, 60, 62));
             nameLabel.setBounds(160,0,90,100);
             foodPanel.add(nameLabel);
 
@@ -383,11 +381,22 @@ public class CustomerMainFrame extends JFrame {
             priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
             priceLabel.setFont(new Font("楷体",Font.PLAIN,20));
             priceLabel.setForeground(Color.LIGHT_GRAY);
-            priceLabel.setOpaque(true);
-            priceLabel.setBackground(new Color(56, 61, 62));
-            priceLabel.setBounds(260,0,90,100);
+            priceLabel.setBounds(250,0,90,100);
             foodPanel.add(priceLabel);
 
+
+            //数量
+            JLabel quantityLabel=new JLabel("数量:1");
+            quantityLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            quantityLabel.setFont(new Font("楷体",Font.PLAIN,20));
+            quantityLabel.setForeground(Color.LIGHT_GRAY);
+            quantityLabel.setBounds(330,0,90,100);
+            foodPanel.add(quantityLabel);
+
+            //
+            JSpinner jSpinner=new JSpinner();
+            jSpinner.setBounds(420,0,60,100);
+            foodPanel.add(jSpinner);
             contentPanelForScroll.add(foodPanel);
         }
 
