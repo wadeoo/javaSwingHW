@@ -315,7 +315,7 @@ public class CustomerMainFrame extends JFrame {
                 Color endColor=new Color(red,green,blue);
                 GradientPaint gradient=new GradientPaint(70,70,startColor,100,100,endColor);
                 g2d.setPaint(gradient);
-                g2d.drawRect(0,0,100,1000);
+                //g2d.drawRect(0,0,100,1000);
             }
         };
         test.setPreferredSize(new Dimension(100,1000));
