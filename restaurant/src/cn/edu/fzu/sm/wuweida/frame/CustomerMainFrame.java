@@ -28,173 +28,178 @@ public class CustomerMainFrame extends JFrame {
         westPanel.setBackground(new Color(36, 52, 72));
         contentPanel.add(westPanel);
 
-        JButton popFoodBtn=new JButton("热销品");
-        popFoodBtn.setBounds(0,200,200,100);
-        popFoodBtn.setBackground(new Color(80, 26,0));
-        popFoodBtn.setFont(new Font("宋体",Font.BOLD,20));
-        popFoodBtn.setForeground(Color.LIGHT_GRAY);
-        popFoodBtn.setFocusPainted(false);
-        popFoodBtn.setBorder(null);
-        popFoodBtn.addMouseListener(new MouseAdapter() {
+        JLabel popLabel=new JLabel("热销品");
+        popLabel.setBounds(0,200,200,100);
+        popLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        popLabel.setBackground(new Color(80, 26,0));
+        popLabel.setFont(new Font("宋体",Font.BOLD,20));
+        popLabel.setForeground(Color.LIGHT_GRAY);
+        popLabel.setOpaque(true);
+        popLabel.setBorder(null);
+        popLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-                popFoodBtn.setForeground(Color.WHITE);
-                popFoodBtn.setBackground(new Color(58, 23,0));
-                popFoodBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
+                popLabel.setForeground(Color.WHITE);
+                popLabel.setBackground(new Color(58, 23,0));
+                popLabel.setFont(new Font("微软雅黑",Font.PLAIN,20));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                popFoodBtn.setForeground(Color.LIGHT_GRAY);
-                popFoodBtn.setBackground(new Color(80, 26,0));
-                popFoodBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
+                popLabel.setForeground(Color.LIGHT_GRAY);
+                popLabel.setBackground(new Color(80, 26,0));
+                popLabel.setFont(new Font("微软雅黑",Font.BOLD,20));
             }
         });
-        westPanel.add(popFoodBtn);
+        westPanel.add(popLabel);
 
-        JButton cantoneseBtn=new JButton("粤菜");
-        cantoneseBtn.setBounds(0,300,200,100);
-        cantoneseBtn.setBackground(new Color(31, 59, 92));
-        cantoneseBtn.setFont(new Font("宋体",Font.BOLD,20));
-        cantoneseBtn.setForeground(Color.GRAY);
-        cantoneseBtn.setFocusPainted(false);
-        cantoneseBtn.setBorder(null);
-        cantoneseBtn.addMouseListener(new MouseAdapter() {
+        JLabel cantoneseLabel=new JLabel("粤菜");
+        cantoneseLabel.setBounds(0,300,200,100);
+        cantoneseLabel.setBackground(new Color(31, 59, 92));
+        cantoneseLabel.setFont(new Font("宋体",Font.BOLD,20));
+        cantoneseLabel.setForeground(Color.GRAY);
+        cantoneseLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        cantoneseLabel.setOpaque(true);
+        cantoneseLabel.setBorder(null);
+        cantoneseLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-                cantoneseBtn.setForeground(Color.WHITE);
-                cantoneseBtn.setBackground(new Color(30, 34, 66));
-                cantoneseBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
+                cantoneseLabel.setForeground(Color.WHITE);
+                cantoneseLabel.setBackground(new Color(30, 34, 66));
+                cantoneseLabel.setFont(new Font("微软雅黑",Font.PLAIN,20));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                cantoneseBtn.setForeground(Color.GRAY);
-                cantoneseBtn.setBackground(new Color(31, 59, 92));
-                cantoneseBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
+                cantoneseLabel.setForeground(Color.GRAY);
+                cantoneseLabel.setBackground(new Color(31, 59, 92));
+                cantoneseLabel.setFont(new Font("微软雅黑",Font.BOLD,20));
             }
         });
-        westPanel.add(cantoneseBtn);
+        westPanel.add(cantoneseLabel);
 
-        JButton xiangBtn=new JButton("湘菜");
-        xiangBtn.setBounds(0,400,200,100);
-        xiangBtn.setBackground(new Color(31, 73, 92));
-        xiangBtn.setFont(new Font("宋体",Font.BOLD,20));
-        xiangBtn.setForeground(Color.GRAY);
-        xiangBtn.setFocusPainted(false);
-        xiangBtn.setBorder(null);
-        xiangBtn.addMouseListener(new MouseAdapter() {
+        JLabel xiangLabel=new JLabel("湘菜");
+        xiangLabel.setBounds(0,400,200,100);
+        xiangLabel.setBackground(new Color(31, 73, 92));
+        xiangLabel.setFont(new Font("宋体",Font.BOLD,20));
+        xiangLabel.setForeground(Color.GRAY);
+        xiangLabel.setOpaque(true);
+        xiangLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        xiangLabel.setBorder(null);
+        xiangLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-                xiangBtn.setForeground(Color.WHITE);
-                xiangBtn.setBackground(new Color(22, 46, 62));
-                xiangBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
+                xiangLabel.setForeground(Color.WHITE);
+                xiangLabel.setBackground(new Color(22, 46, 62));
+                xiangLabel.setFont(new Font("微软雅黑",Font.PLAIN,20));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                xiangBtn.setForeground(Color.GRAY);
-                xiangBtn.setBackground(new Color(31, 73, 92));
-                xiangBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
+                xiangLabel.setForeground(Color.GRAY);
+                xiangLabel.setBackground(new Color(31, 73, 92));
+                xiangLabel.setFont(new Font("微软雅黑",Font.BOLD,20));
             }
         });
-        westPanel.add(xiangBtn);
+        westPanel.add(xiangLabel);
 
-        JButton dessertBtn=new JButton("甜品");
-        dessertBtn.setBounds(0,500,200,100);
-        dessertBtn.setBackground(new Color(31, 90, 92));
-        dessertBtn.setFont(new Font("宋体",Font.BOLD,20));
-        dessertBtn.setForeground(Color.GRAY);
-        dessertBtn.setFocusPainted(false);
-        dessertBtn.setBorder(null);
-        dessertBtn.addMouseListener(new MouseAdapter() {
+        JLabel dessertLabel=new JLabel("甜品");
+        dessertLabel.setBounds(0,500,200,100);
+        dessertLabel.setBackground(new Color(31, 90, 92));
+        dessertLabel.setFont(new Font("宋体",Font.BOLD,20));
+        dessertLabel.setForeground(Color.GRAY);
+        dessertLabel.setOpaque(true);
+        dessertLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        dessertLabel.setBorder(null);
+        dessertLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-                dessertBtn.setForeground(Color.WHITE);
-                dessertBtn.setBackground(new Color(23, 54, 56));
-                dessertBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
+                dessertLabel.setForeground(Color.WHITE);
+                dessertLabel.setBackground(new Color(23, 54, 56));
+                dessertLabel.setFont(new Font("微软雅黑",Font.PLAIN,20));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                dessertBtn.setForeground(Color.GRAY);
-                dessertBtn.setBackground(new Color(31, 90, 92));
-                dessertBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
+                dessertLabel.setForeground(Color.GRAY);
+                dessertLabel.setBackground(new Color(31, 90, 92));
+                dessertLabel.setFont(new Font("微软雅黑",Font.BOLD,20));
             }
         });
-        westPanel.add(dessertBtn);
+        westPanel.add(dessertLabel);
 
-        JButton cartBtn=new JButton("购物车");
-        cartBtn.setBounds(0,600,200,100);
-        cartBtn.setBackground(new Color(32, 45, 69));
-        cartBtn.setFont(new Font("宋体",Font.BOLD,20));
-        cartBtn.setForeground(Color.GRAY);
-        cartBtn.setFocusPainted(false);
-        cartBtn.setBorder(null);
-        cartBtn.addMouseListener(new MouseAdapter() {
+        JLabel cartLabel=new JLabel("购物车");
+        cartLabel.setBounds(0,600,200,100);
+        cartLabel.setBackground(new Color(32, 45, 69));
+        cartLabel.setFont(new Font("宋体",Font.BOLD,20));
+        cartLabel.setForeground(Color.GRAY);
+        cartLabel.setOpaque(true);
+        cartLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        cartLabel.setBorder(null);
+        cartLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-                cartBtn.setForeground(Color.WHITE);
-                cartBtn.setBackground(new Color(17, 27, 41));
-                cartBtn.setFont(new Font("微软雅黑",Font.PLAIN,20));
+                cartLabel.setForeground(Color.WHITE);
+                cartLabel.setBackground(new Color(17, 27, 41));
+                cartLabel.setFont(new Font("微软雅黑",Font.PLAIN,20));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                cartBtn.setForeground(Color.GRAY);
-                cartBtn.setBackground(new Color(32, 45, 69));
-                cartBtn.setFont(new Font("微软雅黑",Font.BOLD,20));
+                cartLabel.setForeground(Color.GRAY);
+                cartLabel.setBackground(new Color(32, 45, 69));
+                cartLabel.setFont(new Font("微软雅黑",Font.BOLD,20));
             }
         });
-        westPanel.add(cartBtn);
+        westPanel.add(cartLabel);
 
 
 
-        JLabel quitBtn=new JLabel("退出");
-        quitBtn.setBounds(0,700,100,100);
-        quitBtn.setHorizontalAlignment(SwingConstants.CENTER);
-        quitBtn.setBackground(new Color(71, 72, 71));
-        quitBtn.setFont(new Font("宋体",Font.BOLD,15));
-        quitBtn.setForeground(Color.GRAY);
-        quitBtn.setBorder(null);
-        quitBtn.setOpaque(true);
-        quitBtn.addMouseListener(new MouseAdapter() {
+        JLabel quitLabel=new JLabel("退出");
+        quitLabel.setBounds(0,700,100,100);
+        quitLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        quitLabel.setBackground(new Color(71, 72, 71));
+        quitLabel.setFont(new Font("宋体",Font.BOLD,15));
+        quitLabel.setForeground(Color.GRAY);
+        quitLabel.setBorder(null);
+        quitLabel.setOpaque(true);
+        quitLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-                quitBtn.setForeground(Color.WHITE);
-                quitBtn.setBackground(new Color(46, 47, 46));
-                quitBtn.setFont(new Font("微软雅黑",Font.PLAIN,15));
+                quitLabel.setForeground(Color.WHITE);
+                quitLabel.setBackground(new Color(46, 47, 46));
+                quitLabel.setFont(new Font("微软雅黑",Font.PLAIN,15));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                quitBtn.setForeground(Color.GRAY);
-                quitBtn.setBackground(new Color(71, 72, 71));
-                quitBtn.setFont(new Font("微软雅黑",Font.BOLD,15));
+                quitLabel.setForeground(Color.GRAY);
+                quitLabel.setBackground(new Color(71, 72, 71));
+                quitLabel.setFont(new Font("微软雅黑",Font.BOLD,15));
             }
 
             @Override
@@ -212,35 +217,36 @@ public class CustomerMainFrame extends JFrame {
             }
         });
 
-        westPanel.add(quitBtn);
+        westPanel.add(quitLabel);
 
-        JButton confirmBtn=new JButton("确定\n订单");
-        confirmBtn.setBounds(100,700,100,100);
-        confirmBtn.setBackground(new Color(16, 36, 57));
-        confirmBtn.setFont(new Font("宋体",Font.BOLD,15));
-        confirmBtn.setForeground(Color.GRAY);
-        confirmBtn.setFocusPainted(false);
-        confirmBtn.setBorder(null);
-        confirmBtn.addMouseListener(new MouseAdapter() {
+        JLabel confirmLabel=new JLabel("确定\n订单");
+        confirmLabel.setBounds(100,700,100,100);
+        confirmLabel.setBackground(new Color(16, 36, 57));
+        confirmLabel.setFont(new Font("宋体",Font.BOLD,15));
+        confirmLabel.setForeground(Color.GRAY);
+        confirmLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        confirmLabel.setOpaque(true);
+        confirmLabel.setBorder(null);
+        confirmLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-                confirmBtn.setForeground(Color.WHITE);
-                confirmBtn.setBackground(new Color(14, 22, 44));
-                confirmBtn.setFont(new Font("微软雅黑",Font.PLAIN,15));
+                confirmLabel.setForeground(Color.WHITE);
+                confirmLabel.setBackground(new Color(14, 22, 44));
+                confirmLabel.setFont(new Font("微软雅黑",Font.PLAIN,15));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                confirmBtn.setForeground(Color.GRAY);
-                confirmBtn.setBackground(new Color(16, 36, 57));
-                confirmBtn.setFont(new Font("微软雅黑",Font.BOLD,15));
+                confirmLabel.setForeground(Color.GRAY);
+                confirmLabel.setBackground(new Color(16, 36, 57));
+                confirmLabel.setFont(new Font("微软雅黑",Font.BOLD,15));
             }
         });
-        westPanel.add(confirmBtn);
+        westPanel.add(confirmLabel);
 
 
 
@@ -315,7 +321,7 @@ public class CustomerMainFrame extends JFrame {
                 Color endColor=new Color(red,green,blue);
                 GradientPaint gradient=new GradientPaint(70,70,startColor,100,100,endColor);
                 g2d.setPaint(gradient);
-                //g2d.drawRect(0,0,100,1000);
+                g2d.drawRect(0,0,100,1000);
             }
         };
         test.setPreferredSize(new Dimension(100,1000));

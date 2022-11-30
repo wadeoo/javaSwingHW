@@ -6,14 +6,22 @@ enum foodType_enum{
     粤菜,
     湘菜,
     甜品,
-    热销
-
 }
 public class food {
     private String foodName;
     private double foodPrice;
     private foodType_enum foodType;
     private Blob foodImg;
+
+    public int getIsPop() {
+        return isPop;
+    }
+
+    public void setIsPop(int isPop) {
+        this.isPop = isPop;
+    }
+
+    private int isPop;
 
     public String getFoodName() {
         return foodName;
