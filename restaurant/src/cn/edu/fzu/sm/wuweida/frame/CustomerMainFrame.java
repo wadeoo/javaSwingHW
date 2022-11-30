@@ -13,6 +13,8 @@ import java.util.List;
 public class CustomerMainFrame extends JFrame {
     private JdbcImpl jdbcImpl=new JdbcImpl();
     private List<Food> allFoodList=new ArrayList<>();
+    private JPanel contentPanel;
+
     public CustomerMainFrame() throws HeadlessException {
         this.setUndecorated(true);
         this.setSize(699, 800);
@@ -22,7 +24,7 @@ public class CustomerMainFrame extends JFrame {
         this.setBackground(new Color(26, 36, 43));
 
 
-        JPanel contentPanel=(JPanel) this.getContentPane();
+        contentPanel=(JPanel) this.getContentPane();
 
         MoveListener moveListener = new MoveListener();
         contentPanel.addMouseListener(moveListener);
@@ -264,7 +266,7 @@ public class CustomerMainFrame extends JFrame {
 
         JPanel northPanel=new JPanel();
         northPanel.setLayout(null);
-        northPanel.setBounds(200,0,500,105);
+        northPanel.setBounds(200,0,500,100);
         northPanel.setBackground(new Color(20, 28, 34));
         contentPanel.add(northPanel);
 
@@ -309,52 +311,100 @@ public class CustomerMainFrame extends JFrame {
         northPanel.add(searchLogoLabel);
 
 
-
-
-        JPanel forScroll=new JPanel();
-        forScroll.setBounds(200,100,500,700);
-        JPanel test=new JPanel(){
-            public void paintComponent(Graphics g)
-            {
-                Graphics2D g2d=(Graphics2D)g;
-                int red=(int)(Math.random()*255);
-                int blue=(int)(Math.random()*255);
-                int green=(int)(Math.random()*255);
-                Color startColor=new Color(red,green,blue);
-                red=(int)(Math.random()*255);
-                blue=(int)(Math.random()*255);
-                green=(int)(Math.random()*255);
-                Color endColor=new Color(red,green,blue);
-                GradientPaint gradient=new GradientPaint(70,70,startColor,100,100,endColor);
-                g2d.setPaint(gradient);
-                g2d.drawRect(0,0,100,1000);
-            }
-        };
-        test.setPreferredSize(new Dimension(100,1000));
-        test.setBounds(20,20,100,1000);
-        test.setBackground(Color.BLACK);
-
-        JScrollPane jScrollPane=new JScrollPane(test);
-        forScroll.add(jScrollPane);
-        jScrollPane.setPreferredSize(new Dimension(500,700));
-        jScrollPane.setBounds(200,100,500,700);
-        jScrollPane.setBackground(new Color(26, 36, 43));
-        jScrollPane.getHorizontalScrollBar().setOpaque(false);
-        jScrollPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        jScrollPane.remove(jScrollPane.getVerticalScrollBar());
-        jScrollPane.remove(jScrollPane.getHorizontalScrollBar());
-        contentPanel.add(forScroll);
-
+        //获取所有菜式
         allFoodList=jdbcImpl.getAllFood();
 
 
-
+        scrollPanelProcess();
 
 
 
         this.setVisible(true);
     }
 
+    private void scrollPanelProcess() {
+
+
+        JPanel panelUnderScroll=new JPanel();
+        panelUnderScroll.setBounds(200,95,500,705);
+
+//        JPanel test=new JPanel(){
+//            public void paintComponent(Graphics g)
+//            {
+//                Graphics2D g2d=(Graphics2D)g;
+//                int red=(int)(Math.random()*255);
+//                int blue=(int)(Math.random()*255);
+//                int green=(int)(Math.random()*255);
+//                Color startColor=new Color(red,green,blue);
+//                red=(int)(Math.random()*255);
+//                blue=(int)(Math.random()*255);
+//                green=(int)(Math.random()*255);
+//                Color endColor=new Color(red,green,blue);
+//                GradientPaint gradient=new GradientPaint(70,70,startColor,100,100,endColor);
+//                g2d.setPaint(gradient);
+//                g2d.drawRect(0,0,100,1000);
+//            }
+//        };
+//        test.setPreferredSize(new Dimension(100,1000));
+//        test.setBounds(20,20,100,1000);
+//        test.setBackground(Color.BLACK);
+
+        JPanel contentPanelForScroll=new JPanel();
+        contentPanelForScroll.setPreferredSize(new Dimension(500,1200));
+        contentPanelForScroll.setBackground(new Color(26, 36, 43));
+        contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING,10,10));
+        int foodCount=allFoodList.size();
+        for(int i=0;i<8;i++){
+            JPanel foodPanel=new JPanel();
+            foodPanel.setPreferredSize(new Dimension(500,100));
+            foodPanel.setBackground((i%2==0)? new Color(38, 48, 56):new Color(30,42,43));
+            foodPanel.setLayout(null);
+
+            //图片
+            ImageIcon imageIcon=new ImageIcon("dishImg/剁椒鱼头.jpg");
+            JLabel imageLabel=new JLabel();
+            imageLabel.setIcon(imageIcon);
+            imageLabel.setOpaque(true);
+            imageLabel.setBounds(0,0,150,100);
+            foodPanel.add(imageLabel);
+
+            //名称
+            JLabel nameLabel=new JLabel("剁椒鱼头");
+            nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            nameLabel.setFont(new Font("楷体",Font.PLAIN,20));
+            nameLabel.setForeground(Color.LIGHT_GRAY);
+            nameLabel.setOpaque(true);
+            nameLabel.setBackground(new Color(47, 60, 62));
+            nameLabel.setBounds(160,0,90,100);
+            foodPanel.add(nameLabel);
+
+            //价格
+            JLabel priceLabel=new JLabel("35元");
+            priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            priceLabel.setFont(new Font("楷体",Font.PLAIN,20));
+            priceLabel.setForeground(Color.LIGHT_GRAY);
+            priceLabel.setOpaque(true);
+            priceLabel.setBackground(new Color(56, 61, 62));
+            priceLabel.setBounds(260,0,90,100);
+            foodPanel.add(priceLabel);
+
+            contentPanelForScroll.add(foodPanel);
+        }
+
+        JScrollPane jScrollPane=new JScrollPane(contentPanelForScroll);
+        jScrollPane.setPreferredSize(new Dimension(500,700));
+        jScrollPane.setBounds(200,95,500,705);
+        jScrollPane.setBackground(new Color(26, 36, 43));
+        jScrollPane.getHorizontalScrollBar().setOpaque(false);
+        jScrollPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        jScrollPane.remove(jScrollPane.getVerticalScrollBar());
+        jScrollPane.remove(jScrollPane.getHorizontalScrollBar());
+
+        panelUnderScroll.add(jScrollPane);
+        contentPanel.add(panelUnderScroll);
+    }
+
+    // 为了实现窗口拖拽
     class MoveListener implements MouseListener, MouseMotionListener {
 
         private Point pressedPoint;

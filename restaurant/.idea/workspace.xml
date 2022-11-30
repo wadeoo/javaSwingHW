@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb15ed9a-6819-4ca4-9db4-7082fbf67ddf" name="默认" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/Food.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/bean/food.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/bean/food.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/bean/foodType_enum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/dao/JdbcImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/dao/JdbcImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dishImg/剁椒鱼头.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/dishImg/剁椒鱼头.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$10.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$4.class" afterDir="false" />
@@ -20,8 +18,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MouseWheelListenerPanLeft.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MouseWheelListenerPanLeft.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MoveListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MoveListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/food.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/dao/JdbcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/dao/JdbcImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java" afterDir="false" />
     </list>
@@ -52,25 +48,25 @@
         <counts>
           <entry key="form" value="1" />
           <entry key="java" value="30" />
-          <entry key="jpg" value="2" />
+          <entry key="jpg" value="7" />
           <entry key="png" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="GUI_DESIGNER_FORM" value="1" />
-          <entry key="Image" value="3" />
+          <entry key="Image" value="8" />
           <entry key="JAVA" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="14983" />
+          <entry key="java" value="17059" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="14983" />
+          <entry key="JAVA" value="17059" />
         </counts>
       </usages-collector>
     </session>
@@ -81,34 +77,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="137" column="36" selection-start-line="137" selection-start-column="36" selection-end-line="137" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="355" selection-start-line="355" selection-end-line="355" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/dao/JdbcImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="441">
+              <caret line="387" column="37" lean-forward="true" selection-start-line="387" selection-start-column="37" selection-end-line="387" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -148,8 +120,8 @@
         <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/food.java" />
         <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/bean/Food.java" />
         <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/dao/JdbcImpl.java" />
-        <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java" />
         <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java" />
+        <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java" />
       </list>
     </option>
   </component>
@@ -159,10 +131,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
+    <option name="width" value="1095" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="添加" />
@@ -245,21 +217,22 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="655" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1669791414218" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1669796533845" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-5.1.28-bin.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\image" />
-      <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\dishImg" />
       <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\image" />
       <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\lib" />
       <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\image" />
+      <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -301,18 +274,18 @@
       <option name="presentableId" value="Default" />
       <updated>1669688349609</updated>
       <workItem from="1669688352846" duration="40396000" />
-      <workItem from="1669786521759" duration="4719000" />
+      <workItem from="1669786521759" duration="9795000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45115000" />
+    <option name="totallyTimeSpent" value="50191000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="0" width="876" height="838" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.3686327" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.18459658" />
       <window_info id="Structure" order="1" sideWeight="0.500821" side_tool="true" weight="0.20678337" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -320,7 +293,7 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="设计器" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32765958" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22695035" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -349,18 +322,6 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java</url>
-          <line>347</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java" />
@@ -498,10 +459,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/dao/JdbcImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="247">
+          <caret line="72" column="10" lean-forward="true" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -513,18 +484,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="355" selection-start-line="355" selection-end-line="355" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="137" column="36" selection-start-line="137" selection-start-column="36" selection-end-line="137" selection-end-column="36" />
+        <state relative-caret-position="441">
+          <caret line="387" column="37" lean-forward="true" selection-start-line="387" selection-start-column="37" selection-end-line="387" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -160,7 +160,7 @@ public class CustomerLoginFrame extends JFrame {
         //注册
         JButton registerBtn=new JButton("未有账号? 点击此处注册");
         registerBtn.setContentAreaFilled(false);
-        registerBtn.setBounds(150,175,150,50);
+        registerBtn.setBounds(150,200,150,50);
         registerBtn.setBorder(null);
         registerBtn.setForeground(Color.LIGHT_GRAY);
         registerBtn.setFont(new Font("宋体",Font.PLAIN,12));
