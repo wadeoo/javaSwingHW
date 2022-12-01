@@ -1,12 +1,9 @@
 package cn.edu.fzu.sm.wuweida.util;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Blob;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JSpinner;
@@ -26,6 +23,8 @@ public class SpinnerUI extends BasicSpinnerUI {
     @Override
     protected Component createNextButton() {
         ArrowButton cmd = new ArrowButton(true);
+        cmd.setPreferredSize(new Dimension(25,50));
+        cmd.setBackground(new Color(0, 27, 54));
         installNextButtonListeners(cmd);
         return cmd;
     }
@@ -33,6 +32,8 @@ public class SpinnerUI extends BasicSpinnerUI {
     @Override
     protected Component createPreviousButton() {
         ArrowButton cmd = new ArrowButton(false);
+        cmd.setPreferredSize(new Dimension(25,50));
+        cmd.setBackground(new Color(0, 27, 54));
         installPreviousButtonListeners(cmd);
         return cmd;
     }

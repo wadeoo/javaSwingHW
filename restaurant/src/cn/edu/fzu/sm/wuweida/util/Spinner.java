@@ -1,6 +1,7 @@
 package cn.edu.fzu.sm.wuweida.util;
 
-import javax.swing.JSpinner;
+import javax.swing.*;
+import java.awt.*;
 
 public class Spinner extends JSpinner {
 
@@ -15,7 +16,9 @@ public class Spinner extends JSpinner {
     }
 
     public Spinner() {
-        setOpaque(false);
+//        setOpaque(false);
+        setOpaque(true);
         setUI(new SpinnerUI());
+
     }
 }

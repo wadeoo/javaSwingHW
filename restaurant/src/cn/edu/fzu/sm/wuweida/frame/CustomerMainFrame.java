@@ -2,6 +2,8 @@ package cn.edu.fzu.sm.wuweida.frame;
 
 import cn.edu.fzu.sm.wuweida.bean.Food;
 import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
+import cn.edu.fzu.sm.wuweida.util.Spinner;
+import cn.edu.fzu.sm.wuweida.util.SpinnerUI;
 
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
@@ -37,16 +39,16 @@ public class CustomerMainFrame extends JFrame {
         JPanel westPanel = new JPanel();
         westPanel.setLayout(null);
         westPanel.setBounds(0, 0, 200, 800);
-        westPanel.setBackground(new Color(36, 52, 72));
+        westPanel.setBackground(new Color(20, 26, 47));
         contentPanel.add(westPanel);
 
 
         timeFormat = new SimpleDateFormat("hh:mm:ss a");
         timeLabel = new JLabel();
-        timeLabel.setFont(new Font("微软雅黑", Font.PLAIN, 20));
+        timeLabel.setFont(new Font("微软雅黑", Font.BOLD, 20));
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        timeLabel.setForeground(new Color(0x00FF00));
-        timeLabel.setBackground(Color.black);
+        timeLabel.setForeground(new Color(9, 9, 20));
+        timeLabel.setBackground(new Color(24, 45, 70));
         timeLabel.setBounds(0, 200, 200, 100);
         timeLabel.setOpaque(true);
         //报时线程
@@ -406,10 +408,16 @@ public class CustomerMainFrame extends JFrame {
             quantityLabel.setBounds(330, 0, 90, 100);
             foodPanel.add(quantityLabel);
 
-            //
-            JSpinner jSpinner = new JSpinner();
-            jSpinner.setBounds(420, 0, 60, 100);
-            foodPanel.add(jSpinner);
+            //spinner
+//            JSpinner jSpinner = new JSpinner();
+//            jSpinner.setBounds(420, 0, 60, 100);
+//            foodPanel.add(jSpinner);
+            Spinner spinner=new Spinner();
+            spinner.setBounds(300,0,60,100);
+            spinner.setLabelText("数量");
+            System.out.println(spinner.getEditor().getComponentCount());
+//            spinner.getEditor().getComponent(0).setBackground(Color.green);
+            foodPanel.add(spinner);
             contentPanelForScroll.add(foodPanel);
         }
 
@@ -495,14 +503,6 @@ public class CustomerMainFrame extends JFrame {
                 time = timeFormat_local.format(Calendar.getInstance().getTime());
                 timeLabel_local.setText(time);
                 System.out.println(time);
-//                timeLabel.setText(timeFormat.format(Calendar.getInstance().getTime()));
-//                System.out.println(time);
-
-//            day = dayFormat.format(Calendar.getInstance().getTime());
-//            dayLabel.setText(day);
-//
-//            date = dateFormat.format(Calendar.getInstance().getTime());
-//            dateLabel.setText(date);
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
