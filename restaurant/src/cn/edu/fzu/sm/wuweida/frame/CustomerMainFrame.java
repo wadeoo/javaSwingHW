@@ -20,6 +20,7 @@ public class CustomerMainFrame extends JFrame {
         this.setSize(699, 799);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
+        this.pack();
         this.setIconImage(new ImageIcon("image/logo.png").getImage());
         this.setBackground(new Color(26, 36, 43));
 
