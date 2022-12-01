@@ -110,7 +110,8 @@ public class TextField extends JTextField {
         } else {
             g2.setColor(new Color(150, 150, 150));
         }
-        g2.fillRect(2, height - 1, width - 4, 1);
+//        g2.fillRect(2, height - 1, width - 4, 1);
+        g2.fillRect(0, height - 1, width , 1);
         createHintText(g2);
         createLineStyle(g2);
         g2.dispose();
@@ -138,7 +139,8 @@ public class TextField extends JTextField {
 
     private void createLineStyle(Graphics2D g2) {
         if (isFocusOwner()) {
-            double width = getWidth() - 4;
+//            double width = getWidth() - 4;
+            double width = getWidth() ;
             int height = getHeight();
             g2.setColor(lineColor);
             double size;
@@ -148,7 +150,8 @@ public class TextField extends JTextField {
                 size = width * location;
             }
             double x = (width - size) / 2;
-            g2.fillRect((int) (x + 2), height - 2, (int) size, 2);
+//            g2.fillRect((int) (x + 2), height - 2, (int) size, 2);
+            g2.fillRect((int) (x + 0), height - 2, (int) size, 2);
         }
     }
 

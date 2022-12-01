@@ -72,7 +72,7 @@ public class PasswordField extends JPasswordField {
                     if (new Rectangle(x, 0, 30, 30).contains(me.getPoint())) {
                         hide = !hide;
                         if (hide) {
-                            setEchoChar('*');
+                            setEchoChar('•');
                         } else {
                             setEchoChar((char) 0);
                         }
@@ -118,8 +118,8 @@ public class PasswordField extends JPasswordField {
             }
 
         };
-        eye = new ImageIcon(getClass().getResource("image/eye.png")).getImage();
-        eye_hide = new ImageIcon(getClass().getResource("image/eye_hide.png")).getImage();
+        eye = new ImageIcon(getClass().getResource("eye.png")).getImage();
+        eye_hide = new ImageIcon(getClass().getResource("eye_hide.png")).getImage();
         animator = new Animator(300, target);
         animator.setResolution(0);
         animator.setAcceleration(0.5f);
@@ -151,7 +151,7 @@ public class PasswordField extends JPasswordField {
         } else {
             g2.setColor(new Color(150, 150, 150));
         }
-        g2.fillRect(2, height - 1, width - 4, 1);
+        g2.fillRect(0, height - 1, width - 0, 1);
         createHintText(g2);
         createLineStyle(g2);
         if (showAndHide) {
@@ -188,7 +188,8 @@ public class PasswordField extends JPasswordField {
 
     private void createLineStyle(Graphics2D g2) {
         if (isFocusOwner()) {
-            double width = getWidth() - 4;
+//            double width = getWidth() - 4;
+            double width = getWidth() ;
             int height = getHeight();
             g2.setColor(lineColor);
             double size;
@@ -198,7 +199,8 @@ public class PasswordField extends JPasswordField {
                 size = width * location;
             }
             double x = (width - size) / 2;
-            g2.fillRect((int) (x + 2), height - 2, (int) size, 2);
+//            g2.fillRect((int) (x + 2), height - 2, (int) size, 2);
+            g2.fillRect((int) (x + 0), height - 2, (int) size, 2);
         }
     }
 
