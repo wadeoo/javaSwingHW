@@ -3,6 +3,7 @@ package cn.edu.fzu.sm.wuweida.frame;
 import cn.edu.fzu.sm.wuweida.bean.CustomerUser;
 import cn.edu.fzu.sm.wuweida.dao.JdbcConfig;
 import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
+import cn.edu.fzu.sm.wuweida.util.FilesLooping;
 import cn.edu.fzu.sm.wuweida.util.PasswordField;
 import cn.edu.fzu.sm.wuweida.util.TextField;
 import jdk.nashorn.internal.scripts.JO;
@@ -12,6 +13,9 @@ import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerLoginFrame extends JFrame {
     JdbcImpl jdbcImpl=new JdbcImpl();
@@ -19,7 +23,7 @@ public class CustomerLoginFrame extends JFrame {
     public CustomerLoginFrame() throws HeadlessException {
         this.setUndecorated(true);
         this.setLayout(null);
-        this.setSize( 300,450);
+        this.setSize( 747+300,420);
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon("image/logo.png").getImage());
 
@@ -28,6 +32,16 @@ public class CustomerLoginFrame extends JFrame {
         contentPanel.setBounds(0,0,300,450);
         contentPanel.setBackground(new Color(20, 26, 47));
 
+
+        //幻灯片放映
+        JLabel eastLabel=new JLabel();
+        eastLabel.setBounds(300,0,747,420);
+        eastLabel.setBackground(Color.BLACK);
+        eastLabel.setOpaque(true);
+        MyThreadRunnable target=new MyThreadRunnable(eastLabel);
+        Thread pptThread=new Thread(target);
+        pptThread.start();
+        this.add(eastLabel);
 
 
 
@@ -180,7 +194,7 @@ public class CustomerLoginFrame extends JFrame {
         //注册
         JButton registerBtn=new JButton("未有账号? 点击此处注册");
         registerBtn.setContentAreaFilled(false);
-        registerBtn.setBounds(75,400,150,20);
+        registerBtn.setBounds(75,370,150,20);
         registerBtn.setBorder(null);
         registerBtn.setForeground(Color.LIGHT_GRAY);
         registerBtn.setFont(new Font("宋体",Font.PLAIN,10));
@@ -261,7 +275,7 @@ public class CustomerLoginFrame extends JFrame {
         JLabel cancelLabel=new JLabel("取消");
         cancelLabel.setFont(new Font("微软雅黑",Font.PLAIN,10));
 //        cancelLabel.setBounds(225,250,225,50);
-        cancelLabel.setBounds(75,325,150,25);
+        cancelLabel.setBounds(75,320,150,25);
         cancelLabel.setBackground(new Color(4, 44, 80));
         cancelLabel.setBorder(null);
         cancelLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -353,5 +367,38 @@ public class CustomerLoginFrame extends JFrame {
 
 
         this.setVisible(true);
+    }
+
+    class MyThreadRunnable implements Runnable{
+        private JLabel eastLabel_local;
+        private List<File> imgFileList=new ArrayList<>();
+        private File imgFolder;
+        private ImageIcon imageIcon;
+        private int loopingPtr;
+        private int listSize;
+
+        public MyThreadRunnable(JLabel eastLabel) {
+            eastLabel_local=eastLabel;
+            imgFolder=new File("bgImg");
+            FilesLooping.getFilesList(imgFolder,imgFileList);
+            loopingPtr=0;
+            listSize=imgFileList.size();
+        }
+
+        @Override
+        public void run() {
+            while (true){
+
+                imageIcon=new ImageIcon(imgFileList.get((loopingPtr++)%(listSize)).getPath());
+                eastLabel_local.setIcon(imageIcon);
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
