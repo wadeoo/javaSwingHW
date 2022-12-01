@@ -44,6 +44,7 @@ public class SpinnerUI extends BasicSpinnerUI {
             spinner.addChangeListener(this);
             setEditable(false);
             setText("0");
+
         }
 
         @Override

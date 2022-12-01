@@ -413,10 +413,11 @@ public class CustomerMainFrame extends JFrame {
 //            jSpinner.setBounds(420, 0, 60, 100);
 //            foodPanel.add(jSpinner);
             Spinner spinner=new Spinner();
-            spinner.setBounds(300,0,60,100);
+            SpinnerNumberModel spinnerNumberModel=new SpinnerNumberModel();
+            spinnerNumberModel.setMinimum(0);
+            spinner.setModel(spinnerNumberModel);
+            spinner.setBounds(300,0,100,100);
             spinner.setLabelText("数量");
-            System.out.println(spinner.getEditor().getComponentCount());
-//            spinner.getEditor().getComponent(0).setBackground(Color.green);
             foodPanel.add(spinner);
             contentPanelForScroll.add(foodPanel);
         }

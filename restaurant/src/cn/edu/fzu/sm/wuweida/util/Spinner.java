@@ -3,6 +3,8 @@ package cn.edu.fzu.sm.wuweida.util;
 import javax.swing.*;
 import java.awt.*;
 
+import static javax.swing.SwingConstants.CENTER;
+
 public class Spinner extends JSpinner {
 
     public void setLabelText(String text) {
@@ -19,6 +21,5 @@ public class Spinner extends JSpinner {
 //        setOpaque(false);
         setOpaque(true);
         setUI(new SpinnerUI());
-
     }
 }
