@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cb15ed9a-6819-4ca4-9db4-7082fbf67ddf" name="默认" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MouseWheelListenerPanLeft.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MouseWheelListenerPanLeft.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MoveListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MoveListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +31,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="form" value="1" />
-          <entry key="java" value="30" />
+          <entry key="java" value="33" />
           <entry key="jpg" value="7" />
           <entry key="png" value="1" />
         </counts>
@@ -44,17 +40,17 @@
         <counts>
           <entry key="GUI_DESIGNER_FORM" value="1" />
           <entry key="Image" value="8" />
-          <entry key="JAVA" value="30" />
+          <entry key="JAVA" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="17347" />
+          <entry key="java" value="17624" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="17347" />
+          <entry key="JAVA" value="17624" />
         </counts>
       </usages-collector>
     </session>
@@ -67,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="399" selection-start-line="399" selection-end-line="399" />
+            <state relative-caret-position="291">
+              <caret line="397" selection-start-line="397" selection-end-line="397" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,6 +106,8 @@
         <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/dao/JdbcImpl.java" />
         <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerLoginFrame.java" />
         <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java" />
+        <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/util/SpinnerUI.java" />
+        <option value="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/util/Spinner.java" />
       </list>
     </option>
   </component>
@@ -186,13 +184,6 @@
               <item name="wuweida" type="462c0819:PsiDirectoryNode" />
               <item name="frame" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="wuweida" type="462c0819:PsiDirectoryNode" />
-              <item name="run" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -205,22 +196,23 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="655" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1669796536350" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1669853912854" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-5.1.28-bin.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\image" />
+      <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\src\cn\edu\fzu\sm\wuweida\util" />
       <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\dishImg" />
       <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\image" />
       <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\lib" />
       <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\src" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant\image" />
-      <recent name="D:\BASIC\Desktop\javaSwingHW\restaurant" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -263,16 +255,15 @@
       <updated>1669688349609</updated>
       <workItem from="1669688352846" duration="40396000" />
       <workItem from="1669786521759" duration="9880000" />
-      <workItem from="1669804809360" duration="5593000" />
+      <workItem from="1669804809360" duration="8612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55869000" />
+    <option name="totallyTimeSpent" value="58888000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.21444201" />
       <window_info id="Structure" order="1" sideWeight="0.500821" side_tool="true" weight="0.20678337" />
@@ -442,10 +433,34 @@
     <entry file="file://$PROJECT_DIR$/dishImg/剁椒鱼头.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="jar://$PROJECT_DIR$/../../JAVA/java-1.8.0-openjdk-1.8.0.265/java-1.8.0-openjdk-1.8.0.265-1.b01.ojdkbuild.windows.x86_64/src.zip!/java/awt/TextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/util/SpinnerUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/util/Spinner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="399" selection-start-line="399" selection-end-line="399" />
+        <state relative-caret-position="291">
+          <caret line="397" selection-start-line="397" selection-end-line="397" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
