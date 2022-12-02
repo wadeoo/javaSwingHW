@@ -270,12 +270,6 @@ public class CustomerMainFrame extends JFrame {
             }
 
             @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-
-            }
-
-            @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 if (JOptionPane.showConfirmDialog(CustomerMainFrame.this, "确定要退出吗?", null, JOptionPane.WARNING_MESSAGE) == 0) {
