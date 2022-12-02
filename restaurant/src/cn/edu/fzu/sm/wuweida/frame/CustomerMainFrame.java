@@ -3,7 +3,6 @@ package cn.edu.fzu.sm.wuweida.frame;
 import cn.edu.fzu.sm.wuweida.bean.Food;
 import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
 import cn.edu.fzu.sm.wuweida.util.Spinner;
-import cn.edu.fzu.sm.wuweida.util.SpinnerUI;
 
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
@@ -18,7 +17,7 @@ public class CustomerMainFrame extends JFrame {
     private JLabel timeLabel;
     private SimpleDateFormat timeFormat;
     private JdbcImpl jdbcImpl = new JdbcImpl();
-    private List<Food> allFoodList = new ArrayList<>();
+    private List<Food> foodList = new ArrayList<>();
     private JPanel contentPanel;
 
     public CustomerMainFrame() throws HeadlessException {
@@ -29,6 +28,7 @@ public class CustomerMainFrame extends JFrame {
         this.setIconImage(new ImageIcon("image/logo.png").getImage());
         this.setBackground(new Color(26, 36, 43));
 
+        foodList=jdbcImpl.getFoodList("pop");
 
         contentPanel = (JPanel) this.getContentPane();
 
@@ -171,6 +171,46 @@ public class CustomerMainFrame extends JFrame {
             }
         });
         westPanel.add(dessertLabel);
+
+
+        //菜式选择监听
+        popLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                foodList=jdbcImpl.getFoodList("pop");
+                contentPanel.remove(2);
+                scrollPanelProcess();
+            }
+        });
+        cantoneseLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                foodList=jdbcImpl.getFoodList("粤菜");
+                contentPanel.remove(2);
+                scrollPanelProcess();
+            }
+        });
+        xiangLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                foodList=jdbcImpl.getFoodList("湘菜");
+                contentPanel.remove(2);
+                scrollPanelProcess();
+            }
+        });
+        dessertLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                foodList=jdbcImpl.getFoodList("甜品");
+                contentPanel.remove(2);
+                scrollPanelProcess();
+            }
+        });
+
 
         JLabel cartLabel = new JLabel("购物车");
         cartLabel.setBounds(0, 700, 200, 50);
@@ -328,14 +368,13 @@ public class CustomerMainFrame extends JFrame {
         northPanel.add(searchLogoLabel);
 
 
-        //获取所有菜式
-        allFoodList = jdbcImpl.getAllFood();
-
 
         scrollPanelProcess();
 
         this.setVisible(true);
     }
+
+
 
     private void scrollPanelProcess() {
 
@@ -343,40 +382,20 @@ public class CustomerMainFrame extends JFrame {
         JPanel panelUnderScroll = new JPanel();
         panelUnderScroll.setBounds(200, 95, 500, 705);
 
-//        JPanel test=new JPanel(){
-//            public void paintComponent(Graphics g)
-//            {
-//                Graphics2D g2d=(Graphics2D)g;
-//                int red=(int)(Math.random()*255);
-//                int blue=(int)(Math.random()*255);
-//                int green=(int)(Math.random()*255);
-//                Color startColor=new Color(red,green,blue);
-//                red=(int)(Math.random()*255);
-//                blue=(int)(Math.random()*255);
-//                green=(int)(Math.random()*255);
-//                Color endColor=new Color(red,green,blue);
-//                GradientPaint gradient=new GradientPaint(70,70,startColor,100,100,endColor);
-//                g2d.setPaint(gradient);
-//                g2d.drawRect(0,0,100,1000);
-//            }
-//        };
-//        test.setPreferredSize(new Dimension(100,1000));
-//        test.setBounds(20,20,100,1000);
-//        test.setBackground(Color.BLACK);
 
         JPanel contentPanelForScroll = new JPanel();
         contentPanelForScroll.setPreferredSize(new Dimension(500, 1200));
         contentPanelForScroll.setBackground(new Color(26, 36, 43));
         contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING, 10, 10));
-        int foodCount = allFoodList.size();
-        for (int i = 0; i < 8; i++) {
+        int foodCount = foodList.size();
+        for (int i = 0; i < foodCount; i++) {
             JPanel foodPanel = new JPanel();
             foodPanel.setPreferredSize(new Dimension(479, 100));
             foodPanel.setBackground((i % 2 == 0) ? new Color(38, 48, 56) : new Color(30, 42, 43));
             foodPanel.setLayout(null);
 
             //图片
-            ImageIcon imageIcon = new ImageIcon("dishImg/剁椒鱼头.jpg");
+            ImageIcon imageIcon = new ImageIcon("dishImg/"+foodList.get(i).getFoodName()+".jpg");
             JLabel imageLabel = new JLabel();
             imageLabel.setIcon(imageIcon);
             imageLabel.setOpaque(true);
@@ -384,7 +403,7 @@ public class CustomerMainFrame extends JFrame {
             foodPanel.add(imageLabel);
 
             //名称
-            JLabel nameLabel = new JLabel("剁椒鱼头");
+            JLabel nameLabel = new JLabel(foodList.get(i).getFoodName());
             nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
             nameLabel.setFont(new Font("楷体", Font.PLAIN, 20));
             nameLabel.setForeground(Color.LIGHT_GRAY);
@@ -392,7 +411,7 @@ public class CustomerMainFrame extends JFrame {
             foodPanel.add(nameLabel);
 
             //价格
-            JLabel priceLabel = new JLabel("35元");
+            JLabel priceLabel = new JLabel(foodList.get(i).getFoodPrice()+"");
             priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
             priceLabel.setFont(new Font("楷体", Font.PLAIN, 20));
             priceLabel.setForeground(Color.LIGHT_GRAY);
@@ -400,18 +419,7 @@ public class CustomerMainFrame extends JFrame {
             foodPanel.add(priceLabel);
 
 
-            //数量
-            JLabel quantityLabel = new JLabel("数量:1");
-            quantityLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            quantityLabel.setFont(new Font("楷体", Font.PLAIN, 20));
-            quantityLabel.setForeground(Color.LIGHT_GRAY);
-            quantityLabel.setBounds(330, 0, 90, 100);
-            foodPanel.add(quantityLabel);
-
             //spinner
-//            JSpinner jSpinner = new JSpinner();
-//            jSpinner.setBounds(420, 0, 60, 100);
-//            foodPanel.add(jSpinner);
             Spinner spinner=new Spinner();
             SpinnerNumberModel spinnerNumberModel=new SpinnerNumberModel();
             spinnerNumberModel.setMinimum(0);
@@ -422,16 +430,16 @@ public class CustomerMainFrame extends JFrame {
             contentPanelForScroll.add(foodPanel);
         }
 
-        JScrollPane jScrollPane = new JScrollPane(contentPanelForScroll);
-        jScrollPane.setPreferredSize(new Dimension(500, 700));
-        jScrollPane.setBounds(200, 95, 500, 705);
-        jScrollPane.setBackground(new Color(26, 36, 43));
-        jScrollPane.getHorizontalScrollBar().setOpaque(false);
-        jScrollPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        jScrollPane.remove(jScrollPane.getVerticalScrollBar());
-        jScrollPane.remove(jScrollPane.getHorizontalScrollBar());
+        JScrollPane scrollPanelForPop = new JScrollPane(contentPanelForScroll);
+        scrollPanelForPop.setPreferredSize(new Dimension(500, 700));
+        scrollPanelForPop.setBounds(200, 95, 500, 705);
+        scrollPanelForPop.setBackground(new Color(26, 36, 43));
+        scrollPanelForPop.getHorizontalScrollBar().setOpaque(false);
+        scrollPanelForPop.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        scrollPanelForPop.remove(scrollPanelForPop.getVerticalScrollBar());
+        scrollPanelForPop.remove(scrollPanelForPop.getHorizontalScrollBar());
 
-        panelUnderScroll.add(jScrollPane);
+        panelUnderScroll.add(scrollPanelForPop);
         contentPanel.add(panelUnderScroll);
 
 

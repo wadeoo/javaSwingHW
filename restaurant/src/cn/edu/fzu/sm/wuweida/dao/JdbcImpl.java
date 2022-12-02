@@ -17,7 +17,7 @@ public class JdbcImpl implements JdbcConfig {
     public JdbcImpl() {
         try {
             Class.forName(DRIVER);
-            connection= DriverManager.getConnection(URL,USERNAME,PASSWORD);
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -25,13 +25,14 @@ public class JdbcImpl implements JdbcConfig {
         }
     }
 
-    public boolean doUsernameExist(CustomerUser enteredUser){
+    public boolean doUsernameExist(CustomerUser enteredUser) {
         try {
-            preparedStatement=connection.prepareStatement("SELECT * FROM customeruser WHERE username=?");
-            preparedStatement.setString(1,enteredUser.getUsername());
-            resultSet=preparedStatement.executeQuery();if(resultSet.next()){
+            preparedStatement = connection.prepareStatement("SELECT * FROM customeruser WHERE username=?");
+            preparedStatement.setString(1, enteredUser.getUsername());
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
         } catch (SQLException e) {
@@ -40,14 +41,15 @@ public class JdbcImpl implements JdbcConfig {
         }
     }
 
-    public boolean doUserExist(CustomerUser enteredUser){
+    public boolean doUserExist(CustomerUser enteredUser) {
         try {
-            preparedStatement=connection.prepareStatement("SELECT * FROM customeruser WHERE username=? AND password=?");
-            preparedStatement.setString(1,enteredUser.getUsername());
-            preparedStatement.setString(2,enteredUser.getPassword());
-            resultSet=preparedStatement.executeQuery();if(resultSet.next()){
+            preparedStatement = connection.prepareStatement("SELECT * FROM customeruser WHERE username=? AND password=?");
+            preparedStatement.setString(1, enteredUser.getUsername());
+            preparedStatement.setString(2, enteredUser.getPassword());
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
         } catch (SQLException e) {
@@ -56,24 +58,28 @@ public class JdbcImpl implements JdbcConfig {
         }
     }
 
-    public List<Food> getAllFood(){
-        try{
-            preparedStatement=connection.prepareStatement("SELECT * FROM food");
-            resultSet=preparedStatement.executeQuery();
-            List<Food> allFoodList=new ArrayList<>();
-            while(resultSet.next()){
-                Food food=new Food();
+    public List<Food> getFoodList(String foodType) {
+        try {
+            if (foodType=="pop") {
+                preparedStatement = connection.prepareStatement("SELECT * FROM food WHERE isPop=1");
+            } else {
+                preparedStatement = connection.prepareStatement("SELECT * FROM food" + " WHERE foodType='" + foodType+"'");
+            }
+            resultSet = preparedStatement.executeQuery();
+            List<Food> FoodList = new ArrayList<>();
+            while (resultSet.next()) {
+                Food food = new Food();
                 food.setFoodName(resultSet.getString(2));
                 food.setFoodPrice(resultSet.getDouble(3));
                 food.setFoodType(resultSet.getString(4));
-                Blob imgBlob=resultSet.getBlob(5);
-                InputStream inputStream=imgBlob.getBinaryStream();
+                Blob imgBlob = resultSet.getBlob(5);
+                InputStream inputStream = imgBlob.getBinaryStream();
                 try {
-                    OutputStream outputStream=new FileOutputStream("dishImg/"+resultSet.getString(2)+".jpg");
-                    byte[] buffer=new byte[1024];
-                    int len=0;
-                    while ((len=inputStream.read(buffer))!=-1){
-                        outputStream.write(buffer,0,len);
+                    OutputStream outputStream = new FileOutputStream("dishImg/" + resultSet.getString(2) + ".jpg");
+                    byte[] buffer = new byte[1024];
+                    int len = 0;
+                    while ((len = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, len);
                     }
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -81,11 +87,11 @@ public class JdbcImpl implements JdbcConfig {
                     e.printStackTrace();
                 }
                 food.setIsPop(resultSet.getInt(6));
-                allFoodList.add(food);
+                FoodList.add(food);
             }
 
-            return allFoodList;
-        }catch (SQLException e ){
+            return FoodList;
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
