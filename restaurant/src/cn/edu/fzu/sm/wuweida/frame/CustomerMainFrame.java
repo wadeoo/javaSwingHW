@@ -8,11 +8,14 @@ import cn.edu.fzu.sm.wuweida.util.Spinner;
 
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 public class CustomerMainFrame extends JFrame {
@@ -21,9 +24,10 @@ public class CustomerMainFrame extends JFrame {
     private JdbcImpl jdbcImpl = new JdbcImpl();
     private List<Food> foodList;
     private List<Order> orderList;
+    private HashMap<String,Integer> chosenFoodList;
     private JPanel contentPanel;
 
-    public CustomerMainFrame() throws HeadlessException {
+    public CustomerMainFrame(String username) throws HeadlessException {
         this.setUndecorated(true);
         this.setSize(1270, 720);
         this.setLocationRelativeTo(null);
@@ -267,8 +271,8 @@ public class CustomerMainFrame extends JFrame {
         JLabel logoLabel = new JLabel(new ImageIcon("image/minilogo.png"));
         logoLabel.setBounds(5, 7, 30, 30);
         //餐厅名称显示
-        JLabel nameLabel = new JLabel("粤湘之家");
-        nameLabel.setBounds(45, 0, 80, 44);
+        JLabel nameLabel = new JLabel(username+",粤湘之家欢迎您！");
+        nameLabel.setBounds(45, 0, 300, 44);
         nameLabel.setForeground(Color.WHITE);
         nameLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
 
@@ -392,11 +396,32 @@ public class CustomerMainFrame extends JFrame {
 
             //数量选择器
             Spinner spinner = new Spinner();
-            spinner.setValue(0);
-            System.out.println(spinner.getValue());
+            if (chosenFoodList.containsKey(foodList.get(i).getFoodName())){
+                spinner.setValue(chosenFoodList.get(foodList.get(i).getFoodName()));
+            }else {
+                spinner.setValue(0);
+            }
             spinner.setBounds(225+400+100+100+50, 25, 60, 50);
             spinner.setLabelText("数量:");
             foodPanel.add(spinner);
+            spinner.addChangeListener(new ChangeListener() {
+                @Override
+                public void stateChanged(ChangeEvent e) {
+                    Spinner thisPinner=(Spinner) e.getSource();
+                    if ((Integer) thisPinner.getValue()==-1){
+                        thisPinner.setValue(0);
+                    }
+                    JPanel thisFoodPanel=(JPanel) thisPinner.getParent();
+                    JLabel foodNameLabel=(JLabel)thisFoodPanel.getComponent(2) ;
+                    String foodName=foodNameLabel.getText();
+                    chosenFoodList.put(foodName,(Integer) thisPinner.getValue());
+                }
+            });
+
+
+
+
+            //元面板触动变色
             foodPanel.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent e) {

@@ -46,90 +46,26 @@ public class CustomerLoginFrame extends JFrame {
 
 
 
-//        JLabel loginLabel=new JLabel("登录");
         JLabel loginLabel=new JLabel();
         loginLabel.setIcon(new ImageIcon("image/loginLogo.png"));
-//        loginLabel.setBounds(190,25,100,50);
         loginLabel.setBounds(100,40,100,100);
         loginLabel.setFont(new Font("草书",Font.ITALIC,30));
         contentPanel.add(loginLabel);
 
 
-//        JLabel usernameLabel=new JLabel("用户名:");
-//        usernameLabel.setBounds(75,100,100,25);
-//        usernameLabel.setForeground(new Color(220,220,220));
-//        usernameLabel.setFont(new Font("微软雅黑",Font.PLAIN,18));
-//        this.add(usernameLabel);
-
 
         TextField usernameText=new TextField();
         usernameText.setLabelText("用户名");
-//        usernameText.setBounds(175,100,200,20);
         usernameText.setBounds(50,170,200,20);
         usernameText.setOpaque(false);
         usernameText.setForeground(Color.WHITE);
         usernameText.setFont(new Font("微软雅黑",Font.PLAIN,10));
         usernameText.setBorder(new MatteBorder(0,0,1,0,Color.WHITE));
-//        usernameText.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseEntered(MouseEvent e) {
-//                super.mouseEntered(e);
-//                usernameText.setBorder(new MatteBorder(0,0,2,0,Color.WHITE));
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent e) {
-//                super.mouseExited(e);
-//                if(!usernameText.isFocusOwner()){
-//                    usernameText.setBorder(new MatteBorder(0,0,1,0,Color.LIGHT_GRAY));
-//                }
-//            }
-//        });
-//        usernameText.addFocusListener(new FocusAdapter() {
-//            @Override
-//            public void focusGained(FocusEvent e) {
-//                super.focusGained(e);
-//                usernameText.setBorder(new MatteBorder(0,0,2,0,Color.WHITE));
-//            }
-//
-//            @Override
-//            public void focusLost(FocusEvent e) {
-//                super.focusLost(e);
-//                usernameText.setBorder(new MatteBorder(0,0,1,0,Color.LIGHT_GRAY));
-//            }
-//        });
-//        usernameLabel.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mousePressed(MouseEvent e) {
-//                super.mouseClicked(e);
-//                usernameText.grabFocus();
-//            }
-//
-//            @Override
-//            public void mouseEntered(MouseEvent e){
-//                super.mouseEntered(e);
-//                usernameLabel.setForeground(Color.WHITE);
-//                CustomerLoginFrame.this.setCursor(Cursor.HAND_CURSOR);
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent e){
-//                super.mouseExited(e);
-//                usernameLabel.setForeground(Color.LIGHT_GRAY);
-//                CustomerLoginFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-//            }
-//        });
+
         contentPanel.add(usernameText);
 
 
-//        JLabel passwordLabel=new JLabel("密码:");
-//        passwordLabel.setBounds(75,150,100,25);
-//        passwordLabel.setForeground(new Color(220,220,220));
-//        passwordLabel.setFont(new Font("微软雅黑",Font.PLAIN,18));
-//        this.add(passwordLabel);
 
-
-//        JPasswordField passwordText=new JPasswordField();
         PasswordField passwordText=new PasswordField();
         passwordText.setLabelText("密码");
         passwordText.setLineColor(new Color(3, 104, 158));
@@ -139,55 +75,6 @@ public class CustomerLoginFrame extends JFrame {
         passwordText.setForeground(Color.WHITE);
         passwordText.setFont(new Font("微软雅黑",Font.PLAIN,10));
         passwordText.setBorder(new MatteBorder(0,0,1,0,Color.LIGHT_GRAY));
-//        passwordText.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseEntered(MouseEvent e) {
-//                super.mouseEntered(e);
-//                passwordText.setBorder(new MatteBorder(0,0,2,0,Color.WHITE));
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent e) {
-//                super.mouseExited(e);
-//                if(!passwordText.isFocusOwner()){
-//                    passwordText.setBorder(new MatteBorder(0,0,1,0,Color.LIGHT_GRAY));
-//                }
-//            }
-//        });
-//        passwordText.addFocusListener(new FocusAdapter() {
-//            @Override
-//            public void focusGained(FocusEvent e) {
-//                super.focusGained(e);
-//                passwordText.setBorder(new MatteBorder(0,0,2,0,Color.WHITE));
-//            }
-//
-//            @Override
-//            public void focusLost(FocusEvent e) {
-//                super.focusLost(e);
-//                passwordText.setBorder(new MatteBorder(0,0,1,0,Color.LIGHT_GRAY));
-//            }
-//        });
-//        passwordLabel.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mousePressed(MouseEvent e) {
-//                super.mouseClicked(e);
-//                passwordText.grabFocus();
-//            }
-//
-//            @Override
-//            public void mouseEntered(MouseEvent e){
-//                super.mouseEntered(e);
-//                passwordLabel.setForeground(Color.WHITE);
-//                CustomerLoginFrame.this.setCursor(Cursor.HAND_CURSOR);
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent e){
-//                super.mouseExited(e);
-//                passwordLabel.setForeground(Color.LIGHT_GRAY);
-//                CustomerLoginFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-//            }
-//        });
         contentPanel.add(passwordText);
 
 
@@ -219,7 +106,6 @@ public class CustomerLoginFrame extends JFrame {
         //确定按钮
         JLabel okLabel=new JLabel("登录");
         okLabel.setFont(new Font("微软雅黑",Font.PLAIN,10));
-//        okLabel.setBounds(0,250,225,50);
         okLabel.setBounds(75,275,150,25);
         okLabel.setBackground(new Color(10, 39, 41));
         okLabel.setBorder(null);
@@ -264,7 +150,7 @@ public class CustomerLoginFrame extends JFrame {
                         JOptionPane.showMessageDialog(CustomerLoginFrame.this,"密码错误",null,JOptionPane.WARNING_MESSAGE);
                     }else{
                         CustomerLoginFrame.this.dispose();
-                        CustomerMainFrame customerMainFrame=new CustomerMainFrame();
+                        CustomerMainFrame customerMainFrame=new CustomerMainFrame(text1);
                     }
                 }
             }
@@ -274,7 +160,6 @@ public class CustomerLoginFrame extends JFrame {
         //取消按钮
         JLabel cancelLabel=new JLabel("取消");
         cancelLabel.setFont(new Font("微软雅黑",Font.PLAIN,10));
-//        cancelLabel.setBounds(225,250,225,50);
         cancelLabel.setBounds(75,320,150,25);
         cancelLabel.setBackground(new Color(29, 40, 39));
         cancelLabel.setBorder(null);
@@ -358,11 +243,9 @@ public class CustomerLoginFrame extends JFrame {
             }
 
         }
-//        ImagePanel imagePanel=new ImagePanel("image/loginBG.jpg");
         MoveListener listener=new MoveListener();
         this.addMouseListener(listener);
         this.addMouseMotionListener(listener);
-//        this.add(imagePanel);
 
 
 
