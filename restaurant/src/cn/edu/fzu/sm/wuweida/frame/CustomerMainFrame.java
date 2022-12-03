@@ -24,7 +24,7 @@ public class CustomerMainFrame extends JFrame {
     private JdbcImpl jdbcImpl = new JdbcImpl();
     private List<Food> foodList;
     private List<Order> orderList;
-    private HashMap<String,Integer> chosenFoodList;
+    private HashMap<String,Integer> chosenFoodList=new HashMap<>();
     private JPanel contentPanel;
 
     public CustomerMainFrame(String username) throws HeadlessException {
