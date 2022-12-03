@@ -222,6 +222,16 @@ public class CustomerMainFrame extends JFrame {
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 cartLabel.setForeground(Color.GRAY);
             }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                JDialog cartDialog=new JDialog();
+                cartDialog.setSize(300,600);
+                cartDialog.setLocationRelativeTo(null);
+                cartDialog.setUndecorated(true);
+                cartDialog.setVisible(true);
+            }
         });
         westPanel.add(cartLabel);
 
