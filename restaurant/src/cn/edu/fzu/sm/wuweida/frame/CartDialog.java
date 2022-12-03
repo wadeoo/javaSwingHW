@@ -1,5 +1,6 @@
 package cn.edu.fzu.sm.wuweida.frame;
 
+import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
 import cn.edu.fzu.sm.wuweida.util.ModernScrollBarUI;
 import cn.edu.fzu.sm.wuweida.util.Spinner;
 
@@ -16,23 +17,25 @@ import static java.awt.Cursor.*;
 
 public class CartDialog extends JDialog {
 
-    public CartDialog(HashMap<String,Integer> chosenFoodHashMap) {
+    private JdbcImpl jdbcImpl=new JdbcImpl();
+
+    public CartDialog(HashMap<String, Integer> chosenFoodHashMap) {
         this.setAlwaysOnTop(true);
         this.setUndecorated(true);
-        this.setSize(300,600);
+        this.setSize(300, 600);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
-        JPanel contentPanelForCartDialog=(JPanel) this.getContentPane();
+        JPanel contentPanelForCartDialog = (JPanel) this.getContentPane();
         contentPanelForCartDialog.setBackground(new Color(20, 28, 33));
 
 
         //左上角标签
-        JLabel jLabel=new JLabel("  您的购物车");
-        jLabel.setBounds(0,0,50,50);
+        JLabel jLabel = new JLabel("  您的购物车");
+        jLabel.setBounds(0, 0, 50, 50);
         jLabel.setHorizontalAlignment(SwingConstants.CENTER);
         jLabel.setVerticalAlignment(SwingConstants.CENTER);
         jLabel.setForeground(Color.LIGHT_GRAY);
-        jLabel.setFont(new Font("微软雅黑",Font.PLAIN,15));
+        jLabel.setFont(new Font("微软雅黑", Font.PLAIN, 15));
         this.add(jLabel);
 
         //右上角退出键
@@ -69,9 +72,9 @@ public class CartDialog extends JDialog {
 
         //滚动面板
         JScrollPane scrollPanel = new JScrollPane();
-        JScrollBar customScrollBar=new JScrollBar();
+        JScrollBar customScrollBar = new JScrollBar();
         customScrollBar.setUI(new ModernScrollBarUI());
-        customScrollBar.setPreferredSize(new Dimension(8,8));
+        customScrollBar.setPreferredSize(new Dimension(8, 8));
         customScrollBar.setForeground(new Color(26, 36, 43));
         customScrollBar.setBackground(new Color(14, 25, 32));
         customScrollBar.setOrientation(Adjustable.VERTICAL);
@@ -86,92 +89,81 @@ public class CartDialog extends JDialog {
 
 
         //滚动面板的内容面板
-        JPanel contentPanelForScroll=new JPanel();
+        JPanel contentPanelForScroll = new JPanel();
         contentPanelForScroll.setPreferredSize(new Dimension(300, 400));
         contentPanelForScroll.setBackground(new Color(26, 36, 43));
-        contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
-        //列出购物车清单
-//        int foodCount = chosenFoodHashMap.size();
-//        for (:
-//             ) {
-//
-//        }
-//        for (int i = 0; i < foodCount; i++) {
-//
-//            //内容面板里 每个菜品所属的元面板
-//            JPanel foodPanel = new JPanel();
-//            foodPanel.setPreferredSize(new Dimension(300, 50));
-//            foodPanel.setBackground(new Color(26, 36, 43));
-//            foodPanel.setBorder(new MatteBorder(0,0,1,0,new Color(134, 134, 134)));
-//            foodPanel.setLayout(null);
-//
-//            //序号
-//            JLabel numberLabel=new JLabel(i+1+".");
-//            numberLabel.setForeground(Color.LIGHT_GRAY);
-//            numberLabel.setBounds(10,0,40,50);
-//            foodPanel.add(numberLabel);
-//
-//            //菜式名称
-//            JLabel nameLabel = new JLabel(chosenFoodHashMap.get(i));
-//            nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-//            nameLabel.setFont(new Font("楷体", Font.PLAIN, 20));
-//            nameLabel.setForeground(Color.LIGHT_GRAY);
-//            nameLabel.setBounds(300, 0, 90, 100);
-//            foodPanel.add(nameLabel);
-//
-//            //菜式价格
-//            JLabel priceLabel = new JLabel(foodList.get(i).getFoodPrice() + "人民币");
-//            priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
-//            priceLabel.setFont(new Font("楷体", Font.PLAIN, 15));
-//            priceLabel.setForeground(Color.LIGHT_GRAY);
-//            priceLabel.setBounds(500, 0, 90, 100);
-//            foodPanel.add(priceLabel);
-//
-//
-//            //数量选择器
-//            Spinner spinner = new Spinner();
-//            if (chosenFoodList.containsKey(foodList.get(i).getFoodName())){
-//                spinner.setValue(chosenFoodList.get(foodList.get(i).getFoodName()));
-//            }else {
-//                spinner.setValue(0);
-//            }
-//            spinner.setBounds(225+400+100+100+50, 25, 60, 50);
-//            spinner.setLabelText("数量:");
-//            foodPanel.add(spinner);
-//            spinner.addChangeListener(new ChangeListener() {
-//                @Override
-//                public void stateChanged(ChangeEvent e) {
-//                    Spinner thisPinner=(Spinner) e.getSource();
-//                    if ((Integer) thisPinner.getValue()==-1){
-//                        thisPinner.setValue(0);
-//                    }
-//                    JPanel thisFoodPanel=(JPanel) thisPinner.getParent();
-//                    JLabel foodNameLabel=(JLabel)thisFoodPanel.getComponent(2) ;
-//                    String foodName=foodNameLabel.getText();
-//                    chosenFoodList.put(foodName,(Integer) thisPinner.getValue());
-//                }
-//            });
-//
-//
-//
-//
-//            //元面板触动变色
-//            foodPanel.addMouseListener(new MouseAdapter() {
-//                @Override
-//                public void mouseEntered(MouseEvent e) {
-//                    super.mouseEntered(e);
-//                    foodPanel.setBackground(new Color(39, 53, 64));
-//                }
-//
-//                @Override
-//                public void mouseExited(MouseEvent e) {
-//                    super.mouseExited(e);
-//                    foodPanel.setBackground(new Color(26, 36, 43));
-//                }
-//            });
-//            contentPanelForScroll.add(foodPanel);
-//        }
+        contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING, 0, 0));
 
+
+        //列出购物车清单
+        int i = 1;
+        if (!chosenFoodHashMap.isEmpty()) {
+            for (String key : chosenFoodHashMap.keySet()) {
+
+                //内容面板里 每个菜品所属的元面板
+                JPanel foodPanel = new JPanel();
+                foodPanel.setPreferredSize(new Dimension(300, 50));
+                foodPanel.setBackground(new Color(26, 36, 43));
+                foodPanel.setBorder(new MatteBorder(0, 0, 1, 0, new Color(134, 134, 134)));
+                foodPanel.setLayout(null);
+
+                //序号
+                JLabel numberLabel = new JLabel((i++) + ".");
+                numberLabel.setForeground(Color.LIGHT_GRAY);
+                numberLabel.setBounds(10, 0, 40, 50);
+                foodPanel.add(numberLabel);
+
+                //菜式名称
+                JLabel nameLabel = new JLabel(chosenFoodHashMap.get(key) + "");
+                nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                nameLabel.setFont(new Font("楷体", Font.PLAIN, 10));
+                nameLabel.setForeground(Color.LIGHT_GRAY);
+                nameLabel.setBounds(80, 0, 30, 50);
+                foodPanel.add(nameLabel);
+
+                //菜式价格
+                JLabel priceLabel = new JLabel(jdbcImpl.getFoodPrice(key) + "人民币");
+                priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                priceLabel.setFont(new Font("楷体", Font.PLAIN, 10));
+                priceLabel.setForeground(Color.LIGHT_GRAY);
+                priceLabel.setBounds(200, 0, 30, 50);
+                foodPanel.add(priceLabel);
+
+
+                //数量选择器
+                Spinner spinner = new Spinner();
+                spinner.setBounds(250, 0, 40, 50);
+                spinner.setValue(chosenFoodHashMap.get(key));
+                spinner.setLabelText("数量:");
+                foodPanel.add(spinner);
+                spinner.addChangeListener(new ChangeListener() {
+                    @Override
+                    public void stateChanged(ChangeEvent e) {
+                        Spinner thisPinner = (Spinner) e.getSource();
+                        if ((Integer) thisPinner.getValue() == -1) {
+                            thisPinner.setValue(0);
+                        }
+                    }
+                });
+
+                //元面板触动变色
+                foodPanel.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                        super.mouseEntered(e);
+                        foodPanel.setBackground(new Color(39, 53, 64));
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                        super.mouseExited(e);
+                        foodPanel.setBackground(new Color(26, 36, 43));
+                    }
+                });
+                contentPanelForScroll.add(foodPanel);
+            }
+        }
+        scrollPanel.setViewportView(contentPanelForScroll);
 
         this.setVisible(true);
     }

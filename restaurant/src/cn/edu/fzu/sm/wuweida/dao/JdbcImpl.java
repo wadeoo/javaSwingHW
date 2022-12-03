@@ -97,4 +97,20 @@ public class JdbcImpl implements JdbcConfig {
         }
     }
 
+    public double getFoodPrice(String foodName){
+        try{
+            preparedStatement=connection.prepareStatement("SELECT foodPrice FROM food WHERE foodName=?");
+            preparedStatement.setString(1,foodName);
+            resultSet=preparedStatement.executeQuery();
+            if (resultSet.next()){
+                return resultSet.getDouble(1);
+            }else{
+                return 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
 }
