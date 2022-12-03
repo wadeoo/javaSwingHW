@@ -3,7 +3,6 @@ package cn.edu.fzu.sm.wuweida.frame;
 import cn.edu.fzu.sm.wuweida.bean.Food;
 import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
 import cn.edu.fzu.sm.wuweida.util.ModernScrollBarUI;
-import cn.edu.fzu.sm.wuweida.util.ScrollBarCustom;
 import cn.edu.fzu.sm.wuweida.util.Spinner;
 
 import javax.swing.*;
@@ -38,6 +37,8 @@ public class CustomerMainFrame extends JFrame {
         contentPanel.addMouseListener(moveListener);
         contentPanel.addMouseMotionListener(moveListener);
 
+
+        //西部面板
         JPanel westPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -53,24 +54,21 @@ public class CustomerMainFrame extends JFrame {
         contentPanel.add(westPanel);
 
 
-//        westPanel.add(timeLabel);
 
+        //西部面板元素
+        //热销品标签
         JLabel popLabel = new JLabel("热销品");
-//        popLabel.setBounds(0, 450, 200, 100);
-//        popLabel.setSize(225,100);
         popLabel.setPreferredSize(new Dimension(225, 50));
         popLabel.setHorizontalAlignment(SwingConstants.CENTER);
         popLabel.setBackground(new Color(4, 15, 16));
         popLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         popLabel.setForeground(Color.LIGHT_GRAY);
-//        popLabel.setOpaque(true);
         popLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
                 popLabel.setForeground(Color.WHITE);
-//                popLabel.setBackground(new Color(58, 23, 0));
             }
 
             @Override
@@ -78,20 +76,17 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 popLabel.setForeground(Color.LIGHT_GRAY);
-//                popLabel.setBackground(new Color(80, 26, 0));
             }
         });
         westPanel.add(popLabel);
 
+        //粤菜标签
         JLabel cantoneseLabel = new JLabel("粤菜");
-//        cantoneseLabel.setBounds(0, 550, 200, 50);
-//        cantoneseLabel.setSize(200,50);
         cantoneseLabel.setPreferredSize(new Dimension(225, 45));
         cantoneseLabel.setBackground(new Color(4, 15, 16));
         cantoneseLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         cantoneseLabel.setForeground(Color.GRAY);
         cantoneseLabel.setHorizontalAlignment(SwingConstants.CENTER);
-//        cantoneseLabel.setOpaque(true);
         cantoneseLabel.setBorder(null);
         cantoneseLabel.addMouseListener(new MouseAdapter() {
             @Override
@@ -99,7 +94,6 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
                 cantoneseLabel.setForeground(Color.WHITE);
-//                cantoneseLabel.setBackground(new Color(12, 24, 12));
             }
 
             @Override
@@ -107,19 +101,17 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 cantoneseLabel.setForeground(Color.GRAY);
-//                cantoneseLabel.setBackground(new Color(20, 47, 20));
             }
         });
         westPanel.add(cantoneseLabel);
 
+
+        //湘菜标签
         JLabel xiangLabel = new JLabel("湘菜");
-//        xiangLabel.setBounds(0, 600, 200, 50);
-//        xiangLabel.setSize(200,50);
         xiangLabel.setPreferredSize(new Dimension(225, 45));
         xiangLabel.setBackground(new Color(4, 15, 16));
         xiangLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         xiangLabel.setForeground(Color.GRAY);
-//        xiangLabel.setOpaque(true);
         xiangLabel.setHorizontalAlignment(SwingConstants.CENTER);
         xiangLabel.setBorder(null);
         xiangLabel.addMouseListener(new MouseAdapter() {
@@ -128,7 +120,6 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
                 xiangLabel.setForeground(Color.WHITE);
-//                xiangLabel.setBackground(new Color(17, 34, 17));
             }
 
             @Override
@@ -136,19 +127,16 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 xiangLabel.setForeground(Color.GRAY);
-//                xiangLabel.setBackground(new Color(20, 44, 20));
             }
         });
         westPanel.add(xiangLabel);
 
+        //甜品标签
         JLabel dessertLabel = new JLabel("甜品");
-//        dessertLabel.setBounds(0, 650, 200, 50);
-//        dessertLabel.setSize(200,50);
         dessertLabel.setPreferredSize(new Dimension(225, 45));
         dessertLabel.setBackground(new Color(4, 15, 16));
         dessertLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         dessertLabel.setForeground(Color.GRAY);
-//        dessertLabel.setOpaque(true);
         dessertLabel.setHorizontalAlignment(SwingConstants.CENTER);
         dessertLabel.setBorder(null);
         dessertLabel.addMouseListener(new MouseAdapter() {
@@ -157,7 +145,6 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
                 dessertLabel.setForeground(Color.WHITE);
-//                dessertLabel.setBackground(new Color(23, 54, 56));
             }
 
             @Override
@@ -165,19 +152,18 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 dessertLabel.setForeground(Color.GRAY);
-//                dessertLabel.setBackground(new Color(31, 90, 92));
             }
         });
         westPanel.add(dessertLabel);
 
 
-        //菜式选择监听
+        //监听标签点击(菜单切换)
         popLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 foodList = jdbcImpl.getFoodList("pop");
-                contentPanel.remove(2);
+                contentPanel.remove(3);//第四个面板是滚动面板下的面板
                 scrollPanelProcess();
             }
         });
@@ -186,8 +172,10 @@ public class CustomerMainFrame extends JFrame {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 foodList = jdbcImpl.getFoodList("粤菜");
-                contentPanel.remove(2);
+                contentPanel.remove(3);
+                System.out.println("粤菜");
                 scrollPanelProcess();
+                System.out.println("fuck");
             }
         });
         xiangLabel.addMouseListener(new MouseAdapter() {
@@ -195,7 +183,7 @@ public class CustomerMainFrame extends JFrame {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 foodList = jdbcImpl.getFoodList("湘菜");
-                contentPanel.remove(2);
+                contentPanel.remove(3);
                 scrollPanelProcess();
             }
         });
@@ -204,19 +192,16 @@ public class CustomerMainFrame extends JFrame {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 foodList = jdbcImpl.getFoodList("甜品");
-                contentPanel.remove(2);
+                contentPanel.remove(3);
                 scrollPanelProcess();
             }
         });
 
-
+        //购物车标签
         JLabel cartLabel = new JLabel("购物车");
-//        cartLabel.setBounds(0, 700, 200, 50);
-//        cartLabel.setBackground(new Color(4, 15, 16));
         cartLabel.setPreferredSize(new Dimension(225, 50));
         cartLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         cartLabel.setForeground(Color.GRAY);
-//        cartLabel.setOpaque(true);
         cartLabel.setHorizontalAlignment(SwingConstants.CENTER);
         cartLabel.setBorder(null);
         cartLabel.addMouseListener(new MouseAdapter() {
@@ -225,7 +210,6 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
                 cartLabel.setForeground(Color.WHITE);
-//                cartLabel.setBackground(new Color(17, 27, 41));
             }
 
             @Override
@@ -233,57 +217,18 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 cartLabel.setForeground(Color.GRAY);
-//                cartLabel.setBackground(new Color(32, 45, 69));
             }
         });
         westPanel.add(cartLabel);
 
 
-        JLabel quitLabel = new JLabel("退出");
-//        quitLabel.setBounds(0, 750, 100, 50);
-        quitLabel.setPreferredSize(new Dimension(225, 45));
-        quitLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        quitLabel.setBackground(new Color(71, 72, 71));
-        quitLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
-        quitLabel.setForeground(Color.GRAY);
-        quitLabel.setBorder(null);
-//        quitLabel.setOpaque(true);
-        quitLabel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-                quitLabel.setForeground(Color.WHITE);
-                quitLabel.setBackground(new Color(46, 47, 46));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                quitLabel.setForeground(Color.GRAY);
-                quitLabel.setBackground(new Color(71, 72, 71));
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-                if (JOptionPane.showConfirmDialog(CustomerMainFrame.this, "确定要退出吗?", null, JOptionPane.WARNING_MESSAGE) == 0) {
-                    CustomerMainFrame.this.dispose();
-                }
-            }
-        });
-        westPanel.add(quitLabel);
-
-
+        //确定标签
         JLabel confirmLabel = new JLabel("确定\n订单");
-//        confirmLabel.setBounds(100, 750, 100, 50);
         confirmLabel.setPreferredSize(new Dimension(225, 45));
         confirmLabel.setBackground(new Color(16, 36, 57));
         confirmLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         confirmLabel.setForeground(Color.GRAY);
         confirmLabel.setHorizontalAlignment(SwingConstants.CENTER);
-//        confirmLabel.setOpaque(true);
         confirmLabel.setBorder(null);
         confirmLabel.addMouseListener(new MouseAdapter() {
             @Override
@@ -305,6 +250,7 @@ public class CustomerMainFrame extends JFrame {
         westPanel.add(confirmLabel);
 
 
+        //餐厅营业状态显示
         JPanel statusPanel = new JPanel();
         statusPanel.setBounds(0, 720 - 20 - 10 - 10, 225, 20 + 10 + 10);
         statusPanel.setBackground(new Color(18, 44, 18));
@@ -316,14 +262,17 @@ public class CustomerMainFrame extends JFrame {
         contentPanel.add(statusPanel);
 
 
+        //北部面板元素
+        //小logo
         JLabel logoLabel = new JLabel(new ImageIcon("image/minilogo.png"));
         logoLabel.setBounds(5, 7, 30, 30);
-
+        //餐厅名称显示
         JLabel nameLabel = new JLabel("粤湘之家");
         nameLabel.setBounds(45, 0, 80, 44);
         nameLabel.setForeground(Color.WHITE);
         nameLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
 
+        //事件显示
         timeFormat = new SimpleDateFormat("hh:mm:ss a");
         timeLabel = new JLabel();
         timeLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
@@ -335,6 +284,7 @@ public class CustomerMainFrame extends JFrame {
         Thread setTimeThread = new Thread(target);
         setTimeThread.start();
 
+        //右上角退出键
         JLabel cancelLabel = new JLabel("╳");
         cancelLabel.setHorizontalAlignment(SwingConstants.CENTER);
         cancelLabel.setVerticalAlignment(SwingConstants.CENTER);
@@ -365,8 +315,10 @@ public class CustomerMainFrame extends JFrame {
         });
 
 
+
+
+        //北部面板
         JPanel northPanel = new JPanel();
-//        northPanel.setLayout(new BorderLayout());
         northPanel.setLayout(null);
         northPanel.setBounds(0, 0, 1270, 45);
         northPanel.setBorder(new MatteBorder(0, 0, 1, 0, new Color(39, 39, 39)));
@@ -376,46 +328,6 @@ public class CustomerMainFrame extends JFrame {
         northPanel.add(timeLabel);
         northPanel.add(cancelLabel);
         contentPanel.add(northPanel);
-
-        JTextField searchText = new JTextField();
-        searchText.setBounds(50, 30, 350, 40);
-        searchText.setBorder(null);
-        searchText.setBackground(new Color(42, 57, 65));
-        searchText.setForeground(Color.LIGHT_GRAY);
-        searchText.setFont(new Font("正楷", Font.PLAIN, 20));
-        searchText.setBorder(BorderFactory.createCompoundBorder(searchText.getBorder(),
-                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        searchText.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                searchText.setBorder(new MatteBorder(1, 1, 1, 1, Color.WHITE));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                searchText.setBorder(null);
-            }
-        });
-//        northPanel.add(searchText);
-
-        JLabel searchLogoLabel = new JLabel(new ImageIcon("image/search.png"));
-        searchLogoLabel.setBounds(420, 30, 40, 40);
-        searchLogoLabel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-            }
-        });
-//        northPanel.add(searchLogoLabel);
 
 
         scrollPanelProcess();
@@ -427,31 +339,34 @@ public class CustomerMainFrame extends JFrame {
     private void scrollPanelProcess() {
 
 
+        //滚动面板下的基础面板
         JPanel panelUnderScroll = new JPanel();
         panelUnderScroll.setBounds(225, 40, 1045, 720 - 45 + 5 + 1);
 
+        //滚动面版的内容面板
         JPanel contentPanelForScroll = new JPanel();
         contentPanelForScroll.setPreferredSize(new Dimension(1045, 720 - 45 + 500));
         contentPanelForScroll.setBackground(new Color(26, 36, 43));
-        contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING, 0, 0));
+        contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING));
         int foodCount = foodList.size();
         for (int i = 0; i < foodCount; i++) {
+
+            //内容面板里 每个菜品所属的元面板
             JPanel foodPanel = new JPanel();
             foodPanel.setPreferredSize(new Dimension(1270-225, 100));
-//            foodPanel.setBackground((i % 2 == 0) ? new Color(38, 48, 56) : new Color(30, 42, 43));
             foodPanel.setBackground(new Color(26, 36, 43));
             foodPanel.setBorder(new MatteBorder(0,0,1,0,new Color(134, 134, 134)));
             foodPanel.setLayout(null);
 
-            //图片
+            //菜式图片
             ImageIcon imageIcon = new ImageIcon("dishImg/" + foodList.get(i).getFoodName() + ".jpg");
             JLabel imageLabel = new JLabel();
             imageLabel.setIcon(imageIcon);
             imageLabel.setOpaque(true);
-            imageLabel.setBounds(0, 0, 150, 100);
+            imageLabel.setBounds(40, 25/2, 100, 75);
             foodPanel.add(imageLabel);
 
-            //名称
+            //菜式名称
             JLabel nameLabel = new JLabel(foodList.get(i).getFoodName());
             nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
             nameLabel.setFont(new Font("楷体", Font.PLAIN, 20));
@@ -459,7 +374,7 @@ public class CustomerMainFrame extends JFrame {
             nameLabel.setBounds(160, 0, 90, 100);
             foodPanel.add(nameLabel);
 
-            //价格
+            //菜式价格
             JLabel priceLabel = new JLabel(foodList.get(i).getFoodPrice() + "");
             priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
             priceLabel.setFont(new Font("楷体", Font.PLAIN, 20));
@@ -468,7 +383,7 @@ public class CustomerMainFrame extends JFrame {
             foodPanel.add(priceLabel);
 
 
-            //spinner
+            //数量选择器
             Spinner spinner = new Spinner();
             SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
             spinnerNumberModel.setMinimum(0);
@@ -492,6 +407,8 @@ public class CustomerMainFrame extends JFrame {
             contentPanelForScroll.add(foodPanel);
         }
 
+
+        //滚动面板
         JScrollPane scrollPanel = new JScrollPane(contentPanelForScroll);
         JScrollBar customScrollBar=new JScrollBar();
         customScrollBar.setUI(new ModernScrollBarUI());
@@ -501,19 +418,17 @@ public class CustomerMainFrame extends JFrame {
         customScrollBar.setOrientation(Adjustable.VERTICAL);
         scrollPanel.setVerticalScrollBar(customScrollBar);
         scrollPanel.setPreferredSize(new Dimension(1045, 720 - 45 + 5 + 1));
-        scrollPanel.setBounds(0, 0, 1045, 720 - 45 + 5 + 1);
+        scrollPanel.setBounds(0, 0+5, 1045, 720 - 45 + 5 + 1);
         scrollPanel.setBackground(new Color(26, 36, 43));
         scrollPanel.getHorizontalScrollBar().setOpaque(false);
         scrollPanel.setBorder(null);
         scrollPanel.remove(scrollPanel.getHorizontalScrollBar());
-
         scrollPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 JScrollPane theScroll = (JScrollPane) (e.getSource());
                 theScroll.getVerticalScrollBar().setForeground(new Color(36, 72, 38));
-                System.out.printf("entered!");
             }
 
             @Override
@@ -600,6 +515,7 @@ public class CustomerMainFrame extends JFrame {
                 time = timeFormat_local.format(Calendar.getInstance().getTime());
                 timeLabel_local.setText(time);
                 JLabel statusLabel = (JLabel) statusPanel.getComponent(0);
+                System.out.println(time);
 //                if(Calendar.getInstance().getTime().getDay()==6){
                 if (Calendar.getInstance().getTime().getSeconds() % 2 == 0) {
                     statusPanel.setToolTipText("已打烊");
@@ -610,7 +526,6 @@ public class CustomerMainFrame extends JFrame {
                     statusLabel.setIcon(new ImageIcon("image/open.png"));
                     statusPanel.setBackground(new Color(18, 44, 18));
                 }
-                System.out.println(time);
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
