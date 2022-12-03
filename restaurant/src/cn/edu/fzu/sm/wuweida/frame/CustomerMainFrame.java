@@ -37,17 +37,17 @@ public class CustomerMainFrame extends JFrame {
         contentPanel.addMouseListener(moveListener);
         contentPanel.addMouseMotionListener(moveListener);
 
-        JPanel westPanel = new JPanel(){
+        JPanel westPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.setColor(new Color(37, 37, 37));
-                g.drawLine(20,190,205,190);
+                g.drawLine(20, 190, 205, 190);
             }
         };
-        westPanel.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
-        westPanel.setBounds(0, 45, 225, 675-20-10-10);
-        westPanel.setBorder(new MatteBorder(1,0,0,1,new Color(4,15,16)));
+        westPanel.setLayout(new FlowLayout(FlowLayout.LEADING, 0, 0));
+        westPanel.setBounds(0, 45, 225, 675 - 20 - 10 - 10);
+        westPanel.setBorder(new MatteBorder(1, 0, 0, 1, new Color(4, 15, 16)));
         westPanel.setBackground(new Color(4, 15, 16));
         contentPanel.add(westPanel);
 
@@ -57,7 +57,7 @@ public class CustomerMainFrame extends JFrame {
         JLabel popLabel = new JLabel("热销品");
 //        popLabel.setBounds(0, 450, 200, 100);
 //        popLabel.setSize(225,100);
-        popLabel.setPreferredSize(new Dimension(225,50));
+        popLabel.setPreferredSize(new Dimension(225, 50));
         popLabel.setHorizontalAlignment(SwingConstants.CENTER);
         popLabel.setBackground(new Color(4, 15, 16));
         popLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
@@ -85,7 +85,7 @@ public class CustomerMainFrame extends JFrame {
         JLabel cantoneseLabel = new JLabel("粤菜");
 //        cantoneseLabel.setBounds(0, 550, 200, 50);
 //        cantoneseLabel.setSize(200,50);
-        cantoneseLabel.setPreferredSize(new Dimension(225,45));
+        cantoneseLabel.setPreferredSize(new Dimension(225, 45));
         cantoneseLabel.setBackground(new Color(4, 15, 16));
         cantoneseLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         cantoneseLabel.setForeground(Color.GRAY);
@@ -114,7 +114,7 @@ public class CustomerMainFrame extends JFrame {
         JLabel xiangLabel = new JLabel("湘菜");
 //        xiangLabel.setBounds(0, 600, 200, 50);
 //        xiangLabel.setSize(200,50);
-        xiangLabel.setPreferredSize(new Dimension(225,45));
+        xiangLabel.setPreferredSize(new Dimension(225, 45));
         xiangLabel.setBackground(new Color(4, 15, 16));
         xiangLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         xiangLabel.setForeground(Color.GRAY);
@@ -143,7 +143,7 @@ public class CustomerMainFrame extends JFrame {
         JLabel dessertLabel = new JLabel("甜品");
 //        dessertLabel.setBounds(0, 650, 200, 50);
 //        dessertLabel.setSize(200,50);
-        dessertLabel.setPreferredSize(new Dimension(225,45));
+        dessertLabel.setPreferredSize(new Dimension(225, 45));
         dessertLabel.setBackground(new Color(4, 15, 16));
         dessertLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         dessertLabel.setForeground(Color.GRAY);
@@ -209,12 +209,10 @@ public class CustomerMainFrame extends JFrame {
         });
 
 
-
-
         JLabel cartLabel = new JLabel("购物车");
 //        cartLabel.setBounds(0, 700, 200, 50);
 //        cartLabel.setBackground(new Color(4, 15, 16));
-        cartLabel.setPreferredSize(new Dimension(225,50));
+        cartLabel.setPreferredSize(new Dimension(225, 50));
         cartLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         cartLabel.setForeground(Color.GRAY);
 //        cartLabel.setOpaque(true);
@@ -242,7 +240,7 @@ public class CustomerMainFrame extends JFrame {
 
         JLabel quitLabel = new JLabel("退出");
 //        quitLabel.setBounds(0, 750, 100, 50);
-        quitLabel.setPreferredSize(new Dimension(225,45));
+        quitLabel.setPreferredSize(new Dimension(225, 45));
         quitLabel.setHorizontalAlignment(SwingConstants.CENTER);
         quitLabel.setBackground(new Color(71, 72, 71));
         quitLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
@@ -279,7 +277,7 @@ public class CustomerMainFrame extends JFrame {
 
         JLabel confirmLabel = new JLabel("确定\n订单");
 //        confirmLabel.setBounds(100, 750, 100, 50);
-        confirmLabel.setPreferredSize(new Dimension(225,45));
+        confirmLabel.setPreferredSize(new Dimension(225, 45));
         confirmLabel.setBackground(new Color(16, 36, 57));
         confirmLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         confirmLabel.setForeground(Color.GRAY);
@@ -306,44 +304,43 @@ public class CustomerMainFrame extends JFrame {
         westPanel.add(confirmLabel);
 
 
-        JPanel statusPanel=new JPanel();
-        statusPanel.setBounds(0,720-20-10-10,225,20+10+10);
+        JPanel statusPanel = new JPanel();
+        statusPanel.setBounds(0, 720 - 20 - 10 - 10, 225, 20 + 10 + 10);
         statusPanel.setBackground(new Color(18, 44, 18));
-        JLabel statusLabel=new JLabel();
+        JLabel statusLabel = new JLabel();
         statusLabel.setIcon(new ImageIcon("image/open.png"));
-        statusLabel.setBounds(200,0,25,25);
+        statusLabel.setBounds(200, 0, 25, 25);
         statusPanel.add(statusLabel);
-
+        statusPanel.setToolTipText("正在营业");
         contentPanel.add(statusPanel);
-
 
 
         JLabel logoLabel = new JLabel(new ImageIcon("image/minilogo.png"));
         logoLabel.setBounds(5, 7, 30, 30);
 
-        JLabel nameLabel=new JLabel("粤湘之家");
-        nameLabel.setBounds(45,0,80,44);
+        JLabel nameLabel = new JLabel("粤湘之家");
+        nameLabel.setBounds(45, 0, 80, 44);
         nameLabel.setForeground(Color.WHITE);
-        nameLabel.setFont(new Font("微软雅黑",Font.BOLD,15));
+        nameLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
 
         timeFormat = new SimpleDateFormat("hh:mm:ss a");
         timeLabel = new JLabel();
         timeLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         timeLabel.setForeground(new Color(157, 157, 157));
-        timeLabel.setBounds(1270/2-100, 0, 200, 45);
+        timeLabel.setBounds(1270 / 2 - 100, 0, 200, 45);
         //报时线程
-        MyThreadRunnable target = new MyThreadRunnable(timeFormat, timeLabel);
+        MyThreadRunnable target = new MyThreadRunnable(timeFormat, timeLabel, statusPanel);
         Thread setTimeThread = new Thread(target);
         setTimeThread.start();
 
-        JLabel cancelLabel=new JLabel("╳");
+        JLabel cancelLabel = new JLabel("╳");
         cancelLabel.setHorizontalAlignment(SwingConstants.CENTER);
         cancelLabel.setVerticalAlignment(SwingConstants.CENTER);
         cancelLabel.setForeground(Color.GRAY);
-        cancelLabel.setBounds(1270-50,8,50,45-5-10-1);
+        cancelLabel.setBounds(1270 - 50, 8, 50, 45 - 5 - 10 - 1);
         cancelLabel.setOpaque(true);
-        cancelLabel.setBackground(new Color(20,28,34));
+        cancelLabel.setBackground(new Color(20, 28, 34));
         cancelLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -355,14 +352,14 @@ public class CustomerMainFrame extends JFrame {
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-                cancelLabel.setBackground(new Color(133, 37,0));
+                cancelLabel.setBackground(new Color(133, 37, 0));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                cancelLabel.setBackground(new Color(20, 28,34));
+                cancelLabel.setBackground(new Color(20, 28, 34));
             }
         });
 
@@ -371,7 +368,7 @@ public class CustomerMainFrame extends JFrame {
 //        northPanel.setLayout(new BorderLayout());
         northPanel.setLayout(null);
         northPanel.setBounds(0, 0, 1270, 45);
-        northPanel.setBorder(new MatteBorder(0,0,1,0,Color.GRAY));
+        northPanel.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
         northPanel.setBackground(new Color(20, 28, 34));
         northPanel.add(logoLabel);
         northPanel.add(nameLabel);
@@ -430,10 +427,10 @@ public class CustomerMainFrame extends JFrame {
 
 
         JPanel panelUnderScroll = new JPanel();
-        panelUnderScroll.setBounds(225, 40, 1045, 720-45+5+1);
+        panelUnderScroll.setBounds(225, 40, 1045, 720 - 45 + 5 + 1);
 
         JPanel contentPanelForScroll = new JPanel();
-        contentPanelForScroll.setPreferredSize(new Dimension(1045, 720-45+500));
+        contentPanelForScroll.setPreferredSize(new Dimension(1045, 720 - 45 + 500));
         contentPanelForScroll.setBackground(new Color(26, 36, 43));
         contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING, 10, 10));
         int foodCount = foodList.size();
@@ -480,12 +477,12 @@ public class CustomerMainFrame extends JFrame {
             contentPanelForScroll.add(foodPanel);
         }
 
-        JScrollPane scrollPanel= new JScrollPane(contentPanelForScroll);
-        ScrollBarCustom scrollBarCustom=new ScrollBarCustom();
+        JScrollPane scrollPanel = new JScrollPane(contentPanelForScroll);
+        ScrollBarCustom scrollBarCustom = new ScrollBarCustom();
         scrollBarCustom.setOrientation(Adjustable.VERTICAL);
         scrollPanel.setVerticalScrollBar(scrollBarCustom);
-        scrollPanel.setPreferredSize(new Dimension(1045, 720-45+5+1));
-        scrollPanel.setBounds(0, 0, 1045, 720-45+5+1);
+        scrollPanel.setPreferredSize(new Dimension(1045, 720 - 45 + 5 + 1));
+        scrollPanel.setBounds(0, 0, 1045, 720 - 45 + 5 + 1);
         scrollPanel.setBackground(new Color(26, 36, 43));
         scrollPanel.getHorizontalScrollBar().setOpaque(false);
         scrollPanel.setBorder(null);
@@ -554,10 +551,12 @@ public class CustomerMainFrame extends JFrame {
     class MyThreadRunnable implements Runnable {
         private SimpleDateFormat timeFormat_local;
         private JLabel timeLabel_local;
+        private JPanel statusPanel;
 
-        public MyThreadRunnable(SimpleDateFormat timeFormat, JLabel timeLabel) {
+        public MyThreadRunnable(SimpleDateFormat timeFormat, JLabel timeLabel, JPanel statusPanel) {
             timeFormat_local = timeFormat;
             timeLabel_local = timeLabel;
+            this.statusPanel = statusPanel;
         }
 
         @Override
@@ -566,6 +565,17 @@ public class CustomerMainFrame extends JFrame {
                 String time;
                 time = timeFormat_local.format(Calendar.getInstance().getTime());
                 timeLabel_local.setText(time);
+                JLabel statusLabel = (JLabel) statusPanel.getComponent(0);
+//                if(Calendar.getInstance().getTime().getDay()==6){
+                if (Calendar.getInstance().getTime().getSeconds() %2 ==0) {
+                    statusPanel.setToolTipText("已打烊");
+                    statusLabel.setIcon(new ImageIcon("image/closed.png"));
+                    statusPanel.setBackground(new Color(101, 39,0));
+                } else {
+                    statusPanel.setToolTipText("营业中");
+                    statusLabel.setIcon(new ImageIcon("image/open.png"));
+                    statusPanel.setBackground(new Color(18, 44, 18));
+                }
                 System.out.println(time);
                 try {
                     Thread.sleep(1000);
