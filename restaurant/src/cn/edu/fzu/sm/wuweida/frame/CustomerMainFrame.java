@@ -173,9 +173,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mousePressed(e);
                 foodList = jdbcImpl.getFoodList("粤菜");
                 contentPanel.remove(3);
-                System.out.println("粤菜");
                 scrollPanelProcess();
-                System.out.println("fuck");
             }
         });
         xiangLabel.addMouseListener(new MouseAdapter() {
@@ -347,7 +345,7 @@ public class CustomerMainFrame extends JFrame {
         JPanel contentPanelForScroll = new JPanel();
         contentPanelForScroll.setPreferredSize(new Dimension(1045, 720 - 45 + 500));
         contentPanelForScroll.setBackground(new Color(26, 36, 43));
-        contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING));
+        contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
         int foodCount = foodList.size();
         for (int i = 0; i < foodCount; i++) {
 
@@ -363,7 +361,7 @@ public class CustomerMainFrame extends JFrame {
             JLabel imageLabel = new JLabel();
             imageLabel.setIcon(imageIcon);
             imageLabel.setOpaque(true);
-            imageLabel.setBounds(40, 25/2, 100, 75);
+            imageLabel.setBounds(120, 25/2, 100, 75);
             foodPanel.add(imageLabel);
 
             //菜式名称
@@ -371,15 +369,15 @@ public class CustomerMainFrame extends JFrame {
             nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
             nameLabel.setFont(new Font("楷体", Font.PLAIN, 20));
             nameLabel.setForeground(Color.LIGHT_GRAY);
-            nameLabel.setBounds(160, 0, 90, 100);
+            nameLabel.setBounds(300, 0, 90, 100);
             foodPanel.add(nameLabel);
 
             //菜式价格
-            JLabel priceLabel = new JLabel(foodList.get(i).getFoodPrice() + "");
+            JLabel priceLabel = new JLabel(foodList.get(i).getFoodPrice() + "人民币");
             priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            priceLabel.setFont(new Font("楷体", Font.PLAIN, 20));
+            priceLabel.setFont(new Font("楷体", Font.PLAIN, 15));
             priceLabel.setForeground(Color.LIGHT_GRAY);
-            priceLabel.setBounds(250, 0, 90, 100);
+            priceLabel.setBounds(500, 0, 90, 100);
             foodPanel.add(priceLabel);
 
 
@@ -388,7 +386,7 @@ public class CustomerMainFrame extends JFrame {
             SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
             spinnerNumberModel.setMinimum(0);
             spinner.setModel(spinnerNumberModel);
-            spinner.setBounds(300, 0, 100, 100);
+            spinner.setBounds(225+400+100+100, 25, 100, 50);
             spinner.setLabelText("数量");
             foodPanel.add(spinner);
             foodPanel.addMouseListener(new MouseAdapter() {
@@ -438,6 +436,7 @@ public class CustomerMainFrame extends JFrame {
                 theScroll.getVerticalScrollBar().setForeground(new Color(26,36,43));
             }
         });
+
 
         panelUnderScroll.add(scrollPanel);
         contentPanel.add(panelUnderScroll);
