@@ -46,7 +46,7 @@ public class CustomerMainFrame extends JFrame {
             }
         };
         westPanel.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
-        westPanel.setBounds(0, 45, 225, 675-20);
+        westPanel.setBounds(0, 45, 225, 675-20-10-10);
         westPanel.setBorder(new MatteBorder(1,0,0,1,new Color(4,15,16)));
         westPanel.setBackground(new Color(4, 15, 16));
         contentPanel.add(westPanel);
@@ -307,8 +307,13 @@ public class CustomerMainFrame extends JFrame {
 
 
         JPanel statusPanel=new JPanel();
-        statusPanel.setBounds(0,720-20,225,20);
-        statusPanel.setBackground(Color.BLUE);
+        statusPanel.setBounds(0,720-20-10-10,225,20+10+10);
+        statusPanel.setBackground(new Color(18, 44, 18));
+        JLabel statusLabel=new JLabel();
+        statusLabel.setIcon(new ImageIcon("image/open.png"));
+        statusLabel.setBounds(200,0,25,25);
+        statusPanel.add(statusLabel);
+
         contentPanel.add(statusPanel);
 
 
