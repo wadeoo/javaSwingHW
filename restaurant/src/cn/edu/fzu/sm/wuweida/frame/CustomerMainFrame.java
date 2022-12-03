@@ -226,11 +226,7 @@ public class CustomerMainFrame extends JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-                JDialog cartDialog=new JDialog();
-                cartDialog.setSize(300,600);
-                cartDialog.setLocationRelativeTo(null);
-                cartDialog.setUndecorated(true);
-                cartDialog.setVisible(true);
+                CartDialog cartDialog=new CartDialog(chosenFoodList);
             }
         });
         westPanel.add(cartLabel);
@@ -299,14 +295,14 @@ public class CustomerMainFrame extends JFrame {
         setTimeThread.start();
 
         //右上角退出键
-        JLabel cancelLabel = new JLabel("╳");
-        cancelLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        cancelLabel.setVerticalAlignment(SwingConstants.CENTER);
-        cancelLabel.setForeground(Color.GRAY);
-        cancelLabel.setBounds(1270 - 50, 8, 50, 45 - 5 - 10 - 1);
-        cancelLabel.setOpaque(true);
-        cancelLabel.setBackground(new Color(20, 28, 34));
-        cancelLabel.addMouseListener(new MouseAdapter() {
+        JLabel closeLabel = new JLabel("╳");
+        closeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        closeLabel.setVerticalAlignment(SwingConstants.CENTER);
+        closeLabel.setForeground(Color.GRAY);
+        closeLabel.setBounds(1270 - 50, 8, 50, 45 - 5 - 10 - 1);
+        closeLabel.setOpaque(true);
+        closeLabel.setBackground(new Color(20, 28, 34));
+        closeLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
@@ -317,14 +313,14 @@ public class CustomerMainFrame extends JFrame {
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
-                cancelLabel.setBackground(new Color(133, 37, 0));
+                closeLabel.setBackground(new Color(133, 37, 0));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
-                cancelLabel.setBackground(new Color(20, 28, 34));
+                closeLabel.setBackground(new Color(20, 28, 34));
             }
         });
 
@@ -340,7 +336,7 @@ public class CustomerMainFrame extends JFrame {
         northPanel.add(logoLabel);
         northPanel.add(nameLabel);
         northPanel.add(timeLabel);
-        northPanel.add(cancelLabel);
+        northPanel.add(closeLabel);
         contentPanel.add(northPanel);
 
 
