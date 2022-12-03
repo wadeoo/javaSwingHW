@@ -1,6 +1,7 @@
 package cn.edu.fzu.sm.wuweida.frame;
 
 import cn.edu.fzu.sm.wuweida.bean.Food;
+import cn.edu.fzu.sm.wuweida.bean.Order;
 import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
 import cn.edu.fzu.sm.wuweida.util.ModernScrollBarUI;
 import cn.edu.fzu.sm.wuweida.util.Spinner;
@@ -18,7 +19,8 @@ public class CustomerMainFrame extends JFrame {
     private JLabel timeLabel;
     private SimpleDateFormat timeFormat;
     private JdbcImpl jdbcImpl = new JdbcImpl();
-    private List<Food> foodList = new ArrayList<>();
+    private List<Food> foodList;
+    private List<Order> orderList;
     private JPanel contentPanel;
 
     public CustomerMainFrame() throws HeadlessException {
@@ -356,6 +358,13 @@ public class CustomerMainFrame extends JFrame {
             foodPanel.setBorder(new MatteBorder(0,0,1,0,new Color(134, 134, 134)));
             foodPanel.setLayout(null);
 
+
+            //序号
+            JLabel numberLabel=new JLabel(i+1+".");
+            numberLabel.setForeground(Color.LIGHT_GRAY);
+            numberLabel.setBounds(40,0,40,100);
+            foodPanel.add(numberLabel);
+
             //菜式图片
             ImageIcon imageIcon = new ImageIcon("dishImg/" + foodList.get(i).getFoodName() + ".jpg");
             JLabel imageLabel = new JLabel();
@@ -383,11 +392,10 @@ public class CustomerMainFrame extends JFrame {
 
             //数量选择器
             Spinner spinner = new Spinner();
-            SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
-            spinnerNumberModel.setMinimum(0);
-            spinner.setModel(spinnerNumberModel);
-            spinner.setBounds(225+400+100+100, 25, 100, 50);
-            spinner.setLabelText("数量");
+            spinner.setValue(0);
+            System.out.println(spinner.getValue());
+            spinner.setBounds(225+400+100+100+50, 25, 60, 50);
+            spinner.setLabelText("数量:");
             foodPanel.add(spinner);
             foodPanel.addMouseListener(new MouseAdapter() {
                 @Override
@@ -445,41 +453,27 @@ public class CustomerMainFrame extends JFrame {
     }
 
     // 为了实现窗口拖拽
-    class MoveListener implements MouseListener, MouseMotionListener {
-
+    class  MoveListener extends MouseAdapter{
         private Point pressedPoint;
         private Rectangle frameBounds;
 
         @Override
-        public void mouseClicked(MouseEvent event) {
-        }
-
-        @Override
-        public void mousePressed(MouseEvent event) {
+        public void mousePressed(MouseEvent e) {
+            super.mousePressed(e);
             this.frameBounds = CustomerMainFrame.this.getBounds();
-            this.pressedPoint = event.getPoint();
+            this.pressedPoint =e.getPoint();
         }
 
         @Override
-        public void mouseReleased(MouseEvent event) {
-            moveJFrame(event);
+        public void mouseReleased(MouseEvent e) {
+            super.mouseReleased(e);
+            moveJFrame(e);
         }
 
         @Override
-        public void mouseEntered(MouseEvent event) {
-        }
-
-        @Override
-        public void mouseExited(MouseEvent event) {
-        }
-
-        @Override
-        public void mouseDragged(MouseEvent event) {
-            moveJFrame(event);
-        }
-
-        @Override
-        public void mouseMoved(MouseEvent event) {
+        public void mouseDragged(MouseEvent e) {
+            super.mouseDragged(e);
+            moveJFrame(e);
         }
 
         private void moveJFrame(MouseEvent event) {
@@ -491,7 +485,6 @@ public class CustomerMainFrame extends JFrame {
             frameBounds.y += yDiff;
             CustomerMainFrame.this.setBounds(frameBounds);
         }
-
     }
 
 
@@ -515,7 +508,7 @@ public class CustomerMainFrame extends JFrame {
                 timeLabel_local.setText(time);
                 JLabel statusLabel = (JLabel) statusPanel.getComponent(0);
                 System.out.println(time);
-//                if(Calendar.getInstance().getTime().getDay()==6){
+//                if(Calendar.getInstance().getTime().getDay()==6){//周六放假
                 if (Calendar.getInstance().getTime().getSeconds() % 2 == 0) {
                     statusPanel.setToolTipText("已打烊");
                     statusLabel.setIcon(new ImageIcon("image/closed.png"));

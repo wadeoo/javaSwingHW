@@ -3,7 +3,6 @@ package cn.edu.fzu.sm.wuweida.util;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.Blob;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JSpinner;
@@ -24,7 +23,7 @@ public class SpinnerUI extends BasicSpinnerUI {
     protected Component createNextButton() {
         ArrowButton cmd = new ArrowButton(true);
         cmd.setPreferredSize(new Dimension(25,50));
-        cmd.setBackground(new Color(0, 27, 54));
+        cmd.setBackground(new Color(255, 255, 255));
         installNextButtonListeners(cmd);
         return cmd;
     }
@@ -33,7 +32,7 @@ public class SpinnerUI extends BasicSpinnerUI {
     protected Component createPreviousButton() {
         ArrowButton cmd = new ArrowButton(false);
         cmd.setPreferredSize(new Dimension(25,50));
-        cmd.setBackground(new Color(0, 27, 54));
+        cmd.setBackground(new Color(255, 255, 255));
         installPreviousButtonListeners(cmd);
         return cmd;
     }
@@ -64,7 +63,7 @@ public class SpinnerUI extends BasicSpinnerUI {
             setFocusable(false);
             setBorder(new EmptyBorder(5, 7, 5, 7));
             setBackground(new Color(231, 231, 231));
-            setForeground(new Color(150, 150, 150));
+            setForeground(new Color(180, 180, 180));
             addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent me) {

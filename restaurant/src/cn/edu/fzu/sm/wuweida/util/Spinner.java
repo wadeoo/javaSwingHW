@@ -1,9 +1,7 @@
 package cn.edu.fzu.sm.wuweida.util;
 
 import javax.swing.*;
-import java.awt.*;
 
-import static javax.swing.SwingConstants.CENTER;
 
 public class Spinner extends JSpinner {
 
@@ -18,8 +16,7 @@ public class Spinner extends JSpinner {
     }
 
     public Spinner() {
-//        setOpaque(false);
-        setOpaque(true);
         setUI(new SpinnerUI());
+        setBorder(null);
     }
 }
