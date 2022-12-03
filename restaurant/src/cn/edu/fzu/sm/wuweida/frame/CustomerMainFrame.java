@@ -2,6 +2,7 @@ package cn.edu.fzu.sm.wuweida.frame;
 
 import cn.edu.fzu.sm.wuweida.bean.Food;
 import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
+import cn.edu.fzu.sm.wuweida.util.ModernScrollBarUI;
 import cn.edu.fzu.sm.wuweida.util.ScrollBarCustom;
 import cn.edu.fzu.sm.wuweida.util.Spinner;
 
@@ -368,7 +369,7 @@ public class CustomerMainFrame extends JFrame {
 //        northPanel.setLayout(new BorderLayout());
         northPanel.setLayout(null);
         northPanel.setBounds(0, 0, 1270, 45);
-        northPanel.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
+        northPanel.setBorder(new MatteBorder(0, 0, 1, 0, new Color(39, 39, 39)));
         northPanel.setBackground(new Color(20, 28, 34));
         northPanel.add(logoLabel);
         northPanel.add(nameLabel);
@@ -432,13 +433,14 @@ public class CustomerMainFrame extends JFrame {
         JPanel contentPanelForScroll = new JPanel();
         contentPanelForScroll.setPreferredSize(new Dimension(1045, 720 - 45 + 500));
         contentPanelForScroll.setBackground(new Color(26, 36, 43));
-        contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING, 10, 10));
+        contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING, 0, 0));
         int foodCount = foodList.size();
         for (int i = 0; i < foodCount; i++) {
             JPanel foodPanel = new JPanel();
-            foodPanel.setPreferredSize(new Dimension(479, 100));
+            foodPanel.setPreferredSize(new Dimension(1270-225, 100));
 //            foodPanel.setBackground((i % 2 == 0) ? new Color(38, 48, 56) : new Color(30, 42, 43));
             foodPanel.setBackground(new Color(26, 36, 43));
+            foodPanel.setBorder(new MatteBorder(0,0,1,0,new Color(134, 134, 134)));
             foodPanel.setLayout(null);
 
             //图片
@@ -474,21 +476,53 @@ public class CustomerMainFrame extends JFrame {
             spinner.setBounds(300, 0, 100, 100);
             spinner.setLabelText("数量");
             foodPanel.add(spinner);
+            foodPanel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    super.mouseEntered(e);
+                    foodPanel.setBackground(new Color(39, 53, 64));
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    super.mouseExited(e);
+                    foodPanel.setBackground(new Color(26, 36, 43));
+                }
+            });
             contentPanelForScroll.add(foodPanel);
         }
 
         JScrollPane scrollPanel = new JScrollPane(contentPanelForScroll);
-        ScrollBarCustom scrollBarCustom = new ScrollBarCustom();
-        scrollBarCustom.setOrientation(Adjustable.VERTICAL);
-        scrollPanel.setVerticalScrollBar(scrollBarCustom);
+        JScrollBar customScrollBar=new JScrollBar();
+        customScrollBar.setUI(new ModernScrollBarUI());
+        customScrollBar.setPreferredSize(new Dimension(8,8));
+        customScrollBar.setForeground(new Color(26, 36, 43));
+        customScrollBar.setBackground(new Color(14, 25, 32));
+        customScrollBar.setOrientation(Adjustable.VERTICAL);
+        scrollPanel.setVerticalScrollBar(customScrollBar);
         scrollPanel.setPreferredSize(new Dimension(1045, 720 - 45 + 5 + 1));
         scrollPanel.setBounds(0, 0, 1045, 720 - 45 + 5 + 1);
         scrollPanel.setBackground(new Color(26, 36, 43));
         scrollPanel.getHorizontalScrollBar().setOpaque(false);
         scrollPanel.setBorder(null);
-//        scrollPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-//        scrollPanel.remove(scrollPanel.getVerticalScrollBar());
         scrollPanel.remove(scrollPanel.getHorizontalScrollBar());
+
+        scrollPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                JScrollPane theScroll = (JScrollPane) (e.getSource());
+                theScroll.getVerticalScrollBar().setForeground(new Color(36, 72, 38));
+                System.out.printf("entered!");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                JScrollPane theScroll = (JScrollPane) (e.getSource());
+                theScroll.getVerticalScrollBar().setForeground(new Color(26,36,43));
+            }
+        });
 
         panelUnderScroll.add(scrollPanel);
         contentPanel.add(panelUnderScroll);
@@ -567,10 +601,10 @@ public class CustomerMainFrame extends JFrame {
                 timeLabel_local.setText(time);
                 JLabel statusLabel = (JLabel) statusPanel.getComponent(0);
 //                if(Calendar.getInstance().getTime().getDay()==6){
-                if (Calendar.getInstance().getTime().getSeconds() %2 ==0) {
+                if (Calendar.getInstance().getTime().getSeconds() % 2 == 0) {
                     statusPanel.setToolTipText("已打烊");
                     statusLabel.setIcon(new ImageIcon("image/closed.png"));
-                    statusPanel.setBackground(new Color(101, 39,0));
+                    statusPanel.setBackground(new Color(101, 39, 0));
                 } else {
                     statusPanel.setToolTipText("营业中");
                     statusLabel.setIcon(new ImageIcon("image/open.png"));
