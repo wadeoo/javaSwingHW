@@ -30,7 +30,7 @@ public class CustomerLoginFrame extends JFrame {
 
         JPanel contentPanel=(JPanel) this.getContentPane();
         contentPanel.setBounds(0,0,300,450);
-        contentPanel.setBackground(new Color(20, 26, 47));
+        contentPanel.setBackground(new Color(4, 15, 16));
 
 
         //幻灯片放映
@@ -221,7 +221,7 @@ public class CustomerLoginFrame extends JFrame {
         okLabel.setFont(new Font("微软雅黑",Font.PLAIN,10));
 //        okLabel.setBounds(0,250,225,50);
         okLabel.setBounds(75,275,150,25);
-        okLabel.setBackground(new Color(0, 65, 87));
+        okLabel.setBackground(new Color(10, 39, 41));
         okLabel.setBorder(null);
         okLabel.setOpaque(true);
         okLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -232,7 +232,7 @@ public class CustomerLoginFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerLoginFrame.this.setCursor(Cursor.HAND_CURSOR);
                 okLabel.setForeground(Color.WHITE);
-                okLabel.setBackground(new Color(0, 66, 70));
+                okLabel.setBackground(new Color(8, 23, 25));
                 okLabel.setFont(new Font("微软雅黑",Font.BOLD,10));
             }
 
@@ -241,7 +241,7 @@ public class CustomerLoginFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerLoginFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 okLabel.setForeground(Color.LIGHT_GRAY);
-                okLabel.setBackground(new Color(0, 65, 87));
+                okLabel.setBackground(new Color(10, 39, 41));
                 okLabel.setFont(new Font("微软雅黑",Font.PLAIN,10));
             }
 
@@ -276,7 +276,7 @@ public class CustomerLoginFrame extends JFrame {
         cancelLabel.setFont(new Font("微软雅黑",Font.PLAIN,10));
 //        cancelLabel.setBounds(225,250,225,50);
         cancelLabel.setBounds(75,320,150,25);
-        cancelLabel.setBackground(new Color(4, 44, 80));
+        cancelLabel.setBackground(new Color(29, 40, 39));
         cancelLabel.setBorder(null);
         cancelLabel.setHorizontalAlignment(SwingConstants.CENTER);
         cancelLabel.setOpaque(true);
@@ -287,7 +287,7 @@ public class CustomerLoginFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerLoginFrame.this.setCursor(Cursor.HAND_CURSOR);
                 cancelLabel.setForeground(Color.WHITE);
-                cancelLabel.setBackground(new Color(0, 35, 78));
+                cancelLabel.setBackground(new Color(15, 29, 30));
                 cancelLabel.setFont(new Font("微软雅黑",Font.BOLD,10));
             }
 
@@ -296,7 +296,7 @@ public class CustomerLoginFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerLoginFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 cancelLabel.setForeground(Color.LIGHT_GRAY);
-                cancelLabel.setBackground(new Color(4, 44, 80));
+                cancelLabel.setBackground(new Color(29, 40, 39));
                 cancelLabel.setFont(new Font("微软雅黑",Font.PLAIN,10));
             }
 

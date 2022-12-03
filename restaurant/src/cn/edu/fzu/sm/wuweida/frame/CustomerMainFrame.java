@@ -22,7 +22,7 @@ public class CustomerMainFrame extends JFrame {
 
     public CustomerMainFrame() throws HeadlessException {
         this.setUndecorated(true);
-        this.setSize(699, 799);
+        this.setSize(1270, 720);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
         this.setIconImage(new ImageIcon("image/logo.png").getImage());
@@ -39,7 +39,7 @@ public class CustomerMainFrame extends JFrame {
         JPanel westPanel = new JPanel();
         westPanel.setLayout(null);
         westPanel.setBounds(0, 0, 200, 800);
-        westPanel.setBackground(new Color(20, 26, 47));
+        westPanel.setBackground(new Color(4, 15, 16));
         contentPanel.add(westPanel);
 
 
@@ -47,8 +47,8 @@ public class CustomerMainFrame extends JFrame {
         timeLabel = new JLabel();
         timeLabel.setFont(new Font("微软雅黑", Font.BOLD, 20));
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        timeLabel.setForeground(new Color(9, 9, 20));
-        timeLabel.setBackground(new Color(24, 45, 70));
+        timeLabel.setForeground(new Color(157, 157, 157));
+        timeLabel.setBackground(new Color(4, 15, 16));
         timeLabel.setBounds(0, 200, 200, 100);
         timeLabel.setOpaque(true);
         //报时线程
@@ -60,7 +60,7 @@ public class CustomerMainFrame extends JFrame {
         JLabel popLabel = new JLabel("热销品");
         popLabel.setBounds(0, 450, 200, 100);
         popLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        popLabel.setBackground(new Color(80, 26, 0));
+        popLabel.setBackground(new Color(4, 15, 16));
         popLabel.setFont(new Font("宋体", Font.BOLD, 20));
         popLabel.setForeground(Color.LIGHT_GRAY);
         popLabel.setOpaque(true);
@@ -70,7 +70,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
                 popLabel.setForeground(Color.WHITE);
-                popLabel.setBackground(new Color(58, 23, 0));
+//                popLabel.setBackground(new Color(58, 23, 0));
                 popLabel.setFont(new Font("微软雅黑", Font.PLAIN, 20));
             }
 
@@ -79,7 +79,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 popLabel.setForeground(Color.LIGHT_GRAY);
-                popLabel.setBackground(new Color(80, 26, 0));
+//                popLabel.setBackground(new Color(80, 26, 0));
                 popLabel.setFont(new Font("微软雅黑", Font.BOLD, 20));
             }
         });
@@ -87,7 +87,7 @@ public class CustomerMainFrame extends JFrame {
 
         JLabel cantoneseLabel = new JLabel("粤菜");
         cantoneseLabel.setBounds(0, 550, 200, 50);
-        cantoneseLabel.setBackground(new Color(31, 59, 92));
+        cantoneseLabel.setBackground(new Color(4, 15, 16));
         cantoneseLabel.setFont(new Font("宋体", Font.BOLD, 20));
         cantoneseLabel.setForeground(Color.GRAY);
         cantoneseLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -99,7 +99,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
                 cantoneseLabel.setForeground(Color.WHITE);
-                cantoneseLabel.setBackground(new Color(30, 34, 66));
+//                cantoneseLabel.setBackground(new Color(12, 24, 12));
                 cantoneseLabel.setFont(new Font("微软雅黑", Font.PLAIN, 20));
             }
 
@@ -108,7 +108,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 cantoneseLabel.setForeground(Color.GRAY);
-                cantoneseLabel.setBackground(new Color(31, 59, 92));
+//                cantoneseLabel.setBackground(new Color(20, 47, 20));
                 cantoneseLabel.setFont(new Font("微软雅黑", Font.BOLD, 20));
             }
         });
@@ -116,7 +116,7 @@ public class CustomerMainFrame extends JFrame {
 
         JLabel xiangLabel = new JLabel("湘菜");
         xiangLabel.setBounds(0, 600, 200, 50);
-        xiangLabel.setBackground(new Color(31, 73, 92));
+        xiangLabel.setBackground(new Color(4, 15, 16));
         xiangLabel.setFont(new Font("宋体", Font.BOLD, 20));
         xiangLabel.setForeground(Color.GRAY);
         xiangLabel.setOpaque(true);
@@ -128,7 +128,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
                 xiangLabel.setForeground(Color.WHITE);
-                xiangLabel.setBackground(new Color(22, 46, 62));
+//                xiangLabel.setBackground(new Color(17, 34, 17));
                 xiangLabel.setFont(new Font("微软雅黑", Font.PLAIN, 20));
             }
 
@@ -137,7 +137,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 xiangLabel.setForeground(Color.GRAY);
-                xiangLabel.setBackground(new Color(31, 73, 92));
+//                xiangLabel.setBackground(new Color(20, 44, 20));
                 xiangLabel.setFont(new Font("微软雅黑", Font.BOLD, 20));
             }
         });
@@ -145,7 +145,7 @@ public class CustomerMainFrame extends JFrame {
 
         JLabel dessertLabel = new JLabel("甜品");
         dessertLabel.setBounds(0, 650, 200, 50);
-        dessertLabel.setBackground(new Color(31, 90, 92));
+        dessertLabel.setBackground(new Color(4, 15, 16));
         dessertLabel.setFont(new Font("宋体", Font.BOLD, 20));
         dessertLabel.setForeground(Color.GRAY);
         dessertLabel.setOpaque(true);
@@ -157,7 +157,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
                 dessertLabel.setForeground(Color.WHITE);
-                dessertLabel.setBackground(new Color(23, 54, 56));
+//                dessertLabel.setBackground(new Color(23, 54, 56));
                 dessertLabel.setFont(new Font("微软雅黑", Font.PLAIN, 20));
             }
 
@@ -166,7 +166,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 dessertLabel.setForeground(Color.GRAY);
-                dessertLabel.setBackground(new Color(31, 90, 92));
+//                dessertLabel.setBackground(new Color(31, 90, 92));
                 dessertLabel.setFont(new Font("微软雅黑", Font.BOLD, 20));
             }
         });
@@ -214,7 +214,7 @@ public class CustomerMainFrame extends JFrame {
 
         JLabel cartLabel = new JLabel("购物车");
         cartLabel.setBounds(0, 700, 200, 50);
-        cartLabel.setBackground(new Color(32, 45, 69));
+//        cartLabel.setBackground(new Color(4, 15, 16));
         cartLabel.setFont(new Font("宋体", Font.BOLD, 20));
         cartLabel.setForeground(Color.GRAY);
         cartLabel.setOpaque(true);
@@ -226,7 +226,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseEntered(e);
                 CustomerMainFrame.this.setCursor(Cursor.HAND_CURSOR);
                 cartLabel.setForeground(Color.WHITE);
-                cartLabel.setBackground(new Color(17, 27, 41));
+//                cartLabel.setBackground(new Color(17, 27, 41));
                 cartLabel.setFont(new Font("微软雅黑", Font.PLAIN, 20));
             }
 
@@ -235,7 +235,7 @@ public class CustomerMainFrame extends JFrame {
                 super.mouseExited(e);
                 CustomerMainFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
                 cartLabel.setForeground(Color.GRAY);
-                cartLabel.setBackground(new Color(32, 45, 69));
+//                cartLabel.setBackground(new Color(32, 45, 69));
                 cartLabel.setFont(new Font("微软雅黑", Font.BOLD, 20));
             }
         });
@@ -317,7 +317,8 @@ public class CustomerMainFrame extends JFrame {
 
         JPanel northPanel = new JPanel();
         northPanel.setLayout(null);
-        northPanel.setBounds(200, 0, 500, 100);
+//        northPanel.setBounds(200, 0, 500, 100);
+        
         northPanel.setBackground(new Color(20, 28, 34));
         contentPanel.add(northPanel);
 
@@ -385,7 +386,8 @@ public class CustomerMainFrame extends JFrame {
         for (int i = 0; i < foodCount; i++) {
             JPanel foodPanel = new JPanel();
             foodPanel.setPreferredSize(new Dimension(479, 100));
-            foodPanel.setBackground((i % 2 == 0) ? new Color(38, 48, 56) : new Color(30, 42, 43));
+//            foodPanel.setBackground((i % 2 == 0) ? new Color(38, 48, 56) : new Color(30, 42, 43));
+            foodPanel.setBackground(new Color(26, 36, 43));
             foodPanel.setLayout(null);
 
             //图片
