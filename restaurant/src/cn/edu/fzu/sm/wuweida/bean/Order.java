@@ -1,6 +1,6 @@
 package cn.edu.fzu.sm.wuweida.bean;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Order {
     private String username;

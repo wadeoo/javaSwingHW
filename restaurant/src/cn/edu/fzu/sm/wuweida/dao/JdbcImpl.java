@@ -2,6 +2,7 @@ package cn.edu.fzu.sm.wuweida.dao;
 
 import cn.edu.fzu.sm.wuweida.bean.CustomerUser;
 import cn.edu.fzu.sm.wuweida.bean.Food;
+import cn.edu.fzu.sm.wuweida.bean.Order;
 
 import java.io.*;
 import java.sql.*;
@@ -110,6 +111,40 @@ public class JdbcImpl implements JdbcConfig {
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
+        }
+    }
+
+    public int getFoodId(String foodName){
+        try{
+            preparedStatement=connection.prepareStatement("SELECT foodId FROM foodd WHERE foodName=?");
+            preparedStatement.setString(1,foodName);
+            resultSet=preparedStatement.executeQuery();
+            if (resultSet.next()){
+                return resultSet.getInt(1);
+            }else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public void addOrder(Order toBeAddedOrder){
+        try{
+            preparedStatement=connection.prepareStatement("INSERT INTO order (username, foodId, quantity, orderTime) VALUES (?,?,?,?)");
+            preparedStatement.setString(1,toBeAddedOrder.getUsername());
+            preparedStatement.setInt(2,toBeAddedOrder.getFoodId());
+            preparedStatement.setInt(3,toBeAddedOrder.getQuantity());
+            preparedStatement.setDate(4,toBeAddedOrder.getOrderTime());
+            int result=preparedStatement.executeUpdate();
+            if (result!=0){
+                System.out.println("订单添加成功");
+            }else {
+                System.out.println("订单添加失败");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

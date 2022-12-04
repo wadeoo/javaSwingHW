@@ -1,5 +1,6 @@
 package cn.edu.fzu.sm.wuweida.frame;
 
+import cn.edu.fzu.sm.wuweida.bean.Order;
 import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
 import cn.edu.fzu.sm.wuweida.util.ModernScrollBarUI;
 import cn.edu.fzu.sm.wuweida.util.Spinner;
@@ -11,6 +12,8 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import static java.awt.Cursor.*;
@@ -72,13 +75,11 @@ public class CartDialog extends JDialog {
 
         scrollPanelProcess(chosenFoodHashMap);
 
+        southPanelProcess(chosenFoodHashMap);
 
-        MoveListener moveListener=new MoveListener();
+        MoveListener moveListener = new MoveListener();
         this.addMouseListener(moveListener);
         this.addMouseMotionListener(moveListener);
-
-
-
 
 
         this.setVisible(true);
@@ -86,7 +87,7 @@ public class CartDialog extends JDialog {
 
 
     //滚动面板内容创建
-    private void scrollPanelProcess(HashMap<String,Integer> chosenFoodHashMap){
+    private void scrollPanelProcess(HashMap<String, Integer> chosenFoodHashMap) {
         //滚动面板
         JScrollPane scrollPanel = new JScrollPane();
         JScrollBar customScrollBar = new JScrollBar();
@@ -224,6 +225,66 @@ public class CartDialog extends JDialog {
         }
         scrollPanel.setViewportView(contentPanelForScroll);
     }
+
+    private void southPanelProcess(HashMap<String,Integer> chosenFoodHashMap) {
+        JPanel southPanel = new JPanel();
+        southPanel.setBounds(0, 450, 300, 150);
+        southPanel.setBackground(new Color(20, 30, 34));
+
+        double total = 0;
+        for (String key:chosenFoodHashMap.keySet()){
+            total+=jdbcImpl.getFoodPrice(key);
+        }
+
+        //总价标签
+        JLabel totalLabel=new JLabel("总价: "+total);
+        totalLabel.setFont(new Font("宋体",Font.PLAIN,20));
+        totalLabel.setBounds(0,0,200,150);
+        totalLabel.setBackground(new Color(14, 21, 24));
+        totalLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        southPanel.add(totalLabel);
+
+        //订单确认标签
+        JLabel confirmLabel=new JLabel("确认订单");
+        confirmLabel.setFont(new Font("宋体",Font.PLAIN,20));
+        confirmLabel.setBounds(200,0,100,150);
+        confirmLabel.setBackground(new Color(14, 21, 24));
+        confirmLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        southPanel.add(confirmLabel);
+        confirmLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                //订单确认处理
+                for (String key:chosenFoodHashMap.keySet()){
+                    Order newOrder=new Order();
+                    newOrder.setFoodId(jdbcImpl.getFoodId(key));
+                    newOrder.setOrderTime((Date) Calendar.getInstance().getTime());
+                    newOrder.setQuantity(chosenFoodHashMap.get(key));
+                    newOrder.setUsername();
+                }
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                confirmLabel.setBackground(new Color(26, 40, 45));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                confirmLabel.setBackground(new Color(14, 21, 24));
+            }
+        });
+
+
+
+
+        this.add(southPanel);
+    }
+
 
     // 为了实现窗口拖拽
     class MoveListener extends MouseAdapter {
