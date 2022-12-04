@@ -268,7 +268,9 @@ public class CartDialog extends JDialog {
                         newOrder.setUsername(username);
                         jdbcImpl.addOrder(newOrder);
                         chosenFoodHashMap.clear();
-                        CartDialog.this.remove(2);
+
+                        JPanel contentPanelOfCartDialog=(JPanel) CartDialog.this.getContentPane();
+                        contentPanelOfCartDialog.remove(2);
                         scrollPanelProcess(chosenFoodHashMap);
                     }
                 }else{
