@@ -13,6 +13,8 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -233,7 +235,7 @@ public class CartDialog extends JDialog {
 
         double total = 0;
         for (String key : chosenFoodHashMap.keySet()) {
-            total += jdbcImpl.getFoodPrice(key)*chosenFoodHashMap.get(key);
+            total += jdbcImpl.getFoodPrice(key) * chosenFoodHashMap.get(key);
         }
 
         //总价标签
@@ -259,22 +261,27 @@ public class CartDialog extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 super.mousePressed(e);
                 //订单确认处理
+                SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
                 if (!chosenFoodHashMap.isEmpty()) {
                     for (String key : chosenFoodHashMap.keySet()) {
                         Order newOrder = new Order();
                         newOrder.setFoodId(jdbcImpl.getFoodId(key));
-                        newOrder.setOrderTime(new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+                        try {
+                            newOrder.setOrderTime(new java.sql.Date(timeFormat.parse(timeFormat.format(Calendar.getInstance().getTime())).getTime()));
+                        } catch (ParseException e1) {
+                            e1.printStackTrace();
+                        }
                         newOrder.setQuantity(chosenFoodHashMap.get(key));
                         newOrder.setUsername(username);
                         jdbcImpl.addOrder(newOrder);
                         chosenFoodHashMap.clear();
 
-                        JPanel contentPanelOfCartDialog=(JPanel) CartDialog.this.getContentPane();
+                        JPanel contentPanelOfCartDialog = (JPanel) CartDialog.this.getContentPane();
                         contentPanelOfCartDialog.remove(2);
                         scrollPanelProcess(chosenFoodHashMap);
                     }
-                }else{
-                    JOptionPane.showMessageDialog(CartDialog.this,"购物车为空",null,JOptionPane.WARNING_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(CartDialog.this, "购物车为空", null, JOptionPane.WARNING_MESSAGE);
                 }
 
             }
