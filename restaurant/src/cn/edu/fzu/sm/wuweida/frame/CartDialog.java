@@ -22,7 +22,7 @@ public class CartDialog extends JDialog {
 
     private JdbcImpl jdbcImpl = new JdbcImpl();
 
-    public CartDialog(HashMap<String, Integer> chosenFoodHashMap) {
+    public CartDialog(HashMap<String, Integer> chosenFoodHashMap, String username) {
         this.setAlwaysOnTop(true);
         this.setUndecorated(true);
         this.setSize(300, 600);
@@ -75,7 +75,7 @@ public class CartDialog extends JDialog {
 
         scrollPanelProcess(chosenFoodHashMap);
 
-        southPanelProcess(chosenFoodHashMap);
+        southPanelProcess(chosenFoodHashMap, username);
 
         MoveListener moveListener = new MoveListener();
         this.addMouseListener(moveListener);
@@ -226,42 +226,53 @@ public class CartDialog extends JDialog {
         scrollPanel.setViewportView(contentPanelForScroll);
     }
 
-    private void southPanelProcess(HashMap<String,Integer> chosenFoodHashMap) {
+    private void southPanelProcess(HashMap<String, Integer> chosenFoodHashMap, String username) {
         JPanel southPanel = new JPanel();
         southPanel.setBounds(0, 450, 300, 150);
         southPanel.setBackground(new Color(20, 30, 34));
 
         double total = 0;
-        for (String key:chosenFoodHashMap.keySet()){
-            total+=jdbcImpl.getFoodPrice(key);
+        for (String key : chosenFoodHashMap.keySet()) {
+            total += jdbcImpl.getFoodPrice(key)*chosenFoodHashMap.get(key);
         }
 
         //总价标签
-        JLabel totalLabel=new JLabel("总价: "+total);
-        totalLabel.setFont(new Font("宋体",Font.PLAIN,20));
-        totalLabel.setBounds(0,0,200,150);
+        JLabel totalLabel = new JLabel("总价: " + total);
+        totalLabel.setFont(new Font("宋体", Font.PLAIN, 20));
+        totalLabel.setBounds(0, 0, 200, 150);
         totalLabel.setBackground(new Color(14, 21, 24));
         totalLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        totalLabel.setVerticalAlignment(SwingConstants.CENTER);
+        totalLabel.setOpaque(true);
         southPanel.add(totalLabel);
 
         //订单确认标签
-        JLabel confirmLabel=new JLabel("确认订单");
-        confirmLabel.setFont(new Font("宋体",Font.PLAIN,20));
-        confirmLabel.setBounds(200,0,100,150);
+        JLabel confirmLabel = new JLabel("确认订单");
+        confirmLabel.setFont(new Font("宋体", Font.PLAIN, 20));
+        confirmLabel.setBounds(200, 0, 100, 150);
         confirmLabel.setBackground(new Color(14, 21, 24));
         confirmLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        confirmLabel.setOpaque(true);
         southPanel.add(confirmLabel);
         confirmLabel.addMouseListener(new MouseAdapter() {
             @Override
-            public void mousePressed(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) {
                 super.mousePressed(e);
                 //订单确认处理
-                for (String key:chosenFoodHashMap.keySet()){
-                    Order newOrder=new Order();
-                    newOrder.setFoodId(jdbcImpl.getFoodId(key));
-                    newOrder.setOrderTime((Date) Calendar.getInstance().getTime());
-                    newOrder.setQuantity(chosenFoodHashMap.get(key));
-                    newOrder.setUsername();
+                if (!chosenFoodHashMap.isEmpty()) {
+                    for (String key : chosenFoodHashMap.keySet()) {
+                        Order newOrder = new Order();
+                        newOrder.setFoodId(jdbcImpl.getFoodId(key));
+                        newOrder.setOrderTime(new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+                        newOrder.setQuantity(chosenFoodHashMap.get(key));
+                        newOrder.setUsername(username);
+                        jdbcImpl.addOrder(newOrder);
+                        chosenFoodHashMap.clear();
+                        CartDialog.this.remove(2);
+                        scrollPanelProcess(chosenFoodHashMap);
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(CartDialog.this,"购物车为空",null,JOptionPane.WARNING_MESSAGE);
                 }
 
             }
@@ -278,8 +289,6 @@ public class CartDialog extends JDialog {
                 confirmLabel.setBackground(new Color(14, 21, 24));
             }
         });
-
-
 
 
         this.add(southPanel);

@@ -12,6 +12,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -225,7 +226,7 @@ public class CustomerMainFrame extends JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-                CartDialog cartDialog = new CartDialog(chosenFoodList);
+                CartDialog cartDialog = new CartDialog(chosenFoodList, username);
             }
         });
         westPanel.add(cartLabel);
@@ -240,6 +241,29 @@ public class CustomerMainFrame extends JFrame {
         confirmLabel.setHorizontalAlignment(SwingConstants.CENTER);
         confirmLabel.setBorder(null);
         confirmLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mousePressed(e);
+                //订单确认处理
+                if (!chosenFoodList.isEmpty()) {
+                    for (String key : chosenFoodList.keySet()) {
+                        Order newOrder = new Order();
+                        newOrder.setFoodId(jdbcImpl.getFoodId(key));
+                        newOrder.setOrderTime((Date) Calendar.getInstance().getTime());
+                        newOrder.setQuantity(chosenFoodList.get(key));
+                        newOrder.setUsername(username);
+                        jdbcImpl.addOrder(newOrder);
+
+                        chosenFoodList.clear();
+                        contentPanel.remove(3);
+                        scrollPanelProcess();
+
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(CustomerMainFrame.this, "购物车为空", null, JOptionPane.WARNING_MESSAGE);
+                }
+            }
+
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);

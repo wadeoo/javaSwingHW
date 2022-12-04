@@ -116,7 +116,7 @@ public class JdbcImpl implements JdbcConfig {
 
     public int getFoodId(String foodName){
         try{
-            preparedStatement=connection.prepareStatement("SELECT foodId FROM foodd WHERE foodName=?");
+            preparedStatement=connection.prepareStatement("SELECT foodId FROM food WHERE foodName=?");
             preparedStatement.setString(1,foodName);
             resultSet=preparedStatement.executeQuery();
             if (resultSet.next()){
@@ -132,7 +132,7 @@ public class JdbcImpl implements JdbcConfig {
 
     public void addOrder(Order toBeAddedOrder){
         try{
-            preparedStatement=connection.prepareStatement("INSERT INTO order (username, foodId, quantity, orderTime) VALUES (?,?,?,?)");
+            preparedStatement=connection.prepareStatement("INSERT INTO foodOrder (username, foodId, quantity, orderTime) VALUES (?,?,?,?)");
             preparedStatement.setString(1,toBeAddedOrder.getUsername());
             preparedStatement.setInt(2,toBeAddedOrder.getFoodId());
             preparedStatement.setInt(3,toBeAddedOrder.getQuantity());
