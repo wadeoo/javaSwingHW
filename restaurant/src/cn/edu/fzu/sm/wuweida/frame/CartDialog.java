@@ -17,7 +17,7 @@ import static java.awt.Cursor.*;
 
 public class CartDialog extends JDialog {
 
-    private JdbcImpl jdbcImpl=new JdbcImpl();
+    private JdbcImpl jdbcImpl = new JdbcImpl();
 
     public CartDialog(HashMap<String, Integer> chosenFoodHashMap) {
         this.setAlwaysOnTop(true);
@@ -39,16 +39,16 @@ public class CartDialog extends JDialog {
         this.add(jLabel);
 
         //右上角退出键
-        JLabel closeLabel2 = new JLabel("╳");
-        closeLabel2.setHorizontalAlignment(SwingConstants.CENTER);
-        closeLabel2.setVerticalAlignment(SwingConstants.CENTER);
-        closeLabel2.setForeground(Color.GRAY);
-        closeLabel2.setBounds(250, 0, 50, 50);
-        closeLabel2.setOpaque(true);
-        closeLabel2.setBackground(new Color(20, 28, 33));
-        closeLabel2.addMouseListener(new MouseAdapter() {
+        JLabel closeLabel = new JLabel("╳");
+        closeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        closeLabel.setVerticalAlignment(SwingConstants.CENTER);
+        closeLabel.setForeground(Color.GRAY);
+        closeLabel.setBounds(250, 0, 50, 50);
+        closeLabel.setOpaque(true);
+        closeLabel.setBackground(new Color(20, 28, 33));
+        closeLabel.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
                 super.mouseClicked(e);
                 CartDialog.this.dispose();
             }
@@ -57,19 +57,36 @@ public class CartDialog extends JDialog {
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 CartDialog.this.setCursor(Cursor.getPredefinedCursor(HAND_CURSOR));
-                closeLabel2.setBackground(new Color(133, 37, 0));
+                closeLabel.setBackground(new Color(133, 37, 0));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 CartDialog.this.setCursor(Cursor.getPredefinedCursor(DEFAULT_CURSOR));
-                closeLabel2.setBackground(new Color(20, 28, 34));
+                closeLabel.setBackground(new Color(20, 28, 34));
             }
         });
-        this.add(closeLabel2);
+        this.add(closeLabel);
 
 
+        scrollPanelProcess(chosenFoodHashMap);
+
+
+        MoveListener moveListener=new MoveListener();
+        this.addMouseListener(moveListener);
+        this.addMouseMotionListener(moveListener);
+
+
+
+
+
+        this.setVisible(true);
+    }
+
+
+    //滚动面板内容创建
+    private void scrollPanelProcess(HashMap<String,Integer> chosenFoodHashMap){
         //滚动面板
         JScrollPane scrollPanel = new JScrollPane();
         JScrollBar customScrollBar = new JScrollBar();
@@ -91,7 +108,7 @@ public class CartDialog extends JDialog {
         //滚动面板的内容面板
         JPanel contentPanelForScroll = new JPanel();
         contentPanelForScroll.setPreferredSize(new Dimension(300, 400));
-        contentPanelForScroll.setBackground(new Color(26, 36, 43));
+        contentPanelForScroll.setBackground(new Color(20, 28, 33));
         contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING, 0, 0));
 
 
@@ -132,7 +149,7 @@ public class CartDialog extends JDialog {
 
                 //数量选择器
                 Spinner spinner = new Spinner();
-                spinner.setBounds(250, 0, 40, 50);
+                spinner.setBounds(200, 5, 40, 40);
                 spinner.setValue(chosenFoodHashMap.get(key));
                 spinner.setLabelText("数量:");
                 foodPanel.add(spinner);
@@ -143,8 +160,50 @@ public class CartDialog extends JDialog {
                         if ((Integer) thisPinner.getValue() == -1) {
                             thisPinner.setValue(0);
                         }
+                        if ((Integer) thisPinner.getValue() == 0) {
+                            chosenFoodHashMap.remove(key);
+                            CartDialog.this.remove(scrollPanel);
+                            scrollPanelProcess(chosenFoodHashMap);
+                        } else {
+                            chosenFoodHashMap.put(key, (Integer) thisPinner.getValue());
+                        }
                     }
                 });
+
+
+                //删除菜品
+                JLabel deleteLabel = new JLabel("╳");
+                deleteLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                deleteLabel.setVerticalAlignment(SwingConstants.CENTER);
+                deleteLabel.setForeground(Color.GRAY);
+                deleteLabel.setBounds(260, 10, 30, 30);
+                deleteLabel.setOpaque(true);
+                deleteLabel.setBackground(new Color(20, 28, 33));
+                deleteLabel.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mousePressed(MouseEvent e) {
+                        super.mouseClicked(e);
+                        chosenFoodHashMap.remove(key);
+                        CartDialog.this.remove(scrollPanel);
+                        scrollPanelProcess(chosenFoodHashMap);
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                        super.mouseEntered(e);
+                        CartDialog.this.setCursor(Cursor.getPredefinedCursor(HAND_CURSOR));
+                        deleteLabel.setBackground(new Color(32, 44, 54));
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                        super.mouseExited(e);
+                        CartDialog.this.setCursor(Cursor.getPredefinedCursor(DEFAULT_CURSOR));
+                        deleteLabel.setBackground(new Color(20, 28, 34));
+                    }
+                });
+                foodPanel.add(deleteLabel);
+
 
                 //元面板触动变色
                 foodPanel.addMouseListener(new MouseAdapter() {
@@ -164,7 +223,40 @@ public class CartDialog extends JDialog {
             }
         }
         scrollPanel.setViewportView(contentPanelForScroll);
+    }
 
-        this.setVisible(true);
+    // 为了实现窗口拖拽
+    class MoveListener extends MouseAdapter {
+        private Point pressedPoint;
+        private Rectangle frameBounds;
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            super.mousePressed(e);
+            this.frameBounds = CartDialog.this.getBounds();
+            this.pressedPoint = e.getPoint();
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            super.mouseReleased(e);
+            moveJFrame(e);
+        }
+
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            super.mouseDragged(e);
+            moveJFrame(e);
+        }
+
+        private void moveJFrame(MouseEvent event) {
+            Point endPoint = event.getPoint();
+
+            int xDiff = endPoint.x - pressedPoint.x;
+            int yDiff = endPoint.y - pressedPoint.y;
+            frameBounds.x += xDiff;
+            frameBounds.y += yDiff;
+            CartDialog.this.setBounds(frameBounds);
+        }
     }
 }
