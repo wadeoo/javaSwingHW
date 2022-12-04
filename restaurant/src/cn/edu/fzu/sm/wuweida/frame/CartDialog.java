@@ -31,7 +31,7 @@ public class CartDialog extends JDialog {
 
         //左上角标签
         JLabel jLabel = new JLabel("  您的购物车");
-        jLabel.setBounds(0, 0, 50, 50);
+        jLabel.setBounds(0, 0, 100, 50);
         jLabel.setHorizontalAlignment(SwingConstants.CENTER);
         jLabel.setVerticalAlignment(SwingConstants.CENTER);
         jLabel.setForeground(Color.LIGHT_GRAY);
@@ -110,15 +110,15 @@ public class CartDialog extends JDialog {
                 //序号
                 JLabel numberLabel = new JLabel((i++) + ".");
                 numberLabel.setForeground(Color.LIGHT_GRAY);
-                numberLabel.setBounds(10, 0, 40, 50);
+                numberLabel.setBounds(10, 0, 20, 50);
                 foodPanel.add(numberLabel);
 
                 //菜式名称
-                JLabel nameLabel = new JLabel(chosenFoodHashMap.get(key) + "");
+                JLabel nameLabel = new JLabel(key + "");
                 nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 nameLabel.setFont(new Font("楷体", Font.PLAIN, 10));
                 nameLabel.setForeground(Color.LIGHT_GRAY);
-                nameLabel.setBounds(80, 0, 30, 50);
+                nameLabel.setBounds(60, 0, 40, 50);
                 foodPanel.add(nameLabel);
 
                 //菜式价格
@@ -126,7 +126,7 @@ public class CartDialog extends JDialog {
                 priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 priceLabel.setFont(new Font("楷体", Font.PLAIN, 10));
                 priceLabel.setForeground(Color.LIGHT_GRAY);
-                priceLabel.setBounds(200, 0, 30, 50);
+                priceLabel.setBounds(120, 0, 80, 50);
                 foodPanel.add(priceLabel);
 
 
