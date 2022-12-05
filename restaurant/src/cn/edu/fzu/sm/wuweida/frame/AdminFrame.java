@@ -138,6 +138,13 @@ public class AdminFrame extends JFrame {
                     super.mouseExited(e);
                     foodPanel.setBackground(new Color(26, 36, 43));
                 }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    super.mousePressed(e);
+                    AdminFrame.this.dispose();
+
+                }
             });
 
             contentPanelForScrollPanel.add(foodPanel);
@@ -162,4 +169,14 @@ public class AdminFrame extends JFrame {
 
         contentPanel.add(scrollPanel);
     }
+
+
+
+    //内部類,菜品操作選擇彈窗
+    class actionDialog extends JDialog{
+        public actionDialog() {
+            
+        }
+    }
+
 }
