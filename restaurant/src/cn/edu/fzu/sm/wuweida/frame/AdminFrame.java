@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 
 public class AdminFrame extends JFrame {
+    private JPanel contentPanel;
     private JdbcImpl jdbcImpl=new JdbcImpl();
     private List<Food> foodList=jdbcImpl.getFoodList("pop");
 
@@ -21,7 +22,10 @@ public class AdminFrame extends JFrame {
         this.setSize(400, 800);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
-        this.setBackground(new Color(26, 36, 43));
+        // 獲取主窗體内容面板
+        contentPanel=(JPanel) this.getContentPane();
+        contentPanel.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
+        contentPanel.setBackground(new Color(26, 36, 43));
 
 
 
@@ -76,10 +80,6 @@ public class AdminFrame extends JFrame {
     }
 
     public  void scrollPanelProcess(){
-
-        // 獲取主窗體内容面板
-        JPanel contentPanel=(JPanel) this.getContentPane();
-        contentPanel.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
 
         //滾動面板内的内容面板
         JPanel contentPanelForScrollPanel=new JPanel();
@@ -175,7 +175,7 @@ public class AdminFrame extends JFrame {
     //内部類,菜品操作選擇彈窗
     class actionDialog extends JDialog{
         public actionDialog() {
-            
+
         }
     }
 

@@ -149,8 +149,14 @@ public class CustomerLoginFrame extends JFrame {
                     }else if (!jdbcImpl.doUserExist(enteredUser)){
                         JOptionPane.showMessageDialog(CustomerLoginFrame.this,"密码错误",null,JOptionPane.WARNING_MESSAGE);
                     }else{
+                        //管理员登录
+                        if(text1.equals("admin")){
+                            CustomerLoginFrame.this.dispose();
+                            AdminFrame adminFrame=new AdminFrame();
+                        }else{
                         CustomerLoginFrame.this.dispose();
                         CustomerMainFrame customerMainFrame=new CustomerMainFrame(text1);
+                        }
                     }
                 }
             }
