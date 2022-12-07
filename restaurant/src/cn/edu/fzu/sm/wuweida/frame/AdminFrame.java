@@ -22,6 +22,8 @@ public class AdminFrame extends JFrame {
         this.setSize(400, 800);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
+        this.setIconImage(new ImageIcon("image/admin.png").getImage());
+
         // 獲取主窗體内容面板
         contentPanel=(JPanel) this.getContentPane();
         contentPanel.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
@@ -31,8 +33,12 @@ public class AdminFrame extends JFrame {
 
         //菜單
         JMenuBar mainMenuBar=new JMenuBar();
+        mainMenuBar.setPreferredSize(new Dimension(400,40));
+        mainMenuBar.setBorder(null);
+        mainMenuBar.setBackground(new Color(47, 70, 78));
         this.setJMenuBar(mainMenuBar);
-        JMenu mainMenu=new JMenu();
+        JMenu mainMenu=new JMenu("菜单操作");
+        mainMenu.setForeground(Color.LIGHT_GRAY);
         mainMenuBar.add(mainMenu);
         JMenuItem popItem=new JMenuItem("熱銷菜品");
         JMenuItem cantoneseItem=new JMenuItem("粵菜");
@@ -48,6 +54,7 @@ public class AdminFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 foodList=jdbcImpl.getFoodList("pop");
                 scrollPanelProcess();
+                System.out.println("pop");
             }
         });
         cantoneseItem.addActionListener(new ActionListener() {
