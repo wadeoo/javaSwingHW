@@ -26,7 +26,6 @@ public class AdminFrame extends JFrame {
 
         // 獲取主窗體内容面板
         contentPanel=(JPanel) this.getContentPane();
-        contentPanel.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
         contentPanel.setBackground(new Color(26, 36, 43));
 
 
@@ -40,8 +39,8 @@ public class AdminFrame extends JFrame {
         JMenu mainMenu=new JMenu("菜单操作");
         mainMenu.setForeground(Color.LIGHT_GRAY);
         mainMenuBar.add(mainMenu);
-        JMenuItem popItem=new JMenuItem("熱銷菜品");
-        JMenuItem cantoneseItem=new JMenuItem("粵菜");
+        JMenuItem popItem=new JMenuItem("热销菜品");
+        JMenuItem cantoneseItem=new JMenuItem("粤菜");
         JMenuItem xiangItem=new JMenuItem("湘菜");
         JMenuItem dessertItem=new JMenuItem("甜品");
         mainMenu.add(popItem);
@@ -49,18 +48,21 @@ public class AdminFrame extends JFrame {
         mainMenu.add(xiangItem);
         mainMenu.add(dessertItem);
 
+        scrollPanelProcess();
+
         popItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 foodList=jdbcImpl.getFoodList("pop");
+                contentPanel.remove(0);
                 scrollPanelProcess();
-                System.out.println("pop");
             }
         });
         cantoneseItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                foodList=jdbcImpl.getFoodList("粵菜");
+                foodList=jdbcImpl.getFoodList("粤菜");
+                contentPanel.remove(0);
                 scrollPanelProcess();
             }
         });
@@ -68,6 +70,7 @@ public class AdminFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 foodList=jdbcImpl.getFoodList("湘菜");
+                contentPanel.remove(0);
                 scrollPanelProcess();
             }
         });
@@ -75,6 +78,7 @@ public class AdminFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 foodList=jdbcImpl.getFoodList("甜品");
+                contentPanel.remove(0);
                 scrollPanelProcess();
             }
         });
@@ -87,6 +91,12 @@ public class AdminFrame extends JFrame {
     }
 
     public  void scrollPanelProcess(){
+
+        //滚动面板下的面板
+        JPanel panelUnderScrollPanel=new JPanel();
+        panelUnderScrollPanel.setPreferredSize(new Dimension(400,600));
+        panelUnderScrollPanel.setBounds(0, 40, 400, 600);
+        contentPanel.add(panelUnderScrollPanel);
 
         //滾動面板内的内容面板
         JPanel contentPanelForScrollPanel=new JPanel();
@@ -101,7 +111,7 @@ public class AdminFrame extends JFrame {
 
             //標簽
             JLabel nameLabel=new JLabel(foodName);
-            JLabel priceLabel=new JLabel("種類: "+foodPrice);
+            JLabel priceLabel=new JLabel("种类: "+foodPrice);
             JLabel typeLabel=new JLabel(foodType);
             JLabel imgLabel=new JLabel(foodImg);
 
@@ -167,14 +177,14 @@ public class AdminFrame extends JFrame {
         customScrollBar.setOrientation(Adjustable.VERTICAL);
         scrollPanel.setVerticalScrollBar(customScrollBar);
         scrollPanel.setPreferredSize(new Dimension(400, 600));
-        scrollPanel.setBounds(0, 100, 400, 600);
+        scrollPanel.setBounds(0, 40, 400, 600);
         scrollPanel.setBackground(new Color(26, 36, 43));
         scrollPanel.getHorizontalScrollBar().setOpaque(false);
         scrollPanel.setBorder(null);
         scrollPanel.remove(scrollPanel.getHorizontalScrollBar());
 
 
-        contentPanel.add(scrollPanel);
+        panelUnderScrollPanel.add(scrollPanel);
     }
 
 
