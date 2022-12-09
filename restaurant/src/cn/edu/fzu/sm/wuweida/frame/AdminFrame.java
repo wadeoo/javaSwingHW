@@ -5,6 +5,7 @@ import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
 import cn.edu.fzu.sm.wuweida.util.ModernScrollBarUI;
 
 import javax.swing.*;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -48,7 +49,6 @@ public class AdminFrame extends JFrame {
         mainMenu.add(xiangItem);
         mainMenu.add(dessertItem);
 
-        scrollPanelProcess();
 
         popItem.addActionListener(new ActionListener() {
             @Override
@@ -84,6 +84,7 @@ public class AdminFrame extends JFrame {
         });
 
 
+        scrollPanelProcess();
 
 
 
@@ -94,13 +95,12 @@ public class AdminFrame extends JFrame {
 
         //滚动面板下的面板
         JPanel panelUnderScrollPanel=new JPanel();
-        panelUnderScrollPanel.setPreferredSize(new Dimension(400,600));
         panelUnderScrollPanel.setBounds(0, 40, 400, 600);
-        contentPanel.add(panelUnderScrollPanel);
 
         //滾動面板内的内容面板
         JPanel contentPanelForScrollPanel=new JPanel();
         contentPanelForScrollPanel.setPreferredSize(new Dimension(400,50*foodList.size()));
+        contentPanelForScrollPanel.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
 
         //菜品元面板
         for (Food food:foodList) {
@@ -115,10 +115,14 @@ public class AdminFrame extends JFrame {
             JLabel typeLabel=new JLabel(foodType);
             JLabel imgLabel=new JLabel(foodImg);
 
-            nameLabel.setBounds(0,0,100,100);
-            priceLabel.setBounds(0,0,100,100);
-            typeLabel.setBounds(0,0,100,100);
-            imgLabel.setBounds(0,0,100,100);
+//            nameLabel.setBounds(0,0,100,100);
+//            priceLabel.setBounds(0,0,100,100);
+//            typeLabel.setBounds(0,0,100,100);
+//            imgLabel.setBounds(0,0,100,100);
+            nameLabel.setPreferredSize( new Dimension(100,100));
+            priceLabel.setPreferredSize( new Dimension(100,100));
+            typeLabel.setPreferredSize( new Dimension(100,100));
+            imgLabel.setPreferredSize( new Dimension(100,100));
 
             nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
             nameLabel.setFont(new Font("楷体", Font.PLAIN, 15));
@@ -139,6 +143,10 @@ public class AdminFrame extends JFrame {
 
             //元面板触动变色
             JPanel foodPanel=new JPanel();
+            foodPanel.setPreferredSize(new Dimension(400, 100));
+            foodPanel.setBackground(new Color(26, 36, 43));
+            foodPanel.setBorder(new MatteBorder(0, 0, 1, 0, new Color(134, 134, 134)));
+            foodPanel.setLayout(null);
             foodPanel.add(nameLabel);
             foodPanel.add(priceLabel);
             foodPanel.add(typeLabel);
@@ -185,6 +193,7 @@ public class AdminFrame extends JFrame {
 
 
         panelUnderScrollPanel.add(scrollPanel);
+        contentPanel.add(panelUnderScrollPanel);
     }
 
 
