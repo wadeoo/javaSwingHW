@@ -2,6 +2,7 @@ package cn.edu.fzu.sm.wuweida.frame;
 
 import cn.edu.fzu.sm.wuweida.bean.Food;
 import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
+import cn.edu.fzu.sm.wuweida.util.ModernScrollBarUI;
 import cn.edu.fzu.sm.wuweida.util.Spinner;
 
 import javax.swing.*;
@@ -181,6 +182,7 @@ public class AdminFrame extends JFrame {
                 closeLabel.setBackground(new Color(20, 28, 34));
             }
         });
+        northPanel.add(closeLabel);
 
         //监听标签点击(菜单切换)
         popLabel.addMouseListener(new MouseAdapter() {
@@ -188,7 +190,8 @@ public class AdminFrame extends JFrame {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 foodList = jdbc.getFoodList("pop");
-                contentPanel.remove(3);//第四个面板是滚动面板下的面板
+                contentPanel.remove(1);
+                System.out.printf(contentPanel.getComponentCount()+"");
                 scrollPanelProcess();
             }
         });
@@ -197,7 +200,7 @@ public class AdminFrame extends JFrame {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 foodList = jdbc.getFoodList("粤菜");
-                contentPanel.remove(3);
+                contentPanel.remove(1);
                 scrollPanelProcess();
             }
         });
@@ -206,7 +209,7 @@ public class AdminFrame extends JFrame {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 foodList = jdbc.getFoodList("湘菜");
-                contentPanel.remove(3);
+                contentPanel.remove(1);
                 scrollPanelProcess();
             }
         });
@@ -215,24 +218,13 @@ public class AdminFrame extends JFrame {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 foodList = jdbc.getFoodList("甜品");
-                contentPanel.remove(3);
+                contentPanel.remove(1);
                 scrollPanelProcess();
             }
         });
 
-        //菜品单元面板的元素 img name price type isPop
-        JLabel imgLabel,nameLabel,priceLabel,typeLabel,isPopLabel;
 
-
-
-
-        //承载滚动面板的面板
-        JPanel panelUnderScrollPanel=new JPanel();
-
-
-
-
-
+        scrollPanelProcess();
         this.setVisible(true);
     }
 
@@ -241,11 +233,11 @@ public class AdminFrame extends JFrame {
 
         //滚动面板下的基础面板
         JPanel panelUnderScroll = new JPanel();
-        panelUnderScroll.setBounds(225, 40, 1045, 720 - 45 + 5 + 1);
+        panelUnderScroll.setBounds(0, 50, 500, 550);
 
         //滚动面版的内容面板
         JPanel contentPanelForScroll = new JPanel();
-        contentPanelForScroll.setPreferredSize(new Dimension(1045, 720 - 45 + 500));
+        contentPanelForScroll.setPreferredSize(new Dimension(500, 1000));
         contentPanelForScroll.setBackground(new Color(26, 36, 43));
         contentPanelForScroll.setLayout(new FlowLayout(FlowLayout.LEADING, 0, 0));
         int foodCount = foodList.size();
@@ -253,16 +245,17 @@ public class AdminFrame extends JFrame {
 
             //内容面板里 每个菜品所属的元面板
             JPanel foodPanel = new JPanel();
-            foodPanel.setPreferredSize(new Dimension(1270 - 225, 100));
+            foodPanel.setPreferredSize(new Dimension(500, 100));
             foodPanel.setBackground(new Color(26, 36, 43));
             foodPanel.setBorder(new MatteBorder(0, 0, 1, 0, new Color(134, 134, 134)));
             foodPanel.setLayout(null);
 
-
             //序号
             JLabel numberLabel = new JLabel(i + 1 + ".");
             numberLabel.setForeground(Color.LIGHT_GRAY);
-            numberLabel.setBounds(40, 0, 40, 100);
+            numberLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            numberLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            numberLabel.setBounds(0, 0, 100, 100);
             foodPanel.add(numberLabel);
 
             //菜式图片
@@ -270,7 +263,7 @@ public class AdminFrame extends JFrame {
             JLabel imageLabel = new JLabel();
             imageLabel.setIcon(imageIcon);
             imageLabel.setOpaque(true);
-            imageLabel.setBounds(120, 25 / 2, 100, 75);
+            imageLabel.setBounds(100, 25/2, 100, 75);
             foodPanel.add(imageLabel);
 
             //菜式名称
@@ -278,7 +271,7 @@ public class AdminFrame extends JFrame {
             nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
             nameLabel.setFont(new Font("楷体", Font.PLAIN, 20));
             nameLabel.setForeground(Color.LIGHT_GRAY);
-            nameLabel.setBounds(300, 0, 90, 100);
+            nameLabel.setBounds(200, 0, 100, 100);
             foodPanel.add(nameLabel);
 
             //菜式价格
@@ -286,40 +279,18 @@ public class AdminFrame extends JFrame {
             priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
             priceLabel.setFont(new Font("楷体", Font.PLAIN, 15));
             priceLabel.setForeground(Color.LIGHT_GRAY);
-            priceLabel.setBounds(500, 0, 90, 100);
+            priceLabel.setBounds(300, 0, 100, 100);
             foodPanel.add(priceLabel);
 
-
-            //数量选择器
-            Spinner spinner = new Spinner();
-            if (chosenFoodList.containsKey(foodList.get(i).getFoodName())) {
-                spinner.setValue(chosenFoodList.get(foodList.get(i).getFoodName()));
-            } else {
-                spinner.setValue(0);
-            }
-            spinner.setBounds(225 + 400 + 100 + 100 + 50, 25, 60, 50);
-            spinner.setLabelText("数量:");
-            foodPanel.add(spinner);
-            spinner.addChangeListener(new ChangeListener() {
-                @Override
-                public void stateChanged(ChangeEvent e) {
-                    Spinner thisPinner = (Spinner) e.getSource();
-                    if ((Integer) thisPinner.getValue() == -1) {
-                        thisPinner.setValue(0);
-                    }
-
-                    JPanel thisFoodPanel = (JPanel) thisPinner.getParent();
-                    JLabel foodNameLabel = (JLabel) thisFoodPanel.getComponent(2);
-                    String foodName = foodNameLabel.getText();
-                    if ((Integer) thisPinner.getValue() == 0) {
-                        if (chosenFoodList.containsKey(foodName)) {
-                            chosenFoodList.remove(foodName);
-                        }
-                    } else {
-                        chosenFoodList.put(foodName, (Integer) thisPinner.getValue());
-                    }
-                }
-            });
+            //是否热销?
+            int isPop=foodList.get(i).getIsPop();
+            String isPopString=(isPop==1?"热销":"不热销");
+            JLabel isPopLabel = new JLabel(isPopString);
+            isPopLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            isPopLabel.setFont(new Font("楷体", Font.PLAIN, 15));
+            isPopLabel.setForeground(Color.LIGHT_GRAY);
+            isPopLabel.setBounds(400, 0, 100, 100);
+            foodPanel.add(isPopLabel);
 
 
             //元面板触动变色
@@ -327,7 +298,7 @@ public class AdminFrame extends JFrame {
                 @Override
                 public void mouseEntered(MouseEvent e) {
                     super.mouseEntered(e);
-                    foodPanel.setBackground(new Color(39, 53, 64));
+                    foodPanel.setBackground(new Color(33, 45, 54));
                 }
 
                 @Override
@@ -338,6 +309,29 @@ public class AdminFrame extends JFrame {
             });
             contentPanelForScroll.add(foodPanel);
         }
+
+
+        //滚动面板
+        JScrollPane scrollPanel = new JScrollPane(contentPanelForScroll);
+        JScrollBar customScrollBar = new JScrollBar();
+        customScrollBar.setUI(new ModernScrollBarUI());
+        customScrollBar.setPreferredSize(new Dimension(8, 8));
+        customScrollBar.setForeground(new Color(26, 36, 43));
+        customScrollBar.setBackground(new Color(14, 25, 32));
+        customScrollBar.setOrientation(Adjustable.VERTICAL);
+        scrollPanel.setVerticalScrollBar(customScrollBar);
+        scrollPanel.setPreferredSize(new Dimension(500, 550+5));
+        scrollPanel.setBounds(0, 0, 500, 500);
+        scrollPanel.setBackground(new Color(26, 36, 43));
+        scrollPanel.getHorizontalScrollBar().setOpaque(false);
+        scrollPanel.setBorder(null);
+        scrollPanel.remove(scrollPanel.getHorizontalScrollBar());
+
+
+        panelUnderScroll.add(scrollPanel);
+        contentPanel.add(panelUnderScroll);
+
+    }
 
     //内部类,菜品操作选择弹窗
     class actionDialog extends JDialog{
