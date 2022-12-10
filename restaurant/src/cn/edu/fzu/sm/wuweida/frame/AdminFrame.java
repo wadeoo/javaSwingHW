@@ -36,13 +36,15 @@ public class AdminFrame extends JFrame {
         //获取此frame的内容面板
         contentPanel=(JPanel)this.getContentPane();
         MoveListener moveListener=new MoveListener();
-        contentPanel.addMouseListener(moveListener);
-        contentPanel.addMouseMotionListener(moveListener);
+
+        this.addMouseListener(moveListener);
+        this.addMouseMotionListener(moveListener);
 
         //北部面板
         JPanel northPanel=new JPanel();
         northPanel.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
-        northPanel.setBounds(0,0,500,50);
+        northPanel.setBounds(0,0,500,55);
+        northPanel.setBackground(new Color(7,25,27));
         northPanel.setBorder(new MatteBorder(0,0,1,0,Color.BLACK));
         contentPanel.add(northPanel);
 
@@ -158,7 +160,7 @@ public class AdminFrame extends JFrame {
         closeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         closeLabel.setVerticalAlignment(SwingConstants.CENTER);
         closeLabel.setForeground(Color.GRAY);
-        closeLabel.setPreferredSize(new Dimension(50,50));
+        closeLabel.setPreferredSize(new Dimension(50,55));
         closeLabel.setOpaque(true);
         closeLabel.setBackground(new Color(20, 28, 34));
         closeLabel.addMouseListener(new MouseAdapter() {
@@ -191,7 +193,6 @@ public class AdminFrame extends JFrame {
                 super.mousePressed(e);
                 foodList = jdbc.getFoodList("pop");
                 contentPanel.remove(1);
-                System.out.printf(contentPanel.getComponentCount()+"");
                 scrollPanelProcess();
             }
         });
@@ -320,8 +321,8 @@ public class AdminFrame extends JFrame {
         customScrollBar.setBackground(new Color(14, 25, 32));
         customScrollBar.setOrientation(Adjustable.VERTICAL);
         scrollPanel.setVerticalScrollBar(customScrollBar);
-        scrollPanel.setPreferredSize(new Dimension(500, 550+5));
-        scrollPanel.setBounds(0, 0, 500, 500);
+        scrollPanel.setPreferredSize(new Dimension(500, 550));
+        scrollPanel.setBounds(0, 0, 500, 550);
         scrollPanel.setBackground(new Color(26, 36, 43));
         scrollPanel.getHorizontalScrollBar().setOpaque(false);
         scrollPanel.setBorder(null);
