@@ -3,8 +3,32 @@
   <component name="ChangeListManager">
     <list default="true" id="cb15ed9a-6819-4ca4-9db4-7082fbf67ddf" name="默认" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$actionDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame$actionDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/AdminFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MoveListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MoveListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MyThreadRunnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame$MyThreadRunnable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/restaurant/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/AdminFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/AdminFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +65,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="8712">
-                    <caret line="510" selection-start-line="510" selection-end-line="510" />
+                  <state relative-caret-position="468">
+                    <caret line="161" column="35" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -87,12 +111,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="81978" />
+          <entry key="java" value="82763" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="81978" />
+          <entry key="JAVA" value="82763" />
         </counts>
       </usages-collector>
     </session>
@@ -105,8 +129,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/AdminFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+            <state relative-caret-position="397">
+              <caret line="132" column="35" selection-start-line="132" selection-start-column="35" selection-end-line="132" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -262,14 +286,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="wuweida" type="462c0819:PsiDirectoryNode" />
               <item name="frame" type="462c0819:PsiDirectoryNode" />
-              <item name="AdminFrame" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="wuweida" type="462c0819:PsiDirectoryNode" />
-              <item name="frame" type="462c0819:PsiDirectoryNode" />
               <item name="CustomerMainFrame" type="1a9f42e2:ClassTreeNode" />
             </path>
           </expand>
@@ -286,7 +302,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="655" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1670654887740" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1670657084935" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/timingframework-1.0.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -405,18 +421,18 @@
       <workItem from="1670399983214" duration="1712000" />
       <workItem from="1670508469386" duration="615000" />
       <workItem from="1670599353162" duration="2841000" />
-      <workItem from="1670653357446" duration="1515000" />
+      <workItem from="1670653357446" duration="3241000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152937000" />
+    <option name="totallyTimeSpent" value="154663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.1750547" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.1750547" />
       <window_info id="Structure" order="1" sideWeight="0.500821" side_tool="true" weight="0.20678337" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -425,12 +441,12 @@
       <window_info id="设计器" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32765958" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22916667" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22916667" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.19858156" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.19846492" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
@@ -799,8 +815,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/CustomerMainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8712">
-          <caret line="510" selection-start-line="510" selection-end-line="510" />
+        <state relative-caret-position="468">
+          <caret line="161" column="35" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -809,8 +825,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/AdminFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        <state relative-caret-position="397">
+          <caret line="132" column="35" selection-start-line="132" selection-start-column="35" selection-end-line="132" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
