@@ -311,7 +311,7 @@ public class CustomerMainFrame extends JFrame {
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         timeLabel.setForeground(new Color(157, 157, 157));
         timeLabel.setBounds(1270 / 2 - 100, 0, 200, 45);
-        //报时线程
+        //运行报时线程
         MyThreadRunnable target = new MyThreadRunnable(timeFormat, timeLabel, statusPanel);
         Thread setTimeThread = new Thread(target);
         setTimeThread.start();
