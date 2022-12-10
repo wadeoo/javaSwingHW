@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
+import java.util.Vector;
 
 
 public class AdminFrame extends JFrame {
@@ -268,6 +269,7 @@ public class AdminFrame extends JFrame {
             foodPanel.add(imageLabel);
 
             //菜式名称
+            String foodName=foodList.get(i).getFoodName();
             JLabel nameLabel = new JLabel(foodList.get(i).getFoodName());
             nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
             nameLabel.setFont(new Font("楷体", Font.PLAIN, 20));
@@ -307,7 +309,14 @@ public class AdminFrame extends JFrame {
                     super.mouseExited(e);
                     foodPanel.setBackground(new Color(26, 36, 43));
                 }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    super.mousePressed(e);
+                    actionDialog actionDialog=new actionDialog(foodName);
+                }
             });
+
             contentPanelForScroll.add(foodPanel);
         }
 
@@ -336,8 +345,150 @@ public class AdminFrame extends JFrame {
 
     //内部类,菜品操作选择弹窗
     class actionDialog extends JDialog{
-        public actionDialog() {
+        String chosenFoodName;
+        public actionDialog(String chosenFoodName) {
+            actionDialog.this.setAlwaysOnTop(true);
+            actionDialog.this.setUndecorated(true);
+            actionDialog.this.setSize(200,500);
+            actionDialog.this.setLayout(null);
+            actionDialog.this.setLocationRelativeTo(null);
+            JPanel contentPanelOfDialog=(JPanel)actionDialog.this.getContentPane();
+            contentPanelOfDialog.setBackground(new Color(20, 28, 33));
 
+            actionDialog.this.chosenFoodName=chosenFoodName;
+            Food chosenFood=jdbc.getFood(chosenFoodName);
+
+            //菜式图片
+            ImageIcon imageIcon = new ImageIcon("dishImg/" + chosenFood.getFoodName() + ".jpg");
+            JLabel imageLabel = new JLabel();
+            imageLabel.setIcon(imageIcon);
+            imageLabel.setOpaque(true);
+            imageLabel.setBounds(50, 25, 100, 75);
+            contentPanelOfDialog.add(imageLabel);
+
+            //name
+            JLabel nameLabel = new JLabel("菜名:");
+            nameLabel.setForeground(Color.LIGHT_GRAY);
+            nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            nameLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            nameLabel.setBounds(25, 125, 50, 50);
+            contentPanelOfDialog.add(nameLabel);
+            //name tf
+            JTextField nameTextField=new JTextField(chosenFoodName);
+            nameTextField.setBounds(100,125,75,50);
+            contentPanelOfDialog.add(nameTextField);
+
+            //price
+            JLabel priceLabel = new JLabel("价格:");
+            priceLabel.setForeground(Color.LIGHT_GRAY);
+            priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            priceLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            priceLabel.setBounds(25, 200, 50, 50);
+            contentPanelOfDialog.add(priceLabel);
+            //price tf
+            JTextField priceTextField=new JTextField(chosenFood.getFoodPrice()+"");
+            priceTextField.setBounds(100,200,75,50);
+            contentPanelOfDialog.add(priceTextField);
+
+            //type
+            JLabel typeLabel = new JLabel("种类:");
+            typeLabel.setForeground(Color.LIGHT_GRAY);
+            typeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            typeLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            typeLabel.setBounds(25, 275, 50, 50);
+            contentPanelOfDialog.add(typeLabel);
+            //选择
+            Vector<String> typeModel=new Vector<>();
+            typeModel.add("粤菜");
+            typeModel.add("湘菜");
+            typeModel.add("甜品");
+            JComboBox typeComboBox=new JComboBox(typeModel);
+            typeComboBox.setSelectedIndex(typeModel.indexOf(chosenFood.getFoodType()));
+            typeComboBox.setBounds(100,275,75,50);
+            contentPanelOfDialog.add(typeComboBox);
+
+            //ispop
+            JLabel isPopLabel=new JLabel("热销?");
+            isPopLabel.setForeground(Color.LIGHT_GRAY);
+            isPopLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            isPopLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            isPopLabel.setBounds(25,350,50,50);
+            contentPanelOfDialog.add(isPopLabel);
+            //isPop checkbox
+            JCheckBox isPopCheckBox=new JCheckBox();
+            isPopCheckBox.setSelected(chosenFood.getIsPop()==1);
+            isPopCheckBox.setBounds(125,350,25,25);
+            contentPanelOfDialog.add(isPopCheckBox);
+
+
+            //ok
+            JLabel okLabel = new JLabel("确定");
+            okLabel.setForeground(Color.LIGHT_GRAY);
+            okLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            okLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            okLabel.setBounds(25,425, 75, 50);
+            contentPanelOfDialog.add(okLabel);
+            okLabel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    super.mousePressed(e);
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    super.mouseEntered(e);
+                    AdminFrame.this.setCursor(Cursor.HAND_CURSOR);
+                    okLabel.setForeground(Color.WHITE);
+                    okLabel.setBackground(new Color(14, 22, 44));
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    super.mouseExited(e);
+                    AdminFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
+                    okLabel.setForeground(Color.GRAY);
+                    okLabel.setBackground(new Color(16, 36, 57));
+                }
+            });
+
+
+            //cancel
+            JLabel cancelLabel = new JLabel("取消");
+            cancelLabel.setForeground(Color.LIGHT_GRAY);
+            cancelLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            cancelLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            cancelLabel.setBounds(125,425, 50, 50);
+            cancelLabel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    super.mousePressed(e);
+                    actionDialog.this.dispose();
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    super.mouseEntered(e);
+                    AdminFrame.this.setCursor(Cursor.HAND_CURSOR);
+                    cancelLabel.setForeground(Color.WHITE);
+                    cancelLabel.setBackground(new Color(14, 22, 44));
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    super.mouseExited(e);
+                    AdminFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
+                    cancelLabel.setForeground(Color.GRAY);
+                    cancelLabel.setBackground(new Color(16, 36, 57));
+                }
+            });
+            contentPanelOfDialog.add(cancelLabel);
+
+
+
+
+
+            actionDialog.this.setVisible(true);
         }
     }
 

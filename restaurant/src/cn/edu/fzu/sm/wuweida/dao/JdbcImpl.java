@@ -148,4 +148,25 @@ public class JdbcImpl implements JdbcConfig {
         }
     }
 
+    //依据菜名获取菜品
+    public Food getFood(String foodName){
+        try {
+            preparedStatement=connection.prepareStatement("SELECT * FROM food WHERE foodName=?");
+            preparedStatement.setString(1,foodName);
+            resultSet=preparedStatement.executeQuery();
+            if (resultSet.next()){
+                Food food = new Food();
+                food.setFoodName(resultSet.getString(2));
+                food.setFoodPrice(resultSet.getDouble(3));
+                food.setFoodType(resultSet.getString(4));
+                food.setIsPop(resultSet.getInt(6));
+                return food;
+            }else{
+                return null;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
