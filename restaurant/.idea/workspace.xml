@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb15ed9a-6819-4ca4-9db4-7082fbf67ddf" name="默认" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/实践题报告.docx" beforeDir="false" afterPath="$PROJECT_DIR$/实践题报告.docx" afterDir="false" />
-    </list>
+    <list default="true" id="cb15ed9a-6819-4ca4-9db4-7082fbf67ddf" name="默认" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -277,7 +274,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="655" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1670756637883" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1670757210126" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/timingframework-1.0.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -396,12 +393,12 @@
       <workItem from="1670399983214" duration="1712000" />
       <workItem from="1670508469386" duration="615000" />
       <workItem from="1670599353162" duration="2841000" />
-      <workItem from="1670653357446" duration="28503000" />
+      <workItem from="1670653357446" duration="29272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179925000" />
+    <option name="totallyTimeSpent" value="180694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="699" y="124" width="976" height="822" extended-state="0" />
