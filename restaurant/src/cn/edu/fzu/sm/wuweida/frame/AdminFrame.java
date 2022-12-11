@@ -9,9 +9,11 @@ import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.*;
 import java.util.List;
 import java.util.Vector;
 
@@ -346,6 +348,7 @@ public class AdminFrame extends JFrame {
     //内部类,菜品操作选择弹窗
     class ActionDialog extends JDialog{
         String chosenFoodName;
+        String openedFileAbsolutePath=null;
         public ActionDialog(String chosenFoodName) {
             ActionDialog.this.setAlwaysOnTop(true);
             ActionDialog.this.setUndecorated(true);
@@ -364,6 +367,24 @@ public class AdminFrame extends JFrame {
             imageLabel.setIcon(imageIcon);
             imageLabel.setOpaque(true);
             imageLabel.setBounds(50, 25, 100, 75);
+            imageLabel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    super.mousePressed(e);
+                    JFileChooser jFileChooser=new JFileChooser();
+                    jFileChooser.setFileFilter(new FileNameExtensionFilter("jpg"));
+                    int returnVal=jFileChooser.showOpenDialog(imageLabel);
+                    if (returnVal==JFileChooser.APPROVE_OPTION){
+                        File openedFile=jFileChooser.getSelectedFile();
+                        if (openedFile==null||openedFile.length()==0){
+                            return;
+                        }
+                        openedFileAbsolutePath=openedFile.getAbsolutePath();
+                        ImageIcon imageIcon1=new ImageIcon(openedFileAbsolutePath);
+                        imageLabel.setIcon(imageIcon1);
+                    }
+                }
+            });
             contentPanelOfDialog.add(imageLabel);
 
             //name
@@ -432,7 +453,14 @@ public class AdminFrame extends JFrame {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     super.mousePressed(e);
+                    String enteredName=nameTextField.getText();
+                    double enteredPrice= Double.parseDouble(priceTextField.getText());
+                    String enteredType= String.valueOf(typeComboBox.getSelectedItem());
+                    int enteredIsPop=(isPopCheckBox.isSelected()? 1:0);
 
+                    if (openedFileAbsolutePath!=null){
+                        jdbc.updatePicById(openedFileAbsolutePath,jdbc.getFoodId(chosenFoodName));
+                    }
                 }
 
                 @Override

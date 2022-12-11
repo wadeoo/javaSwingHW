@@ -3,6 +3,7 @@ package cn.edu.fzu.sm.wuweida.dao;
 import cn.edu.fzu.sm.wuweida.bean.CustomerUser;
 import cn.edu.fzu.sm.wuweida.bean.Food;
 import cn.edu.fzu.sm.wuweida.bean.Order;
+import cn.edu.fzu.sm.wuweida.util.ImageUtil;
 
 import java.io.*;
 import java.sql.*;
@@ -184,6 +185,34 @@ public class JdbcImpl implements JdbcConfig {
         } catch (SQLException e) {
             e.printStackTrace();
             return  false;
+        }
+    }
+
+    //上傳圖片
+    public  void updatePicById(String openedPicPath,int foodId){
+       try {
+           InputStream inputStream= ImageUtil.getImageByte(openedPicPath);
+           preparedStatement=connection.prepareStatement("UPDATE food SET foodImg=? WHERE foodId=?");
+           preparedStatement.setBinaryStream(1,inputStream,inputStream.available());
+           preparedStatement.executeUpdate();
+       } catch (FileNotFoundException e) {
+           e.printStackTrace();
+       } catch (SQLException e) {
+           e.printStackTrace();
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+    }
+
+    public void updateFoodById(int foodId,String foodName,double foodPrice,String foodType,int isPop){//除了图片
+        try{
+            preparedStatement=connection.prepareStatement("UPDATE food SET foodName=?, foodPrice=?, foodType=? isPop=?");
+            preparedStatement.setString(1,foodName);
+            preparedStatement.setDouble(2,foodPrice);
+            preparedStatement.setString(3,foodType);
+            preparedStatement.setInt(4,isPop);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
