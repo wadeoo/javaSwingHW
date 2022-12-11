@@ -3,13 +3,9 @@ package cn.edu.fzu.sm.wuweida.frame;
 import cn.edu.fzu.sm.wuweida.bean.Food;
 import cn.edu.fzu.sm.wuweida.dao.JdbcImpl;
 import cn.edu.fzu.sm.wuweida.util.ModernScrollBarUI;
-import cn.edu.fzu.sm.wuweida.util.Spinner;
 
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -80,7 +76,7 @@ public class AdminFrame extends JFrame {
 
         //粤菜标签
         JLabel cantoneseLabel = new JLabel("粤菜");
-        cantoneseLabel.setPreferredSize(new Dimension(125, 50));
+        cantoneseLabel.setPreferredSize(new Dimension(100, 50));
         cantoneseLabel.setBackground(new Color(7, 25, 27));
         cantoneseLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         cantoneseLabel.setForeground(Color.GRAY);
@@ -106,7 +102,7 @@ public class AdminFrame extends JFrame {
 
         //湘菜标签
         JLabel xiangLabel = new JLabel("湘菜");
-        xiangLabel.setPreferredSize(new Dimension(125, 50));
+        xiangLabel.setPreferredSize(new Dimension(100, 50));
         xiangLabel.setBackground(new Color(7, 25, 27));
         xiangLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         xiangLabel.setForeground(Color.GRAY);
@@ -158,7 +154,7 @@ public class AdminFrame extends JFrame {
 
         //增加菜品
         JLabel addLabel = new JLabel("添加菜品");
-        addLabel.setPreferredSize(new Dimension(50, 50));
+        addLabel.setPreferredSize(new Dimension(100, 50));
         addLabel.setBackground(new Color(7, 25, 27));
         addLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
         addLabel.setForeground(Color.GRAY);
@@ -170,6 +166,7 @@ public class AdminFrame extends JFrame {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 //添加新菜品
+                FoodAddDialog foodAddDialog=new FoodAddDialog();
             }
 
             @Override
@@ -346,7 +343,7 @@ public class AdminFrame extends JFrame {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     super.mousePressed(e);
-                    FoodAddDialog actionDialog = new FoodAddDialog(foodName);
+                    ActionDialog ActionDialog = new ActionDialog(foodName);
                 }
             });
 
@@ -697,12 +694,11 @@ public class AdminFrame extends JFrame {
                     super.mousePressed(e);
                     int result = JOptionPane.showConfirmDialog(FoodAddDialog.this, "确定添加菜品吗", null, JOptionPane.YES_NO_OPTION);
                     if (result == 0) {
-                        jdbc.updatePicById(openedFileAbsolutePath, jdbc.getFoodId(chosenFoodName));
                         String enteredName = nameTextField.getText();
                         double enteredPrice = Double.parseDouble(priceTextField.getText());
                         String enteredType = String.valueOf(typeComboBox.getSelectedItem());
                         int enteredIsPop = (isPopCheckBox.isSelected() ? 1 : 0);
-                        jdbc.updateFoodById(jdbc.getFoodId(chosenFoodName), enteredName, enteredPrice, enteredType, enteredIsPop);
+                        jdbc.addFood(enteredName, enteredPrice, enteredType, enteredIsPop,openedFileAbsolutePath);
                         FoodAddDialog.this.dispose();
                     }
                 }

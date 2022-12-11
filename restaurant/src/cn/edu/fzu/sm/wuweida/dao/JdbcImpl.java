@@ -222,7 +222,20 @@ public class JdbcImpl implements JdbcConfig {
     //添加菜品
     public void addFood(String foodName,double foodPrice,String foodType,int isPop,String openedPicPath){
         try{
-            preparedStatement=connection.prepareStatement("INSERT ")
+            preparedStatement=connection.prepareStatement("INSERT INTO food (foodName,foodPrice,foodType,isPop,foodImg) VALUES (?,?,?,?,?)");
+            preparedStatement.setString(1,foodName);
+            preparedStatement.setDouble(2,foodPrice);
+            preparedStatement.setString(3,foodType);
+            preparedStatement.setInt(4,isPop);
+            InputStream inputStream=ImageUtil.getImageByte(openedPicPath);
+            preparedStatement.setBinaryStream(5,inputStream,inputStream.available());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
