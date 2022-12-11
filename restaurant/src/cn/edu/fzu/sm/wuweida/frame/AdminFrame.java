@@ -595,7 +595,7 @@ public class AdminFrame extends JFrame {
         public FoodAddDialog() {
             FoodAddDialog.this.setAlwaysOnTop(true);
             FoodAddDialog.this.setUndecorated(true);
-            FoodAddDialog.this.setSize(200, 600);
+            FoodAddDialog.this.setSize(200, 500);
             FoodAddDialog.this.setLayout(null);
             FoodAddDialog.this.setLocationRelativeTo(null);
             JPanel contentPanelOfDialog = (JPanel) FoodAddDialog.this.getContentPane();
