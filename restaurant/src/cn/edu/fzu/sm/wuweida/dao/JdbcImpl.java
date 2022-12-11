@@ -218,4 +218,11 @@ public class JdbcImpl implements JdbcConfig {
             e.printStackTrace();
         }
     }
+
+    //添加菜品
+    public void addFood(String foodName,double foodPrice,String foodType,int isPop,String openedPicPath){
+        try{
+            preparedStatement=connection.prepareStatement("INSERT ")
+        }
+    }
 }
