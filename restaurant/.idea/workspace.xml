@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb15ed9a-6819-4ca4-9db4-7082fbf67ddf" name="默认" comment="" />
+    <list default="true" id="cb15ed9a-6819-4ca4-9db4-7082fbf67ddf" name="默认" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/实践题报告.docx" beforeDir="false" afterPath="$PROJECT_DIR$/实践题报告.docx" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,8 +82,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/AdminFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="597" column="44" lean-forward="true" selection-start-line="597" selection-start-column="44" selection-end-line="597" selection-end-column="44" />
+            <state relative-caret-position="234">
+              <caret line="609" column="49" selection-start-line="609" selection-start-column="49" selection-end-line="609" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#15229#16163#0" expanded="true" />
@@ -274,7 +277,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="655" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1670750574371" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1670756637883" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/timingframework-1.0.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -393,17 +396,18 @@
       <workItem from="1670399983214" duration="1712000" />
       <workItem from="1670508469386" duration="615000" />
       <workItem from="1670599353162" duration="2841000" />
-      <workItem from="1670653357446" duration="24462000" />
+      <workItem from="1670653357446" duration="28503000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175884000" />
+    <option name="totallyTimeSpent" value="179925000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="694" y="122" width="976" height="822" extended-state="0" />
+    <frame x="699" y="124" width="976" height="822" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.58733624" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49917898" weight="0.58733624" />
       <window_info id="Structure" order="1" sideWeight="0.500821" side_tool="true" weight="0.20678337" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -412,12 +416,12 @@
       <window_info id="设计器" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3257329" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27074236" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27074236" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.19627193" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.19505094" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
@@ -805,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/edu/fzu/sm/wuweida/frame/AdminFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="597" column="44" lean-forward="true" selection-start-line="597" selection-start-column="44" selection-end-line="597" selection-end-column="44" />
+        <state relative-caret-position="234">
+          <caret line="609" column="49" selection-start-line="609" selection-start-column="49" selection-end-line="609" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#15229#16163#0" expanded="true" />
