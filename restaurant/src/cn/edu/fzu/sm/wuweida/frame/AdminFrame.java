@@ -313,7 +313,7 @@ public class AdminFrame extends JFrame {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     super.mousePressed(e);
-                    actionDialog actionDialog=new actionDialog(foodName);
+                    ActionDialog actionDialog=new ActionDialog(foodName);
                 }
             });
 
@@ -344,18 +344,18 @@ public class AdminFrame extends JFrame {
     }
 
     //内部类,菜品操作选择弹窗
-    class actionDialog extends JDialog{
+    class ActionDialog extends JDialog{
         String chosenFoodName;
-        public actionDialog(String chosenFoodName) {
-            actionDialog.this.setAlwaysOnTop(true);
-            actionDialog.this.setUndecorated(true);
-            actionDialog.this.setSize(200,500);
-            actionDialog.this.setLayout(null);
-            actionDialog.this.setLocationRelativeTo(null);
-            JPanel contentPanelOfDialog=(JPanel)actionDialog.this.getContentPane();
+        public ActionDialog(String chosenFoodName) {
+            ActionDialog.this.setAlwaysOnTop(true);
+            ActionDialog.this.setUndecorated(true);
+            ActionDialog.this.setSize(200,600);
+            ActionDialog.this.setLayout(null);
+            ActionDialog.this.setLocationRelativeTo(null);
+            JPanel contentPanelOfDialog=(JPanel)ActionDialog.this.getContentPane();
             contentPanelOfDialog.setBackground(new Color(20, 28, 33));
 
-            actionDialog.this.chosenFoodName=chosenFoodName;
+            ActionDialog.this.chosenFoodName=chosenFoodName;
             Food chosenFood=jdbc.getFood(chosenFoodName);
 
             //菜式图片
@@ -407,7 +407,7 @@ public class AdminFrame extends JFrame {
             typeComboBox.setBounds(100,275,75,50);
             contentPanelOfDialog.add(typeComboBox);
 
-            //ispop
+            //isPop
             JLabel isPopLabel=new JLabel("热销?");
             isPopLabel.setForeground(Color.LIGHT_GRAY);
             isPopLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -417,7 +417,7 @@ public class AdminFrame extends JFrame {
             //isPop checkbox
             JCheckBox isPopCheckBox=new JCheckBox();
             isPopCheckBox.setSelected(chosenFood.getIsPop()==1);
-            isPopCheckBox.setBounds(125,350,25,25);
+            isPopCheckBox.setBounds(125,365,25,25);
             contentPanelOfDialog.add(isPopCheckBox);
 
 
@@ -463,7 +463,7 @@ public class AdminFrame extends JFrame {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     super.mousePressed(e);
-                    actionDialog.this.dispose();
+                    ActionDialog.this.dispose();
                 }
 
                 @Override
@@ -472,6 +472,7 @@ public class AdminFrame extends JFrame {
                     AdminFrame.this.setCursor(Cursor.HAND_CURSOR);
                     cancelLabel.setForeground(Color.WHITE);
                     cancelLabel.setBackground(new Color(14, 22, 44));
+
                 }
 
                 @Override
@@ -485,10 +486,46 @@ public class AdminFrame extends JFrame {
             contentPanelOfDialog.add(cancelLabel);
 
 
+            //delete
+            JLabel deleteLabel = new JLabel("删除");
+            deleteLabel.setForeground(Color.LIGHT_GRAY);
+            deleteLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            deleteLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            deleteLabel.setBounds(50,500, 100, 50);
+            deleteLabel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    super.mousePressed(e);
+                    int result=JOptionPane.showConfirmDialog(ActionDialog.this,"确定要删除此菜品吗?","警告",JOptionPane.YES_NO_OPTION);
+                    System.out.println(result+"");
+                    if (result==0){
+                        jdbc.deleteFood(chosenFoodName);
+                        ActionDialog.this.dispose();
+                    }
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    super.mouseEntered(e);
+                    AdminFrame.this.setCursor(Cursor.HAND_CURSOR);
+                    deleteLabel.setForeground(Color.WHITE);
+                    deleteLabel.setBackground(new Color(14, 22, 44));
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    super.mouseExited(e);
+                    AdminFrame.this.setCursor(Cursor.DEFAULT_CURSOR);
+                    deleteLabel.setForeground(Color.GRAY);
+                    deleteLabel.setBackground(new Color(16, 36, 57));
+                }
+            });
+            contentPanelOfDialog.add(deleteLabel);
 
 
 
-            actionDialog.this.setVisible(true);
+
+            ActionDialog.this.setVisible(true);
         }
     }
 
@@ -526,5 +563,8 @@ public class AdminFrame extends JFrame {
             AdminFrame.this.setBounds(frameBounds);
         }
     }
+
+
+
 
 }

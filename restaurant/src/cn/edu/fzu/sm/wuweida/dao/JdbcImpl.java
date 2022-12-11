@@ -169,4 +169,21 @@ public class JdbcImpl implements JdbcConfig {
             return null;
         }
     }
+
+    //依据菜名删除菜品
+    public boolean deleteFood(String foodName){
+        try{
+            preparedStatement=connection.prepareStatement("DELETE FROM food WHERE foodName=?");
+            preparedStatement.setString(1,foodName);
+            int result=preparedStatement.executeUpdate();
+            if (result>0){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return  false;
+        }
+    }
 }
