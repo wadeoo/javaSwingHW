@@ -21,36 +21,35 @@ import java.util.Vector;
 public class AdminFrame extends JFrame {
 
     private List<Food> foodList;
-    private JdbcImpl jdbc=new JdbcImpl();
+    private JdbcImpl jdbc = new JdbcImpl();
     private JPanel contentPanel;
 
 
     public AdminFrame() throws HeadlessException {
         this.setUndecorated(true);
-        this.setSize(500,600);
+        this.setSize(500, 600);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
         this.setIconImage(new ImageIcon("image/admin.png").getImage());
-        this.setBackground(new Color(26,36,43));
+        this.setBackground(new Color(26, 36, 43));
 
         //动态菜品列表
-        foodList=jdbc.getFoodList("pop");
+        foodList = jdbc.getFoodList("pop");
 
         //获取此frame的内容面板
-        contentPanel=(JPanel)this.getContentPane();
-        MoveListener moveListener=new MoveListener();
+        contentPanel = (JPanel) this.getContentPane();
+        MoveListener moveListener = new MoveListener();
 
         this.addMouseListener(moveListener);
         this.addMouseMotionListener(moveListener);
 
         //北部面板
-        JPanel northPanel=new JPanel();
-        northPanel.setLayout(new FlowLayout(FlowLayout.LEADING,0,0));
-        northPanel.setBounds(0,0,500,55);
-        northPanel.setBackground(new Color(7,25,27));
-        northPanel.setBorder(new MatteBorder(0,0,1,0,Color.BLACK));
+        JPanel northPanel = new JPanel();
+        northPanel.setLayout(new FlowLayout(FlowLayout.LEADING, 0, 0));
+        northPanel.setBounds(0, 0, 500, 55);
+        northPanel.setBackground(new Color(7, 25, 27));
+        northPanel.setBorder(new MatteBorder(0, 0, 1, 0, Color.BLACK));
         contentPanel.add(northPanel);
-
 
 
         //北部面板元素
@@ -163,7 +162,7 @@ public class AdminFrame extends JFrame {
         closeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         closeLabel.setVerticalAlignment(SwingConstants.CENTER);
         closeLabel.setForeground(Color.GRAY);
-        closeLabel.setPreferredSize(new Dimension(50,55));
+        closeLabel.setPreferredSize(new Dimension(50, 55));
         closeLabel.setOpaque(true);
         closeLabel.setBackground(new Color(20, 28, 34));
         closeLabel.addMouseListener(new MouseAdapter() {
@@ -258,7 +257,7 @@ public class AdminFrame extends JFrame {
             JLabel numberLabel = new JLabel(i + 1 + ".");
             numberLabel.setForeground(Color.LIGHT_GRAY);
             numberLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            numberLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            numberLabel.setFont(new Font("楷体", Font.PLAIN, 15));
             numberLabel.setBounds(0, 0, 100, 100);
             foodPanel.add(numberLabel);
 
@@ -267,11 +266,11 @@ public class AdminFrame extends JFrame {
             JLabel imageLabel = new JLabel();
             imageLabel.setIcon(imageIcon);
             imageLabel.setOpaque(true);
-            imageLabel.setBounds(100, 25/2, 100, 75);
+            imageLabel.setBounds(100, 25 / 2, 100, 75);
             foodPanel.add(imageLabel);
 
             //菜式名称
-            String foodName=foodList.get(i).getFoodName();
+            String foodName = foodList.get(i).getFoodName();
             JLabel nameLabel = new JLabel(foodList.get(i).getFoodName());
             nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
             nameLabel.setFont(new Font("楷体", Font.PLAIN, 20));
@@ -288,8 +287,8 @@ public class AdminFrame extends JFrame {
             foodPanel.add(priceLabel);
 
             //是否热销?
-            int isPop=foodList.get(i).getIsPop();
-            String isPopString=(isPop==1?"热销":"不热销");
+            int isPop = foodList.get(i).getIsPop();
+            String isPopString = (isPop == 1 ? "热销" : "不热销");
             JLabel isPopLabel = new JLabel(isPopString);
             isPopLabel.setHorizontalAlignment(SwingConstants.CENTER);
             isPopLabel.setFont(new Font("楷体", Font.PLAIN, 15));
@@ -315,7 +314,7 @@ public class AdminFrame extends JFrame {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     super.mousePressed(e);
-                    ActionDialog actionDialog=new ActionDialog(foodName);
+                    ActionDialog actionDialog = new ActionDialog(foodName);
                 }
             });
 
@@ -346,20 +345,21 @@ public class AdminFrame extends JFrame {
     }
 
     //内部类,菜品操作选择弹窗
-    class ActionDialog extends JDialog{
+    class ActionDialog extends JDialog {
         String chosenFoodName;
-        String openedFileAbsolutePath=null;
+        String openedFileAbsolutePath = null;
+
         public ActionDialog(String chosenFoodName) {
             ActionDialog.this.setAlwaysOnTop(true);
             ActionDialog.this.setUndecorated(true);
-            ActionDialog.this.setSize(200,600);
+            ActionDialog.this.setSize(200, 600);
             ActionDialog.this.setLayout(null);
             ActionDialog.this.setLocationRelativeTo(null);
-            JPanel contentPanelOfDialog=(JPanel)ActionDialog.this.getContentPane();
+            JPanel contentPanelOfDialog = (JPanel) ActionDialog.this.getContentPane();
             contentPanelOfDialog.setBackground(new Color(20, 28, 33));
 
-            ActionDialog.this.chosenFoodName=chosenFoodName;
-            Food chosenFood=jdbc.getFood(chosenFoodName);
+            ActionDialog.this.chosenFoodName = chosenFoodName;
+            Food chosenFood = jdbc.getFood(chosenFoodName);
 
             //菜式图片
             ImageIcon imageIcon = new ImageIcon("dishImg/" + chosenFood.getFoodName() + ".jpg");
@@ -371,16 +371,16 @@ public class AdminFrame extends JFrame {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     super.mousePressed(e);
-                    JFileChooser jFileChooser=new JFileChooser();
-                    jFileChooser.setFileFilter(new FileNameExtensionFilter("jpg"));
-                    int returnVal=jFileChooser.showOpenDialog(imageLabel);
-                    if (returnVal==JFileChooser.APPROVE_OPTION){
-                        File openedFile=jFileChooser.getSelectedFile();
-                        if (openedFile==null||openedFile.length()==0){
+                    JFileChooser jFileChooser = new JFileChooser();
+//                    jFileChooser.setFileFilter(new FileNameExtensionFilter("jpg"));
+                    int returnVal = jFileChooser.showOpenDialog(imageLabel);
+                    if (returnVal == JFileChooser.APPROVE_OPTION) {
+                        File openedFile = jFileChooser.getSelectedFile();
+                        if (openedFile == null || openedFile.length() == 0) {
                             return;
                         }
-                        openedFileAbsolutePath=openedFile.getAbsolutePath();
-                        ImageIcon imageIcon1=new ImageIcon(openedFileAbsolutePath);
+                        openedFileAbsolutePath = openedFile.getAbsolutePath();
+                        ImageIcon imageIcon1 = new ImageIcon(openedFileAbsolutePath);
                         imageLabel.setIcon(imageIcon1);
                     }
                 }
@@ -391,54 +391,54 @@ public class AdminFrame extends JFrame {
             JLabel nameLabel = new JLabel("菜名:");
             nameLabel.setForeground(Color.LIGHT_GRAY);
             nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            nameLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            nameLabel.setFont(new Font("楷体", Font.PLAIN, 15));
             nameLabel.setBounds(25, 125, 50, 50);
             contentPanelOfDialog.add(nameLabel);
             //name tf
-            JTextField nameTextField=new JTextField(chosenFoodName);
-            nameTextField.setBounds(100,125,75,50);
+            JTextField nameTextField = new JTextField(chosenFoodName);
+            nameTextField.setBounds(100, 125, 75, 50);
             contentPanelOfDialog.add(nameTextField);
 
             //price
             JLabel priceLabel = new JLabel("价格:");
             priceLabel.setForeground(Color.LIGHT_GRAY);
             priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            priceLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            priceLabel.setFont(new Font("楷体", Font.PLAIN, 15));
             priceLabel.setBounds(25, 200, 50, 50);
             contentPanelOfDialog.add(priceLabel);
             //price tf
-            JTextField priceTextField=new JTextField(chosenFood.getFoodPrice()+"");
-            priceTextField.setBounds(100,200,75,50);
+            JTextField priceTextField = new JTextField(chosenFood.getFoodPrice() + "");
+            priceTextField.setBounds(100, 200, 75, 50);
             contentPanelOfDialog.add(priceTextField);
 
             //type
             JLabel typeLabel = new JLabel("种类:");
             typeLabel.setForeground(Color.LIGHT_GRAY);
             typeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            typeLabel.setFont(new Font("楷体",Font.PLAIN,15));
+            typeLabel.setFont(new Font("楷体", Font.PLAIN, 15));
             typeLabel.setBounds(25, 275, 50, 50);
             contentPanelOfDialog.add(typeLabel);
             //选择
-            Vector<String> typeModel=new Vector<>();
+            Vector<String> typeModel = new Vector<>();
             typeModel.add("粤菜");
             typeModel.add("湘菜");
             typeModel.add("甜品");
-            JComboBox typeComboBox=new JComboBox(typeModel);
+            JComboBox typeComboBox = new JComboBox(typeModel);
             typeComboBox.setSelectedIndex(typeModel.indexOf(chosenFood.getFoodType()));
-            typeComboBox.setBounds(100,275,75,50);
+            typeComboBox.setBounds(100, 275, 75, 50);
             contentPanelOfDialog.add(typeComboBox);
 
             //isPop
-            JLabel isPopLabel=new JLabel("热销?");
+            JLabel isPopLabel = new JLabel("热销?");
             isPopLabel.setForeground(Color.LIGHT_GRAY);
             isPopLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            isPopLabel.setFont(new Font("楷体",Font.PLAIN,15));
-            isPopLabel.setBounds(25,350,50,50);
+            isPopLabel.setFont(new Font("楷体", Font.PLAIN, 15));
+            isPopLabel.setBounds(25, 350, 50, 50);
             contentPanelOfDialog.add(isPopLabel);
             //isPop checkbox
-            JCheckBox isPopCheckBox=new JCheckBox();
-            isPopCheckBox.setSelected(chosenFood.getIsPop()==1);
-            isPopCheckBox.setBounds(125,365,25,25);
+            JCheckBox isPopCheckBox = new JCheckBox();
+            isPopCheckBox.setSelected(chosenFood.getIsPop() == 1);
+            isPopCheckBox.setBounds(125, 365, 25, 25);
             contentPanelOfDialog.add(isPopCheckBox);
 
 
@@ -446,20 +446,23 @@ public class AdminFrame extends JFrame {
             JLabel okLabel = new JLabel("确定");
             okLabel.setForeground(Color.LIGHT_GRAY);
             okLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            okLabel.setFont(new Font("楷体",Font.PLAIN,15));
-            okLabel.setBounds(25,425, 75, 50);
+            okLabel.setFont(new Font("楷体", Font.PLAIN, 15));
+            okLabel.setBounds(25, 425, 75, 50);
             contentPanelOfDialog.add(okLabel);
             okLabel.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     super.mousePressed(e);
-                    String enteredName=nameTextField.getText();
-                    double enteredPrice= Double.parseDouble(priceTextField.getText());
-                    String enteredType= String.valueOf(typeComboBox.getSelectedItem());
-                    int enteredIsPop=(isPopCheckBox.isSelected()? 1:0);
-
-                    if (openedFileAbsolutePath!=null){
-                        jdbc.updatePicById(openedFileAbsolutePath,jdbc.getFoodId(chosenFoodName));
+                    int result=JOptionPane.showConfirmDialog(ActionDialog.this,"确定修改菜品信息吗",null,JOptionPane.YES_NO_OPTION);
+                    if (result==0) {
+                        if (openedFileAbsolutePath != null) {
+                            jdbc.updatePicById(openedFileAbsolutePath, jdbc.getFoodId(chosenFoodName));
+                        }
+                        String enteredName = nameTextField.getText();
+                        double enteredPrice = Double.parseDouble(priceTextField.getText());
+                        String enteredType = String.valueOf(typeComboBox.getSelectedItem());
+                        int enteredIsPop = (isPopCheckBox.isSelected() ? 1 : 0);
+                        jdbc.updateFoodById(jdbc.getFoodId(chosenFoodName), enteredName, enteredPrice, enteredType, enteredIsPop);
                     }
                 }
 
@@ -485,8 +488,8 @@ public class AdminFrame extends JFrame {
             JLabel cancelLabel = new JLabel("取消");
             cancelLabel.setForeground(Color.LIGHT_GRAY);
             cancelLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            cancelLabel.setFont(new Font("楷体",Font.PLAIN,15));
-            cancelLabel.setBounds(125,425, 50, 50);
+            cancelLabel.setFont(new Font("楷体", Font.PLAIN, 15));
+            cancelLabel.setBounds(125, 425, 50, 50);
             cancelLabel.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent e) {
@@ -518,15 +521,15 @@ public class AdminFrame extends JFrame {
             JLabel deleteLabel = new JLabel("删除");
             deleteLabel.setForeground(Color.LIGHT_GRAY);
             deleteLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            deleteLabel.setFont(new Font("楷体",Font.PLAIN,15));
-            deleteLabel.setBounds(50,500, 100, 50);
+            deleteLabel.setFont(new Font("楷体", Font.PLAIN, 15));
+            deleteLabel.setBounds(50, 500, 100, 50);
             deleteLabel.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     super.mousePressed(e);
-                    int result=JOptionPane.showConfirmDialog(ActionDialog.this,"确定要删除此菜品吗?","警告",JOptionPane.YES_NO_OPTION);
-                    System.out.println(result+"");
-                    if (result==0){
+                    int result = JOptionPane.showConfirmDialog(ActionDialog.this, "确定要删除此菜品吗?", "警告", JOptionPane.YES_NO_OPTION);
+                    System.out.println(result + "");
+                    if (result == 0) {
                         jdbc.deleteFood(chosenFoodName);
                         ActionDialog.this.dispose();
                     }
@@ -549,8 +552,6 @@ public class AdminFrame extends JFrame {
                 }
             });
             contentPanelOfDialog.add(deleteLabel);
-
-
 
 
             ActionDialog.this.setVisible(true);
@@ -591,8 +592,6 @@ public class AdminFrame extends JFrame {
             AdminFrame.this.setBounds(frameBounds);
         }
     }
-
-
 
 
 }

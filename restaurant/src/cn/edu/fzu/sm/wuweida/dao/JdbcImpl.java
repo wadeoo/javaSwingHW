@@ -194,6 +194,7 @@ public class JdbcImpl implements JdbcConfig {
            InputStream inputStream= ImageUtil.getImageByte(openedPicPath);
            preparedStatement=connection.prepareStatement("UPDATE food SET foodImg=? WHERE foodId=?");
            preparedStatement.setBinaryStream(1,inputStream,inputStream.available());
+           preparedStatement.setInt(2,foodId);
            preparedStatement.executeUpdate();
        } catch (FileNotFoundException e) {
            e.printStackTrace();
@@ -206,11 +207,13 @@ public class JdbcImpl implements JdbcConfig {
 
     public void updateFoodById(int foodId,String foodName,double foodPrice,String foodType,int isPop){//除了图片
         try{
-            preparedStatement=connection.prepareStatement("UPDATE food SET foodName=?, foodPrice=?, foodType=? isPop=?");
+            preparedStatement=connection.prepareStatement("UPDATE food SET foodName=?, foodPrice=?, foodType=?, isPop=? WHERE foodId=?");
             preparedStatement.setString(1,foodName);
             preparedStatement.setDouble(2,foodPrice);
             preparedStatement.setString(3,foodType);
             preparedStatement.setInt(4,isPop);
+            preparedStatement.setInt(5,foodId);
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
